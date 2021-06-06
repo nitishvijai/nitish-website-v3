@@ -1,5 +1,7 @@
 <!-- Placeholder for now. Will eventually replace with specialized Angular components. -->
-<app-header></app-header>
+<div *ngIf="!mobile; else mobileHeader"><app-header></app-header></div>
+<ng-template #mobileHeader><app-mobile-header></app-mobile-header></ng-template>
+
 
 <h1>Hello and welcome! (UNDER CONSTRUCTION)</h1>
 
