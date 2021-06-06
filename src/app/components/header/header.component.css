@@ -1,0 +1,52 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a.centered:hover {
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 0.25em;
+    font-weight: bold;
+}
+
+a.centered {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    vertical-align: 0.25em;
+}
+
+.title {
+    padding-left: 2.25em;
+    padding-right: 2.25em;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+}
+
+#colormode, #forcolormode {
+    float: left;
+    vertical-align: middle;
+    padding-top: 0.15em;
+}
+
+#colormode {
+    margin-left: 20px;
+    vertical-align: middle;
+    padding-top: 0.15em;
+}
+
+#contactme {
+    float: right;
+    margin-right: 20px;
+    vertical-align: middle;
+    padding-top: 0.15em;
+}
