@@ -2,3 +2,9 @@ p {
     font-size: small;
     margin-left: 0.4em;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
