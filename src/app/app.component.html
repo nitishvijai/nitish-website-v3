@@ -1,7 +1,7 @@
 <!-- Placeholder for now. Will eventually replace with specialized Angular components. -->
 <div class="animated-gradient">
-    <div *ngIf="!mobile; else mobileHeader"><app-header></app-header></div>
-    <ng-template #mobileHeader><app-mobile-header></app-mobile-header></ng-template>
+    <div *ngIf="!mobileHeader; else mobileHeaderCmp"><app-header></app-header></div>
+    <ng-template #mobileHeaderCmp><app-mobile-header></app-mobile-header></ng-template>
 
     <app-hero-image></app-hero-image>
 
