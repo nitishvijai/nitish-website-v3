@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MobileHeaderComponent } from './components/mobile-header/mobile-header.component';
 import { HeroImageComponent } from './components/hero-image/hero-image.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HeroImageComponent } from './components/hero-image/hero-image.component
     FooterComponent,
     HeaderComponent,
     MobileHeaderComponent,
-    HeroImageComponent
+    HeroImageComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,

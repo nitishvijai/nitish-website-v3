@@ -1,0 +1,28 @@
+ul {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+li {
+    padding: 8px 8px 8px 8px;
+}
+
+li a {
+    text-decoration: none;
+    color: black;
+}
+
+li a:hover {
+
+}
+
+.sideNav {
+    background-color: cornflowerblue;
+    height: 100%;
+    width: 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    transition: 1s;
+}

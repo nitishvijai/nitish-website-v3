@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Breakpoints, BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'nitish-website-v3';
   mobileHeader = false;
   mobile = false;
+
+  @ViewChild(SideMenuComponent, {static: false}) child: SideMenuComponent;
   
   constructor(private bpObserver: BreakpointObserver) {}
 
@@ -38,6 +41,10 @@ export class AppComponent implements OnInit {
                    });
   }
 
+  ngAfterViewInit() {
+
+  }
+
   // Logic to switch between desktop and mobile versions as necessary
   public switchForm() {
     if (this.mobile) {
@@ -52,4 +59,9 @@ export class AppComponent implements OnInit {
       (document.querySelector('#stats') as HTMLElement).style.textAlign = 'left';
     }
   }
+
+  openSideMenu() {
+    this.child.slideOutMenu();
+  }
+
 }
