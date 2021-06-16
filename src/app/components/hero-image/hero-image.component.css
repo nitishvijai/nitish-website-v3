@@ -21,3 +21,11 @@
 #headshot {
     border-radius: 50%;
 }
+
+.dark {
+    color: white;
+}
+
+.light {
+    color: black;
+}

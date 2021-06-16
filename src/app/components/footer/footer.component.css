@@ -8,3 +8,11 @@ p {
     bottom: 0;
     width: 100%;
 }
+
+.dark {
+    color: white;
+}
+
+.light {
+    color: black;
+}

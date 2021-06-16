@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +9,12 @@ export class HeaderComponent implements OnInit {
 
   @Output()
   colorChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  private _darkMode: boolean;
+
+  @Input() set darkMode(value: boolean) {
+    this._darkMode = value;
+  }
 
   constructor() { }
 

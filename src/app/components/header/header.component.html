@@ -1,10 +1,10 @@
 <div class="header">
     <input type="checkbox" name="colormode" id="colormode" value="Dark" (change)="switchColors($event.target.checked)">
-    <label id="forcolormode" for="colormode">Light/Dark Mode</label>
-    <a href="#" class="centered">About Me</a>
-    <a href="#" class="centered">Projects</a>
-    <a href="#" class="title">Nitish Vijai</a>
-    <a href="#" class="centered">Resume</a>
-    <a href="#" class="centered">Essays</a>
-    <a href="#" id="contactme">Contact Me</a>
+    <label [ngClass]="{'dark': _darkMode, 'light': !_darkMode}" id="forcolormode" for="colormode">Light Mode</label>
+    <a href="#" [ngClass]="{'centered': true, 'dark': _darkMode, 'light': !_darkMode}">About Me</a>
+    <a href="#" [ngClass]="{'centered': true, 'dark': _darkMode, 'light': !_darkMode}">Projects</a>
+    <a href="#" [ngClass]="{'title': true, 'dark': _darkMode, 'light': !_darkMode}">Nitish Vijai</a>
+    <a href="#" [ngClass]="{'centered': true, 'dark': _darkMode, 'light': !_darkMode}">Resume</a>
+    <a href="#" [ngClass]="{'centered': true, 'dark': _darkMode, 'light': !_darkMode}">Essays</a>
+    <a href="#" id="contactme" [ngClass]="{'contact': true, 'dark': _darkMode, 'light': !_darkMode}">Contact Me</a>
 </div>

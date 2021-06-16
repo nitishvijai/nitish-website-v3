@@ -1,10 +1,10 @@
 <!-- Placeholder for now. Will eventually replace with specialized Angular components. -->
 <div [ngClass]="{'animated-gradient': true, 'dark-gradient': darkMode, 'light-gradient': !darkMode}">
     <app-side-menu></app-side-menu>
-    <div *ngIf="!mobileHeader; else mobileHeaderCmp"><app-header (colorChanged)="changeColors($event)"></app-header></div>
+    <div *ngIf="!mobileHeader; else mobileHeaderCmp"><app-header [darkMode]="darkMode" (colorChanged)="changeColors($event)"></app-header></div>
     <ng-template #mobileHeaderCmp><app-mobile-header></app-mobile-header></ng-template>
 
-    <app-hero-image></app-hero-image>
+    <app-hero-image [darkMode]="darkMode"></app-hero-image>
 
     <h1 [ngClass]="{'heading': true, 'dark': darkMode, 'light': !darkMode}">Hello and welcome! (UNDER CONSTRUCTION)</h1>
 
@@ -14,5 +14,5 @@
 
     <p [ngClass]="{'text': true, 'dark': darkMode, 'light': !darkMode}">If you would like to contact me, please use one of the methods on the Contact page. I would love to hear from you!</p>
 
-    <app-footer></app-footer>
+    <app-footer [darkMode]="darkMode"></app-footer>
 </div>

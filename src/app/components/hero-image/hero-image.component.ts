@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-hero-image',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero-image.component.css']
 })
 export class HeroImageComponent implements OnInit {
+
+  private _darkMode: boolean;
+
+  @Input() set darkMode(value: boolean) {
+    this._darkMode = value;
+  }
 
   constructor() { }
 
