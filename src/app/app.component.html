@@ -1,18 +1,18 @@
 <!-- Placeholder for now. Will eventually replace with specialized Angular components. -->
-<div class="animated-gradient">
+<div [ngClass]="{'animated-gradient': true, 'dark-gradient': darkMode, 'light-gradient': !darkMode}">
     <app-side-menu></app-side-menu>
-    <div *ngIf="!mobileHeader; else mobileHeaderCmp"><app-header></app-header></div>
+    <div *ngIf="!mobileHeader; else mobileHeaderCmp"><app-header (colorChanged)="changeColors($event)"></app-header></div>
     <ng-template #mobileHeaderCmp><app-mobile-header></app-mobile-header></ng-template>
 
     <app-hero-image></app-hero-image>
 
-    <h1 class="heading">Hello and welcome! (UNDER CONSTRUCTION)</h1>
+    <h1 [ngClass]="{'heading': true, 'dark': darkMode, 'light': !darkMode}">Hello and welcome! (UNDER CONSTRUCTION)</h1>
 
-    <p class="text">If you're looking for my portfolio of all the stuff I've done in the cool world of tech, you're in the right place! Thanks for stopping by.</p>
+    <p [ngClass]="{'text': true, 'dark': darkMode, 'light': !darkMode}">If you're looking for my portfolio of all the stuff I've done in the cool world of tech, you're in the right place! Thanks for stopping by.</p>
 
-    <p class="text">To learn more about my experiences, interests, and accomplishments, please click on the links above.</p>
+    <p [ngClass]="{'text': true, 'dark': darkMode, 'light': !darkMode}">To learn more about my experiences, interests, and accomplishments, please click on the links above.</p>
 
-    <p class="text">If you would like to contact me, please use one of the methods on the Contact page. I would love to hear from you!</p>
+    <p [ngClass]="{'text': true, 'dark': darkMode, 'light': !darkMode}">If you would like to contact me, please use one of the methods on the Contact page. I would love to hear from you!</p>
 
     <app-footer></app-footer>
 </div>

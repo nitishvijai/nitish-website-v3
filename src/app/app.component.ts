@@ -11,6 +11,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'nitish-website-v3';
   mobileHeader = false;
   mobile = false;
+  darkMode = true;
 
   @ViewChild(SideMenuComponent, {static: false}) child: SideMenuComponent;
   
@@ -62,6 +63,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   openSideMenu() {
     this.child.slideOutMenu();
+  }
+
+  changeColors(dark: boolean) {
+    this.darkMode = dark;
   }
 
 }

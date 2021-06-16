@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output()
+  colorChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  switchColors(light: boolean) {
+    if (light) {
+      console.log('Light Mode');
+      this.colorChanged.emit(false);
+    } else {
+      // set to light mode
+      console.log('Dark Mode');
+      this.colorChanged.emit(true);
+    }
   }
 
 }
