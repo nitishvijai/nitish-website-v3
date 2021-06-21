@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Breakpoints, BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { HomeComponent } from './components/home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   darkMode = true;
 
   @ViewChild(SideMenuComponent, {static: false}) child: SideMenuComponent;
+
+  @ViewChild(HomeComponent, {static: false}) home: HomeComponent;
   
   constructor(private bpObserver: BreakpointObserver) {}
 
@@ -67,6 +70,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   changeColors(dark: boolean) {
     this.darkMode = dark;
+    this.home.changeColors(dark);
   }
 
 }

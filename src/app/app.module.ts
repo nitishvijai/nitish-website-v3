@@ -9,6 +9,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { MobileHeaderComponent } from './components/mobile-header/mobile-header.component';
 import { HeroImageComponent } from './components/hero-image/hero-image.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,18 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
     HeaderComponent,
     MobileHeaderComponent,
     HeroImageComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    AboutMeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    LayoutModule
+    LayoutModule,
+    RouterModule.forRoot([
+      {path: 'about', component: AboutMeComponent },
+      {path: '', component: HomeComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
