@@ -14,17 +14,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'nitish-website-v3';
   mobileHeader = false;
   mobile = false;
-  darkMode: boolean;
+  darkMode: boolean = false;
 
   @ViewChild(SideMenuComponent, {static: false}) child: SideMenuComponent;
-
-  @ViewChild(HomeComponent, {static: true}) home: HomeComponent;
-
-  @ContentChild(HomeComponent, {static: true})
-  private homeCmp: HomeComponent;
   
-  constructor(private bpObserver: BreakpointObserver,
-              private colorService: ColorService) {}
+  constructor(private bpObserver: BreakpointObserver) {}
 
   ngOnInit() {
     this.bpObserver.observe(['(max-width: 1024px)'])
@@ -77,8 +71,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   changeColors(dark: boolean) {
     console.log('parent color: ' + dark);
     this.darkMode = dark;
-
-    this.colorService.changeColorMode(dark);
   }
 
 }

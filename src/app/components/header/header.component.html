@@ -1,10 +1,10 @@
 <div class="header">
     <input type="checkbox" name="colormode" id="colormode" value="Dark" (change)="switchColors($event.target.checked)" checked="true">
-    <label [ngClass]="{'dark': _darkMode, 'light': !_darkMode}" id="forcolormode" for="colormode">Light Mode</label>
-    <a routerLink="/about" [ngClass]="{'centered': true, 'dark': _darkMode, 'light': !_darkMode}">About Me</a>
-    <a href="#" [ngClass]="{'centered': true, 'dark': _darkMode, 'light': !_darkMode}">Projects</a>
-    <a routerLink="/" [ngClass]="{'title': true, 'dark': _darkMode, 'light': !_darkMode}">Nitish Vijai</a>
-    <a href="#" [ngClass]="{'centered': true, 'dark': _darkMode, 'light': !_darkMode}">Resume</a>
-    <a href="#" [ngClass]="{'centered': true, 'dark': _darkMode, 'light': !_darkMode}">Essays</a>
-    <a href="#" id="contactme" [ngClass]="{'contact': true, 'dark': _darkMode, 'light': !_darkMode}">Contact Me</a>
+    <label id="forcolormode" for="colormode">Light Mode</label>
+    <a routerLink="/about" [ngClass]="{'centered': true}">About Me</a>
+    <a href="#" [ngClass]="{'centered': true}">Projects</a>
+    <a routerLink="/" [ngClass]="{'title': true}">Nitish Vijai</a>
+    <a href="#" [ngClass]="{'centered': true}">Resume</a>
+    <a href="#" [ngClass]="{'centered': true}">Essays</a>
+    <a href="#" id="contactme" [ngClass]="{'contact': true}">Contact Me</a>
 </div>

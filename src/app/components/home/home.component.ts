@@ -8,19 +8,9 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class HomeComponent implements OnInit {
 
-  darkMode: boolean;
 
-  constructor(private colorService: ColorService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.colorService.getColorMode().subscribe(color => {
-      this.darkMode = color;
-    });
   }
-
-  changeColors(dark: boolean) {
-    console.log('color: ' + dark);
-    this.darkMode = dark;
-  }
-
 }

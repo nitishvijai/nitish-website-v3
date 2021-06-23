@@ -7,15 +7,6 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output()
-  colorChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  private _darkMode: boolean;
-
-  @Input() set darkMode(value: boolean) {
-    this._darkMode = value;
-  }
-
   constructor() { }
 
   ngOnInit() {
@@ -24,11 +15,9 @@ export class HeaderComponent implements OnInit {
   switchColors(light: boolean) {
     if (light) {
       console.log('Light Mode');
-      this.colorChanged.emit(false);
     } else {
       // set to light mode
       console.log('Dark Mode');
-      this.colorChanged.emit(true);
     }
   }
 

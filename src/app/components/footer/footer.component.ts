@@ -7,18 +7,9 @@ import { Component, OnInit, Input, EventEmitter, OnChanges, SimpleChanges } from
 })
 export class FooterComponent implements OnInit {
 
-  private _darkMode: boolean;
-
-  @Input() set darkMode(value: boolean) {
-    this._darkMode = value;
-  }
-
   constructor() { }
 
   ngOnInit() {
-    if (this.darkMode) {
-
-    }
   }
 
 }

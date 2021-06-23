@@ -1,10 +1,10 @@
 <!-- Placeholder for now. Will eventually replace with specialized Angular components. -->
 <div [ngClass]="{'animated-gradient': true, 'dark-gradient': darkMode, 'light-gradient': !darkMode}">
     <app-side-menu></app-side-menu>
-    <div *ngIf="!mobileHeader; else mobileHeaderCmp"><app-header [darkMode]="darkMode" (colorChanged)="changeColors($event)"></app-header></div>
+    <div *ngIf="!mobileHeader; else mobileHeaderCmp"><app-header (colorChanged)="changeColors($event)"></app-header></div>
     <ng-template #mobileHeaderCmp><app-mobile-header></app-mobile-header></ng-template>
 
     <router-outlet></router-outlet>
 
-    <app-footer [darkMode]="darkMode"></app-footer>
+    <app-footer></app-footer>
 </div>
