@@ -19,6 +19,7 @@ export class MobileHeaderComponent implements OnInit, AfterViewInit {
 
   openSideMenu() {
     // Need to send message to parent component to open the side menu
+    
   }
   
   

@@ -33,7 +33,7 @@ import { HomeComponent } from './components/home/home.component';
       {path: '', component: HomeComponent}
     ])
   ],
-  providers: [],
+  providers: [HomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

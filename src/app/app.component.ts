@@ -2,6 +2,8 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Breakpoints, BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { HomeComponent } from './components/home/home.component';
+import { ContentChild } from '@angular/core';
+import { ColorService } from './services/color.service';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +14,17 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'nitish-website-v3';
   mobileHeader = false;
   mobile = false;
-  darkMode = true;
+  darkMode: boolean;
 
   @ViewChild(SideMenuComponent, {static: false}) child: SideMenuComponent;
 
-  @ViewChild(HomeComponent, {static: false}) home: HomeComponent;
+  @ViewChild(HomeComponent, {static: true}) home: HomeComponent;
+
+  @ContentChild(HomeComponent, {static: true})
+  private homeCmp: HomeComponent;
   
-  constructor(private bpObserver: BreakpointObserver) {}
+  constructor(private bpObserver: BreakpointObserver,
+              private colorService: ColorService) {}
 
   ngOnInit() {
     this.bpObserver.observe(['(max-width: 1024px)'])
@@ -69,8 +75,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   changeColors(dark: boolean) {
+    console.log('parent color: ' + dark);
     this.darkMode = dark;
-    this.home.changeColors(dark);
+
+    this.colorService.changeColorMode(dark);
   }
 
 }

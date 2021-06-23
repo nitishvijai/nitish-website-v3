@@ -1,5 +1,5 @@
 <div class="header">
-    <input type="checkbox" name="colormode" id="colormode" value="Dark" (change)="switchColors($event.target.checked)">
+    <input type="checkbox" name="colormode" id="colormode" value="Dark" (change)="switchColors($event.target.checked)" checked="true">
     <label [ngClass]="{'dark': _darkMode, 'light': !_darkMode}" id="forcolormode" for="colormode">Light Mode</label>
     <a routerLink="/about" [ngClass]="{'centered': true, 'dark': _darkMode, 'light': !_darkMode}">About Me</a>
     <a href="#" [ngClass]="{'centered': true, 'dark': _darkMode, 'light': !_darkMode}">Projects</a>
