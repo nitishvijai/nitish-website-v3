@@ -17,7 +17,9 @@
 </table>
 
 <div *ngFor="let project of projects">
-    <p>{{ project.name }}</p>
+    <h2>{{ project.name }}</h2>
+    <p>{{project.type | titlecase}} | {{ project.startdate + ' - ' + project.enddate }}</p>
     <p>{{ project.description }}</p>
-    <p>{{ project.startdate + ' - ' + project.enddate }}</p>
+    <p>Tools Utilized: {{ project.skills }}</p>
+    <p *ngIf="project.github"><a href="{{ project.github }}">GitHub Repository</a></p>
 </div>
