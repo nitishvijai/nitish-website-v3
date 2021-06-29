@@ -1,0 +1,17 @@
+.heading {
+    text-align: center;
+}
+
+.text {
+    text-align: center;
+}
+
+table {
+    text-align: center;
+    margin: 0 auto;
+}
+
+td {
+    padding-left: 20px;
+    padding-right: 20px;
+}

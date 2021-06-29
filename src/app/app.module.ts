@@ -12,6 +12,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './components/home/home.component';
     HeroImageComponent,
     SideMenuComponent,
     AboutMeComponent,
-    HomeComponent
+    HomeComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { HomeComponent } from './components/home/home.component';
     LayoutModule,
     RouterModule.forRoot([
       {path: 'about', component: AboutMeComponent },
-      {path: '', component: HomeComponent}
+      {path: '', component: HomeComponent},
+      {path: 'projects', component: ProjectsComponent}
     ])
   ],
   providers: [HomeComponent],

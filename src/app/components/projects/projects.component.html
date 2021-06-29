@@ -1,0 +1,23 @@
+<p style="visibility: hidden; font-size: x-small;">asdf</p>
+
+<h1 [ngClass]="{'heading': true}">Projects</h1>
+
+<p [ngClass]="{'text': true}">Here's a list of projects I've completed on my own, as part of school, or elsewhere. Click on the filters below for quick access.</p>
+
+<p style="visibility: hidden; font-size: x-small;">asdf</p>
+
+<table>
+    <tr>
+        <td><strong>Filters:</strong></td>
+        <td>Personal</td>
+        <td>School</td>
+        <td>Extracurriculars</td>
+        <td>Other</td>
+    </tr>
+</table>
+
+<div *ngFor="let project of projects">
+    <p>{{ project.name }}</p>
+    <p>{{ project.description }}</p>
+    <p>{{ project.startdate + ' - ' + project.enddate }}</p>
+</div>

@@ -2,7 +2,7 @@
     <input type="checkbox" name="colormode" id="colormode" value="Dark" (change)="switchColors($event.target.checked)" checked="true">
     <label id="forcolormode" for="colormode">Light Mode</label>
     <a id="aboutme" routerLink="/about" [ngClass]="{'centered': true}">About Me</a>
-    <a href="#" [ngClass]="{'centered': true}">Projects</a>
+    <a id="projects" routerLink="/projects" [ngClass]="{'centered': true}">Projects</a>
     <a routerLink="/" [ngClass]="{'title': true}">Nitish Vijai</a>
     <a href="#" [ngClass]="{'centered': true}">Resume</a>
     <a href="#" [ngClass]="{'centered': true}">Essays</a>
