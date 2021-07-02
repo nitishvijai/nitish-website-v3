@@ -5,8 +5,9 @@ p {
 
 .footer {
     position: absolute;
-    bottom: 0;
     width: 100%;
+    bottom: 0px;
+    height: 5.5rem;
 }
 
 .dark {

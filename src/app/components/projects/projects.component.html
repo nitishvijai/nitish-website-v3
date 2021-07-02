@@ -16,7 +16,7 @@
     </tr>
 </table>
 
-<div *ngFor="let project of projects">
+<div *ngFor="let project of projects" class="project">
     <h2>{{ project.name }}</h2>
     <p>{{project.type | titlecase}} | {{ project.startdate + ' - ' + project.enddate }}</p>
     <p>{{ project.description }}</p>

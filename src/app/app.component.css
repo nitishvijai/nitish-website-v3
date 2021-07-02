@@ -7,10 +7,10 @@
 }
 
 .animated-gradient {
-    position: fixed;
-    top:0px;
-    left:0px;
-    height:100%;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: block;
     width:100%;
 }
 
@@ -28,4 +28,8 @@
 
 .light {
     color: black;
+}
+
+.main-container {
+    padding-bottom: 5.5rem;
 }
