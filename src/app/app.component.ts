@@ -41,7 +41,14 @@ export class AppComponent implements OnInit, AfterViewInit {
                         // Revert to Desktop
                         this.mobile = false;
                       }
-                      this.switchForm();
+
+                      var curr = this;
+                      for (let i = 0; i < 3; ++i) {
+                        setTimeout(function() {
+                          curr.switchForm();
+                        }, 100);
+                      }
+                      
                    });
   }
 
@@ -54,13 +61,25 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (this.mobile) {
       // Switch to Mobile
       console.log('MOBILE');
+
+      // Home Page
       (document.querySelector('#image') as HTMLElement).style.textAlign = 'center';
       (document.querySelector('#stats') as HTMLElement).style.textAlign = 'center';
+      const texts = document.querySelectorAll('.text');
+      texts.forEach(function(item) {
+        (item as HTMLElement).style.paddingLeft = '2rem';
+        (item as HTMLElement).style.paddingRight = '2rem';
+      });
     } else {
       // Revert to Desktop
       console.log('DESKTOP');
       (document.querySelector('#image') as HTMLElement).style.textAlign = 'right';
       (document.querySelector('#stats') as HTMLElement).style.textAlign = 'left';
+      const texts = document.querySelectorAll('.text');
+      texts.forEach(function(item) {
+        (item as HTMLElement).style.paddingLeft = '0rem';
+        (item as HTMLElement).style.paddingRight = '0rem';
+      });
     }
   }
 
