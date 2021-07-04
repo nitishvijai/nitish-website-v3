@@ -2,7 +2,7 @@
 <div [ngClass]="{'animated-gradient': true, 'dark-gradient': darkMode, 'light-gradient': !darkMode}">
     <app-side-menu></app-side-menu>
     <div *ngIf="!mobileHeader; else mobileHeaderCmp"><app-header (colorChanged)="changeColors($event)"></app-header></div>
-    <ng-template #mobileHeaderCmp><app-mobile-header></app-mobile-header></ng-template>
+    <ng-template #mobileHeaderCmp><app-mobile-header (opened)="openSideMenu()"></app-mobile-header></ng-template>
 
     <div class="main-container">
         <router-outlet></router-outlet>

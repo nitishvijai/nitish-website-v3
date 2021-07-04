@@ -10,11 +10,15 @@ export class SideMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    (document.querySelector('.sideNav') as HTMLElement).style.width = "0px";
+    this.closeMenu();
   }
 
   slideOutMenu() {
     (document.querySelector('.sideNav') as HTMLElement).style.width = "300px";
+  }
+
+  closeMenu() {
+    (document.querySelector('.sideNav') as HTMLElement).style.width = "0px";
   }
 
 }
