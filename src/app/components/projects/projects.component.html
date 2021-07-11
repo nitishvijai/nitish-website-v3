@@ -9,13 +9,15 @@
 <table>
     <tr>
         <td><strong>Filters:</strong></td>
-        <td>Personal</td>
-        <td>School</td>
-        <td>Extracurriculars</td>
-        <td>Other</td>
+        <td><a [ngClass]="personal ? 'link-enabled' : 'link-disabled'" (click)="toggleFilter('personal')">Personal</a></td>
+        <td><a [ngClass]="school ? 'link-enabled' : 'link-disabled'" (click)="toggleFilter('school')">School</a></td>
+        <td><a [ngClass]="ecs ? 'link-enabled' : 'link-disabled'" (click)="toggleFilter('extracurriculars')">Extracurriculars</a></td>
+        <td><a [ngClass]="other ? 'link-enabled' : 'link-disabled'" (click)="toggleFilter('other')">Other</a></td>
+        <td><a class="link" (click)="clearAllFilters()">Clear All Filters</a></td>
     </tr>
 </table>
 
+<p id="error" *ngIf="projects.length === 0">Uh oh, there are no projects available. Please make sure you've turned on at least one filter.</p>
 <div *ngFor="let project of projects" class="project">
     <h2>{{ project.name }}</h2>
     <p>{{project.type | titlecase}} | {{ project.startdate + ' - ' + project.enddate }}</p>
