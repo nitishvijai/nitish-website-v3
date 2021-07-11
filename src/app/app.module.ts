@@ -13,6 +13,7 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { ResumeComponent } from './components/resume/resume.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
     SideMenuComponent,
     AboutMeComponent,
     HomeComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ResumeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +34,10 @@ import { ProjectsComponent } from './components/projects/projects.component';
     LayoutModule,
     RouterModule.forRoot([
       {path: 'about', component: AboutMeComponent },
-      {path: '', component: HomeComponent},
-      {path: 'projects', component: ProjectsComponent}
+      {path: '', redirectTo: '/home', pathMatch: 'full'},
+      {path: 'home', component: HomeComponent},
+      {path: 'projects', component: ProjectsComponent},
+      {path: 'resume', component: ResumeComponent}
     ])
   ],
   providers: [HomeComponent],

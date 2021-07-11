@@ -1,10 +1,10 @@
 <div class="header">
     <input type="checkbox" name="colormode" id="colormode" value="Dark" (change)="switchColors($event.target.checked)" checked="true">
     <label id="forcolormode" for="colormode">Light Mode</label>
-    <a id="aboutme" routerLink="/about" [ngClass]="{'centered': true}">About Me</a>
+    <a id="aboutme" routerLink="/about" [state]="{ mode: 'desktop' }" [ngClass]="{'centered': true}">About Me</a>
     <a id="projects" routerLink="/projects" [ngClass]="{'centered': true}">Projects</a>
-    <a routerLink="/" [ngClass]="{'title': true}">Nitish Vijai</a>
-    <a href="#" [ngClass]="{'centered': true}">Resume</a>
+    <a routerLink="/" [state]="{ mode: 'desktop' }" [ngClass]="{'title': true}">Nitish Vijai</a>
+    <a id="resumeTab" routerLink="/resume" [state]="{ mode: 'desktop' }" [ngClass]="{'centered': true}">Resume</a>
     <a href="#" [ngClass]="{'centered': true}">Essays</a>
     <a href="#" id="contactme" [ngClass]="{'contact': true}">Contact Me</a>
 </div>

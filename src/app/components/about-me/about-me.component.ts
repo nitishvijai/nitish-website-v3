@@ -10,7 +10,9 @@ export class AboutMeComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    (document.querySelector('#aboutme') as HTMLElement).style.borderBottom = "2px solid black";
+    if (history.state.mode == 'desktop') {
+      (document.querySelector('#aboutme') as HTMLElement).style.borderBottom = "2px solid black";
+    }
   }
 
   ngOnDestroy() {

@@ -4,6 +4,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContentChild } from '@angular/core';
 import { ColorService } from './services/color.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   @ViewChild(SideMenuComponent, {static: false}) child: SideMenuComponent;
   
-  constructor(private bpObserver: BreakpointObserver) {}
+  constructor(private bpObserver: BreakpointObserver, private router: Router) {}
 
   ngOnInit() {
     this.bpObserver.observe(['(max-width: 1024px)'])
@@ -37,16 +38,18 @@ export class AppComponent implements OnInit, AfterViewInit {
                       if (state.matches) {
                         // Switch to Mobile
                         this.mobile = true;
+                        history.pushState({mode: 'mobile'}, '', '');
                       } else {
                         // Revert to Desktop
                         this.mobile = false;
+                        history.pushState({mode: 'desktop'}, '', '');
                       }
 
                       var curr = this;
-                      for (let i = 0; i < 3; ++i) {
+                      for (let i = 0; i < 1; ++i) {
                         setTimeout(function() {
                           curr.switchForm();
-                        }, 100);
+                        }, 500);
                       }
                       
                    });
@@ -61,25 +64,33 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (this.mobile) {
       // Switch to Mobile
       console.log('MOBILE');
+      history.pushState({mode: 'mobile'}, '', '');
 
       // Home Page
-      (document.querySelector('#image') as HTMLElement).style.textAlign = 'center';
-      (document.querySelector('#stats') as HTMLElement).style.textAlign = 'center';
-      const texts = document.querySelectorAll('.text');
-      texts.forEach(function(item) {
-        (item as HTMLElement).style.paddingLeft = '2rem';
-        (item as HTMLElement).style.paddingRight = '2rem';
-      });
+      if (this.router.url === '/home') {
+        (document.querySelector('#image') as HTMLElement).style.textAlign = 'center';
+        (document.querySelector('#stats') as HTMLElement).style.textAlign = 'center';
+        const texts = document.querySelectorAll('.text');
+        texts.forEach(function(item) {
+          (item as HTMLElement).style.paddingLeft = '2rem';
+          (item as HTMLElement).style.paddingRight = '2rem';
+        });
+      }
+      
     } else {
       // Revert to Desktop
       console.log('DESKTOP');
-      (document.querySelector('#image') as HTMLElement).style.textAlign = 'right';
-      (document.querySelector('#stats') as HTMLElement).style.textAlign = 'left';
-      const texts = document.querySelectorAll('.text');
-      texts.forEach(function(item) {
-        (item as HTMLElement).style.paddingLeft = '0rem';
-        (item as HTMLElement).style.paddingRight = '0rem';
-      });
+      history.pushState({mode: 'desktop'}, '', '');
+
+      if (this.router.url === '/home') {
+        (document.querySelector('#image') as HTMLElement).style.textAlign = 'right';
+        (document.querySelector('#stats') as HTMLElement).style.textAlign = 'left';
+        const texts = document.querySelectorAll('.text');
+        texts.forEach(function(item) {
+          (item as HTMLElement).style.paddingLeft = '0rem';
+          (item as HTMLElement).style.paddingRight = '0rem';
+        });
+      }
     }
   }
 
@@ -90,6 +101,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   changeColors(dark: boolean) {
     console.log('parent color: ' + dark);
     this.darkMode = dark;
+  }
+
+  onNavigated(route: string) {
+    this.router.navigateByUrl(route);
+    var curr = this;
+    for (let i = 0; i < 1; ++i) {
+      setTimeout(function () {
+        curr.switchForm();
+      }, 500);
+    }
   }
 
 }
