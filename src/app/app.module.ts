@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ResumeComponent } from './components/resume/resume.component';
+import { ExperienceComponent } from './components/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ResumeComponent } from './components/resume/resume.component';
     AboutMeComponent,
     HomeComponent,
     ProjectsComponent,
-    ResumeComponent
+    ResumeComponent,
+    ExperienceComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+<div id="experience">
+    <h3>{{ exp.name }}</h3>
+    <h4>{{ exp.position }}<span *ngIf="exp.place !== ''">&nbsp;|&nbsp;{{ exp.place }}</span></h4>
+    <h4>{{ exp.timestamp }}</h4>
+    <div *ngIf="exp.misc1">
+        <h4 class="misc">{{ exp.misc1 }}</h4>
+    </div>
+    <div *ngIf="exp.misc2">
+        <h4 class="misc">{{ exp.misc2 }}</h4>
+    </div>
+    <div id="links" *ngIf="exp.links">
+        <div *ngFor="let link of exp.links">
+            <a href="{{ link.url }}">{{ link.name }}</a>
+        </div>
+    </div>
+    <ul>
+        <li *ngFor="let bullet of exp.bullets">
+            {{ bullet }}
+        </li>
+    </ul>
+</div>
