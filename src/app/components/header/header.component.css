@@ -22,9 +22,8 @@ a.contact:hover {
     color: white;
     background-color: cornflowerblue;
     border-radius: 1em;
-    font-weight: bold;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 .title {

@@ -3,7 +3,7 @@ export interface Experience {
     position: string;
     place: string;
     timestamp: string;
-    links?: string[];
+    links?: Object[];
     misc1?: string;
     misc2?: string;
     bullets: string[];
