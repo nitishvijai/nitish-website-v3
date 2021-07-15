@@ -14,3 +14,18 @@ h4 {
     font-weight: normal;
     margin-left: 50px;
 }
+
+.main {
+    display: flex;
+    justify-content: space-evenly;
+    width: 85%;
+    margin: 0 auto;
+}
+
+#col1 {
+    width: 45%;
+}
+
+#col2 {
+    width: 45%;
+}

@@ -6,31 +6,42 @@
 
 <p style="visibility: hidden; font-size: x-small;">asdf</p>
 
-<h2 [ngClass]="{'heading': true}">Work Experience</h2>
+<div class="main">
+    <div id="col1">
+        <h2 [ngClass]="{'heading': true}">Work Experience</h2>
 
-<div *ngFor="let exp of workExperiences">
-    <app-experience [exp]="exp"></app-experience>
-</div>
+        <div *ngFor="let exp of workExperiences">
+            <app-experience [exp]="exp"></app-experience>
+        </div>
 
-<h2 [ngClass]="{'heading': true}">Education</h2>
+        <h2 [ngClass]="{'heading': true}">Awards and Honors</h2>
 
-<app-experience [exp]="education"></app-experience>
+        <div *ngFor="let exp of awards">
+            <app-experience [exp]="exp"></app-experience>
+        </div>
+    </div>
 
-<h2 [ngClass]="{'heading': true}">Organizations</h2>
+    <div id="col2">
+        <h2 [ngClass]="{'heading': true}">Education</h2>
 
-<div *ngFor="let exp of organizations">
-    <app-experience [exp]="exp"></app-experience>
-</div>
+        <app-experience [exp]="education"></app-experience>
 
-<h2 [ngClass]="{'heading': true}">Awards and Honors</h2>
+        <h2 [ngClass]="{'heading': true}">Organizations</h2>
 
-<div *ngFor="let exp of awards">
-    <app-experience [exp]="exp"></app-experience>
-</div>
+        <div *ngFor="let exp of organizations">
+            <app-experience [exp]="exp"></app-experience>
+        </div>
 
-<h2 [ngClass]="{'heading': true}">Technical Skills</h2>
 
-<div *ngFor="let skill of techSkills">
-    <h3>{{ skill.name }}:</h3>
-    <h4>{{ skill.content }}</h4>
+
+        <h2 [ngClass]="{'heading': true}">Technical Skills</h2>
+
+        <div *ngFor="let skill of techSkills">
+            <h3>{{ skill.name }}:</h3>
+            <h4>{{ skill.content }}</h4>
+        </div>
+    </div>
+
+
+
 </div>
