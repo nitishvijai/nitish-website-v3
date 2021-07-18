@@ -7,15 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeroImageComponent implements OnInit {
 
-  private _darkMode: boolean;
-
-  @Input() set darkMode(value: boolean) {
-    this._darkMode = value;
-  }
+  @Input() lightMode: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    console.log('hero image: ' + this.lightMode);
   }
 
   imgSource: string = "assets/img/nitish-headshot.jpg";

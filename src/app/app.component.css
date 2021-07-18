@@ -16,6 +16,7 @@
 
 .dark-gradient {
     background-image: linear-gradient( 76.3deg,  rgba(44,62,78,1) 12.6%, rgba(69,103,131,1) 82.8% );
+    color: white;
 }
 
 .dark {
@@ -24,6 +25,7 @@
 
 .light-gradient {
     background-image: linear-gradient( 108.1deg,  rgba(167,220,225,1) 11.2%, rgba(217,239,242,1) 88.9% );
+    color: black;
 }
 
 .light {

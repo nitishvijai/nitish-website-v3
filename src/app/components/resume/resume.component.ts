@@ -8,6 +8,9 @@ import { Experience } from 'src/app/experience';
 })
 export class ResumeComponent implements OnInit, OnDestroy {
 
+  lightMode: boolean;
+  id: NodeJS.Timer;
+
   workExperiences: Experience[] = [
     {
       name: 'Niiti (Startup)',
@@ -142,9 +145,14 @@ export class ResumeComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    if (history.state.mode == 'desktop') {
-      (document.querySelector('#resumeTab') as HTMLElement).style.borderBottom = "2px solid black";
-    }
+
+    this.id = setInterval(() => {
+      if (localStorage.getItem('lightMode') === 'true') {
+        (document.querySelector('#resumeTab') as HTMLElement).style.borderBottom = "2px solid black";
+      } else {
+        (document.querySelector('#resumeTab') as HTMLElement).style.borderBottom = "2px solid white";
+      }
+    }, 50);
 
     localStorage.setItem('page', '/resume');
     
@@ -152,6 +160,10 @@ export class ResumeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     (document.querySelector('#resumeTab') as HTMLElement).style.borderBottom = "";
+
+    if (this.id) {
+      clearInterval(this.id);
+    }
   }
 
 }

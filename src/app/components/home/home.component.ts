@@ -8,10 +8,31 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class HomeComponent implements OnInit {
 
+  lightMode: boolean;
+  id: NodeJS.Timer;
 
-  constructor() { }
+  constructor() { 
+    if (localStorage.getItem('lightMode') === 'true') {
+      this.lightMode = true;
+    } else {
+      this.lightMode = false;
+    }
+  }
 
   ngOnInit() {
     localStorage.setItem('page', '/');
+    this.id = setInterval(() => {
+      if (localStorage.getItem('lightMode') === 'true') {
+        this.lightMode = true;
+      } else {
+        this.lightMode = false;
+      }
+    }, 100);
+  }
+
+  ngOnDestroy() {
+    if (this.id) {
+      clearInterval(this.id);
+    }
   }
 }

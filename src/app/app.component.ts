@@ -18,7 +18,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'nitish-website-v3';
   mobileHeader = false;
   mobile = false;
-  darkMode: boolean = false;
+  lightMode: boolean = true;
   subscription: Subscription;
   
 
@@ -29,6 +29,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   
   constructor(private bpObserver: BreakpointObserver, private router: Router) {
+    // Send color event to header child
+    
+
+    if (localStorage.getItem('lightMode') === 'true') {
+      this.lightMode = true;
+    } else {
+      this.lightMode = false;
+    }
+
+    console.log('lightMode: ' + this.lightMode);
     this.subscription = router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         browserRefresh = !router.navigated;
@@ -37,10 +47,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+
     if (localStorage.getItem('refresh') != null && localStorage.getItem('refresh') === 'true') {
+      // Go to correct page if refresh action is true
       console.log('Page has been refreshed');
       this.router.navigate([localStorage.getItem('page')]);
     }
+
+    
 
 
     this.bpObserver.observe(['(max-width: 1024px)'])
@@ -121,7 +135,11 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   changeColors(dark: boolean) {
     console.log('parent color: ' + dark);
-    this.darkMode = dark;
+  }
+
+  onColorChanged(light: boolean) {
+    console.log('Parent received: ' + light);
+    this.lightMode = light;
   }
 
   onNavigated(route: string) {

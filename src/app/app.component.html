@@ -1,7 +1,7 @@
 <!-- Placeholder for now. Will eventually replace with specialized Angular components. -->
-<div [ngClass]="{'animated-gradient': true, 'dark-gradient': darkMode, 'light-gradient': !darkMode}">
+<div [ngClass]="{'animated-gradient': true, 'dark-gradient': !lightMode, 'light-gradient': lightMode}">
     <app-side-menu (navigated)="onNavigated($event)"></app-side-menu>
-    <div *ngIf="!mobileHeader; else mobileHeaderCmp"><app-header (colorChanged)="changeColors($event)"></app-header></div>
+    <div *ngIf="!mobileHeader; else mobileHeaderCmp"><app-header (colorChanged)="onColorChanged($event)" [mode]="lightMode"></app-header></div>
     <ng-template #mobileHeaderCmp><app-mobile-header (opened)="openSideMenu()"></app-mobile-header></ng-template>
 
     <div class="main-container">

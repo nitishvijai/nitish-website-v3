@@ -8,7 +8,23 @@ import { Project } from 'src/app/project';
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  projects: Project[] = [];
+
+  personal: boolean = true;
+  school: boolean = true;
+  ecs: boolean = true;
+  other: boolean = true;
+  
+  lightMode: boolean;
+  id: NodeJS.Timer;
+
+  constructor() { 
+    if (localStorage.getItem('lightMode') === 'true') {
+      this.lightMode = true;
+    } else {
+      this.lightMode = false;
+    }
+  }
 
   all_projects: Project[] = [
     { name: 'Eventempo', description: 'Built a UWP countdown timer app for Windows 10 devices. Some features include support for multiple event countdown timers, ease of use, event autosave, colorful customization, and notification alerts. Worked on this app during winter break of my freshman year in college, and released incremental updates to the app in the following months.', skills: 'C# .NET (backend), XAML (frontend), Visual Studio', startdate: 'December 2019', enddate: 'February 2020', type: 'personal', github: 'https://github.com/nitishvijai/Eventempo', otherlinks: [{title: 'Download on the Microsoft Store', link: 'https://www.microsoft.com/en-us/p/eventempo/9pcfmsx2g386?activetab=pivot:overviewtab'}] },
@@ -20,21 +36,26 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     { name: 'Technidote (Principal Internship Hackathon)', description: 'With six other interns, developed a web forum using Angular for employees to showcase the awesomeness of working with technology at Principal. The web forum connects to a Flask and MySQL RESTful backend for user logins, post creation, etc. The forum was also deployed on AWS. (Note: links and source code not available due to internal company policy).', skills: 'Angular 8, HTML, CSS, TypeScript, Flask (Python), MySQL, AWS Elastic Beanstalk, VSCode', startdate: 'June 21, 2021', enddate: 'June 24, 2021', type: 'other'}
   ];
 
-  projects: Project[] = [];
-
-  personal: boolean = true;
-  school: boolean = true;
-  ecs: boolean = true;
-  other: boolean = true;
-
   ngOnInit() {
-    (document.querySelector('#projects') as HTMLElement).style.borderBottom = "2px solid black";
+
+    this.id = setInterval(() => {
+      if (localStorage.getItem('lightMode') === 'true') {
+        (document.querySelector('#projects') as HTMLElement).style.borderBottom = "2px solid black";
+      } else {
+        (document.querySelector('#projects') as HTMLElement).style.borderBottom = "2px solid white";
+      }
+    }, 50);
+    
     this.renderList();
     localStorage.setItem('page', '/projects');
   }
 
   ngOnDestroy() {
     (document.querySelector('#projects') as HTMLElement).style.borderBottom = "";
+
+    if (this.id) {
+      clearInterval(this.id);
+    }
   }
 
   toggleFilter(projType: string) {
