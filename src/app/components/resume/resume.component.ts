@@ -145,6 +145,9 @@ export class ResumeComponent implements OnInit, OnDestroy {
     if (history.state.mode == 'desktop') {
       (document.querySelector('#resumeTab') as HTMLElement).style.borderBottom = "2px solid black";
     }
+
+    localStorage.setItem('page', '/resume');
+    
   }
 
   ngOnDestroy() {

@@ -36,10 +36,10 @@ import { ExperienceComponent } from './components/experience/experience.componen
     LayoutModule,
     RouterModule.forRoot([
       {path: 'about', component: AboutMeComponent },
-      {path: '', redirectTo: '/home', pathMatch: 'full'},
-      {path: 'home', component: HomeComponent},
       {path: 'projects', component: ProjectsComponent},
-      {path: 'resume', component: ResumeComponent}
+      {path: 'resume', component: ResumeComponent},
+      {path: '', redirectTo: '/home', pathMatch: 'full'},
+      {path: 'home', component: HomeComponent}
     ])
   ],
   providers: [HomeComponent],

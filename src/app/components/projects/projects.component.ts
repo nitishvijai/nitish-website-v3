@@ -30,6 +30,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     (document.querySelector('#projects') as HTMLElement).style.borderBottom = "2px solid black";
     this.renderList();
+    localStorage.setItem('page', '/projects');
   }
 
   ngOnDestroy() {

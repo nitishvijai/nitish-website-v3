@@ -1,10 +1,13 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Breakpoints, BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContentChild } from '@angular/core';
 import { ColorService } from './services/color.service';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+export let browserRefresh = false;
 
 @Component({
   selector: 'app-root',
@@ -16,12 +19,30 @@ export class AppComponent implements OnInit, AfterViewInit {
   mobileHeader = false;
   mobile = false;
   darkMode: boolean = false;
+  subscription: Subscription;
+  
 
   @ViewChild(SideMenuComponent, {static: false}) child: SideMenuComponent;
+
+  @HostListener('window:beforeunload') goToPage() {
+    localStorage.setItem('refresh', 'true');
+  }
   
-  constructor(private bpObserver: BreakpointObserver, private router: Router) {}
+  constructor(private bpObserver: BreakpointObserver, private router: Router) {
+    this.subscription = router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        browserRefresh = !router.navigated;
+      }
+    })
+  }
 
   ngOnInit() {
+    if (localStorage.getItem('refresh') != null && localStorage.getItem('refresh') === 'true') {
+      console.log('Page has been refreshed');
+      this.router.navigate([localStorage.getItem('page')]);
+    }
+
+
     this.bpObserver.observe(['(max-width: 1024px)'])
                    .subscribe((state: BreakpointState) => {
                       if (state.matches) {
@@ -56,7 +77,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-
+    
   }
 
   // Logic to switch between desktop and mobile versions as necessary

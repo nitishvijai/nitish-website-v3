@@ -13,6 +13,8 @@ export class AboutMeComponent implements OnInit, OnDestroy {
     if (history.state.mode == 'desktop') {
       (document.querySelector('#aboutme') as HTMLElement).style.borderBottom = "2px solid black";
     }
+
+    localStorage.setItem('page', '/about');
   }
 
   ngOnDestroy() {
