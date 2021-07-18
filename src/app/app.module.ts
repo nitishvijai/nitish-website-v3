@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { EssaysComponent } from './components/essays/essays.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ExperienceComponent } from './components/experience/experience.componen
     HomeComponent,
     ProjectsComponent,
     ResumeComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    EssaysComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
       {path: 'about', component: AboutMeComponent },
       {path: 'projects', component: ProjectsComponent},
       {path: 'resume', component: ResumeComponent},
+      {path: 'essays', component: EssaysComponent},
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent}
     ])
