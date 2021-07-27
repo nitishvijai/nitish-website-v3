@@ -47,7 +47,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     }, 50);
     
     this.renderList();
-    localStorage.setItem('page', '/projects');
+    sessionStorage.setItem('page', '/projects');
   }
 
   ngOnDestroy() {

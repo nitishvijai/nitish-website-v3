@@ -154,7 +154,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
       }
     }, 50);
 
-    localStorage.setItem('page', '/resume');
+    sessionStorage.setItem('page', '/resume');
     
   }
 

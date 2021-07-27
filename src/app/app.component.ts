@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild(SideMenuComponent, {static: false}) child: SideMenuComponent;
 
   @HostListener('window:beforeunload') goToPage() {
-    localStorage.setItem('refresh', 'true');
+    sessionStorage.setItem('refresh', 'true');
   }
   
   constructor(private bpObserver: BreakpointObserver, private router: Router) {
@@ -48,10 +48,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-    if (localStorage.getItem('refresh') != null && localStorage.getItem('refresh') === 'true') {
+    if (sessionStorage.getItem('refresh') != null && sessionStorage.getItem('refresh') === 'true') {
       // Go to correct page if refresh action is true
       console.log('Page has been refreshed');
-      this.router.navigate([localStorage.getItem('page')]);
+      this.router.navigate([sessionStorage.getItem('page')]);
     }
 
     

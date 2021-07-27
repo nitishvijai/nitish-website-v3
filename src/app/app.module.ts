@@ -16,6 +16,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { EssaysComponent } from './components/essays/essays.component';
+import { EssayCardComponent } from './components/essay-card/essay-card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EssaysComponent } from './components/essays/essays.component';
     ProjectsComponent,
     ResumeComponent,
     ExperienceComponent,
-    EssaysComponent
+    EssaysComponent,
+    EssayCardComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.setItem('page', '/');
+    sessionStorage.setItem('page', '/');
     this.id = setInterval(() => {
       if (localStorage.getItem('lightMode') === 'true') {
         this.lightMode = true;

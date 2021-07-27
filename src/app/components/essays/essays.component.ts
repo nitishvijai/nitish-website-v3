@@ -27,7 +27,7 @@ export class EssaysComponent implements OnInit, OnDestroy {
       }
     }, 50);
 
-    localStorage.setItem('page', '/essays');
+    sessionStorage.setItem('page', '/essays');
   }
 
   ngOnDestroy() {
