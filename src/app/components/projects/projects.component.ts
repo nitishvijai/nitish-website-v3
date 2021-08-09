@@ -39,10 +39,12 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.id = setInterval(() => {
-      if (localStorage.getItem('lightMode') === 'true') {
-        (document.querySelector('#projects') as HTMLElement).style.borderBottom = "2px solid black";
-      } else {
-        (document.querySelector('#projects') as HTMLElement).style.borderBottom = "2px solid white";
+      if (history.state.mode == 'desktop') {
+        if (localStorage.getItem('lightMode') === 'true') {
+          (document.querySelector('#projects') as HTMLElement).style.borderBottom = "2px solid black";
+        } else {
+          (document.querySelector('#projects') as HTMLElement).style.borderBottom = "2px solid white";
+        }
       }
     }, 50);
     
@@ -51,7 +53,9 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    (document.querySelector('#projects') as HTMLElement).style.borderBottom = "";
+    if (history.state.mode == 'desktop') {
+      (document.querySelector('#projects') as HTMLElement).style.borderBottom = "";
+    }
 
     if (this.id) {
       clearInterval(this.id);

@@ -148,7 +148,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     for (let i = 0; i < 1; ++i) {
       setTimeout(function () {
         curr.switchForm();
-      }, 500);
+      }, 1000);
     }
   }
 
