@@ -147,7 +147,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.id = setInterval(() => {
-      if (history.state.mode == 'desktop') {
+      if (localStorage.getItem('mobile') === 'false') {
         if (localStorage.getItem('lightMode') === 'true') {
         
           (document.querySelector('#resumeTab') as HTMLElement).style.borderBottom = "2px solid black";
@@ -164,7 +164,7 @@ export class ResumeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (history.state.mode == 'desktop') {
+    if (localStorage.getItem('mobile') === 'false') {
       (document.querySelector('#resumeTab') as HTMLElement).style.borderBottom = "";
     }
 

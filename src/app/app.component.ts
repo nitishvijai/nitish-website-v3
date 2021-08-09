@@ -74,10 +74,12 @@ export class AppComponent implements OnInit, AfterViewInit {
                         // Switch to Mobile
                         this.mobile = true;
                         history.pushState({mode: 'mobile'}, '', '');
+                        localStorage.setItem("mobile", "true");
                       } else {
                         // Revert to Desktop
                         this.mobile = false;
                         history.pushState({mode: 'desktop'}, '', '');
+                        localStorage.setItem("mobile", "false");
                       }
 
                       var curr = this;
@@ -100,6 +102,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       // Switch to Mobile
       console.log('MOBILE');
       history.pushState({mode: 'mobile'}, '', '');
+      localStorage.setItem("mobile", "true");
 
       // Home Page
       if (this.router.url === '/home') {
@@ -116,6 +119,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       // Revert to Desktop
       console.log('DESKTOP');
       history.pushState({mode: 'desktop'}, '', '');
+      localStorage.setItem("mobile", "false");
 
       if (this.router.url === '/home') {
         (document.querySelector('#image') as HTMLElement).style.textAlign = 'right';

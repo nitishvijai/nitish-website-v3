@@ -25,7 +25,7 @@ export class AboutMeComponent implements OnInit, OnDestroy {
       //(document.querySelector('#aboutme') as HTMLElement).style.borderBottom = "2px solid black";
 
       this.id = setInterval(() => {
-        if (history.state.mode == 'desktop') {
+        if (localStorage.getItem('mobile') === 'false') {
           if (localStorage.getItem('lightMode') === 'true') {
             (document.querySelector('#aboutme') as HTMLElement).style.borderBottom = "2px solid black";
           } else {
@@ -38,7 +38,7 @@ export class AboutMeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (history.state.mode == 'desktop') {
+    if (localStorage.getItem('mobile') === 'false') {
       (document.querySelector('#aboutme') as HTMLElement).style.borderBottom = "";
     }
 
