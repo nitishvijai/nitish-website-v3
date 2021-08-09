@@ -41,6 +41,14 @@ td {
     color: red;
 }
 
+.link-light, .link-dark:hover {
+    color: black;
+}
+
+.link-light:hover, .link-dark {
+    color: white;
+}
+
 #error {
     text-align: center;
 }

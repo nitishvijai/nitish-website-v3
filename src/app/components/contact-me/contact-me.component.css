@@ -1,0 +1,120 @@
+.heading {
+    text-align: center;
+}
+
+.text {
+    text-align: center;
+}
+
+button.contact:hover, #ytube:hover, #lnkin:hover, #email:hover, #gthub:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+#ytube {
+    background-color: #FF0000;
+}
+
+#twitter {
+    background-color: #1DA1F2;
+    color: black;
+}
+
+#lnkin {
+    background-color: #0077B5;
+}
+
+#email {
+    background-color: gold;
+    color: black;
+}
+
+#gthub {
+    background-color: darkslateblue;
+}
+
+button.contact {
+    margin-top: 10px;
+    margin-right: 10px;
+    color: white;
+    line-height: 2.5;
+    border-radius: 10px;
+    padding: 0 20px;
+    transition-duration: 0.4s;
+}
+
+#buttons {
+    text-align: center;
+}
+
+input[type="text"], textarea {
+    width: 40%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-top: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input[type="submit"] {
+    color: white;
+    line-height: 2.5;
+    border-radius: 10px;
+    padding: 0 20px;
+    transition-duration: 0.4s;
+    background-color: green;
+    margin-right: 10px;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+input[type="reset"] {
+    color: white;
+    line-height: 2.5;
+    border-radius: 10px;
+    padding: 0 20px;
+    transition-duration: 0.4s;
+    background-color: gray;
+}
+
+input[type="reset"]:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+input.valid, textarea.valid {
+    border: 5px solid greenyellow;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border: 5px solid greenyellow;
+}
+
+.ng-invalid:not(form).ng-touched  {
+    border: 5px solid red;
+  }
+
+input.invalid, textarea.invalid {
+    border: 5px solid red;
+}
+
+#subject {
+    max-width: 80%;
+}
+
+#contactForm {
+    text-align: center;
+}
+
+textarea {
+    min-height: 200px;
+    min-width: 40%;
+}

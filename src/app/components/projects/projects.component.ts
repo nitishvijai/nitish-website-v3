@@ -46,6 +46,12 @@ export class ProjectsComponent implements OnInit, OnDestroy {
           (document.querySelector('#projectsTab') as HTMLElement).style.borderBottom = "2px solid white";
         }
       }
+
+      if (localStorage.getItem('lightMode') === 'true') {
+        this.lightMode = true;
+      } else {
+        this.lightMode = false;
+      }
     }, 50);
     
     this.renderList();

@@ -17,6 +17,9 @@ import { ResumeComponent } from './components/resume/resume.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { EssaysComponent } from './components/essays/essays.component';
 import { EssayCardComponent } from './components/essay-card/essay-card.component';
+import { ContactMeComponent } from './components/contact-me/contact-me.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,14 +35,18 @@ import { EssayCardComponent } from './components/essay-card/essay-card.component
     ResumeComponent,
     ExperienceComponent,
     EssaysComponent,
-    EssayCardComponent
+    EssayCardComponent,
+    ContactMeComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     LayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'about', component: AboutMeComponent },
+      {path: 'contact', component: ContactMeComponent},
       {path: 'projects', component: ProjectsComponent},
       {path: 'resume', component: ResumeComponent},
       {path: 'essays', component: EssaysComponent},

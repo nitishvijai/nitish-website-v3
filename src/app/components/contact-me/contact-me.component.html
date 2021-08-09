@@ -1,0 +1,49 @@
+<p style="visibility: hidden; font-size: x-small;">asdf</p>
+
+<h1 [ngClass]="{'heading': true}">Contact Me</h1>
+
+<p [ngClass]="{'text': true}">You can find me somewhere else on the interwebs on:</p>
+
+<p style="visibility: hidden; font-size: x-small;">asdf</p>
+
+<div id="buttons">
+    <a href="https://www.quora.com/profile/Nitish-Vijai" target="_blank"><button class="contact"
+            id="ytube" type="button"><i class="fab fa-quora"></i> Quora</button></a>
+    <a href="https://twitter.com/TheNitishVJ" target="_blank"><button class="contact" id="twitter"
+            type="button"><i class="fab fa-twitter"></i> Twitter</button></a>
+    <a href="https://www.linkedin.com/in/nitish-vj/" target="_blank"><button class="contact" id="lnkin"
+            type="button"><i class="fab fa-linkedin"></i> LinkedIn</button></a>
+    <a href="https://www.github.com/nitishvijai" target="_blank"><button class="contact" id="gthub"
+            type="button"><i class="fab fa-github"></i> GitHub</button></a>
+    <a href="mailto:nitishv@umich.edu" target="_blank"><button class="contact" id="email" type="button"><i
+            class="fas fa-envelope"></i> Email</button></a>
+</div>
+
+<p [ngClass]="{'text': true}" style="margin-top: 5%;">Let's talk! Submit this form below and I will get back to you as soon as possible.</p>
+<div id="contactme">
+    <form id="contactForm" [formGroup]="submitForm" method="POST" action="https://formspree.io/f/meqpekvo" (ngSubmit)="submitForm.valid">
+        <input type="text" formControlName="fullname" id="fullName" name="fullname" placeholder="Enter your name here..." required />
+        <br />
+        <input type="text" id="emailadd" name="mailadd" placeholder="Enter your e-mail address here..." 
+            required #mailadd="ngModel" [(ngModel)]="email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>
+        <br />
+        <textarea id="subject" name="subject"
+            placeholder="Type your message, questions, feedback in here. If necessary, expand this box using the slider grip at the bottom right."
+            style="height: 200px;" required #subject="ngModel" [(ngModel)]="message"></textarea>
+        <br /><br />
+        <input id="submitButton" name="submit" type="submit" value="Submit"/>
+        <input id="resetButton" type="reset" value="Reset" />
+        <br /><br />
+        
+        <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)">
+            <span *ngIf="fullname.errors?.required" id="errName" class="error">Full name is required</span><br />
+        </div>
+        <div *ngIf="mailadd.invalid && (mailadd.dirty || mailadd.touched)">
+            <span *ngIf="mailadd.errors?.required" id="errMail" class="error">Email address is required</span><br />
+            <span *ngIf="mailadd.errors?.pattern" id="errMail" class="error">Incorrect email pattern entered</span><br/>
+        </div>
+        <div *ngIf="subject.invalid && (subject.dirty || subject.touched)">
+            <span *ngIf="subject.errors?.required" id="errMesg" class="error">Message is required</span>
+        </div>
+    </form>
+</div>

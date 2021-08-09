@@ -13,6 +13,16 @@ export class ResumeComponent implements OnInit, OnDestroy {
 
   workExperiences: Experience[] = [
     {
+      name: 'Principal Financial Group',
+      position: 'Software Engineer Intern',
+      place: 'Remote / Des Moines, IA',
+      timestamp: 'June 2021 - August 2021',
+      bullets: [
+        'Streamlined three guided actions in Principal’s Salesforce CRM by building new Aura components and Apex classes from the ground up, resulting in a minute saved for each specialist support call, saving the company approx. $100,000 each year on call costs',
+        'Presented our work to the RIS Business Coordinators and successfully deployed our improvements to Production'
+      ]
+    },
+    {
       name: 'Niiti (Startup)',
       position: 'Software Engineer Intern - Windows (UWP)',
       place: 'Remote',

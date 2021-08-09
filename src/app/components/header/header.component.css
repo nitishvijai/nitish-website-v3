@@ -18,12 +18,8 @@ a.centered {
     vertical-align: 0.25em;
 }
 
-a.contact:hover {
-    color: white;
-    background-color: cornflowerblue;
-    border-radius: 1em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+#contactme:hover {
+    background-color: midnightblue;
 }
 
 .title {
@@ -56,7 +52,15 @@ a.contact:hover {
     float: right;
     margin-right: 20px;
     vertical-align: middle;
-    padding-top: 0.15em;
+    margin-top: 1px;
+
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
 }
 
 .light {
