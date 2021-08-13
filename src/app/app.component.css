@@ -1,3 +1,5 @@
+
+
 .heading {
     text-align: center;
 }
@@ -6,17 +8,44 @@
     text-align: center;
 }
 
+.background {
+    /* background-image: url('../assets/img/test_background.jpg'); */
+    /* background-image: linear-gradient( 76.3deg,  rgba(44,62,78,1) 12.6%, rgba(69,103,131,1) 82.8% ); */
+    background-image: linear-gradient(270deg, #4B0082, #242766, #077af4, #07aef4);
+    -webkit-animation: BlueHues 20s ease infinite;
+    -moz-animation: BlueHues 20s ease infinite;
+    -o-animation: BlueHues 20s ease infinite;
+    animation: BlueHues 20s ease infinite;
+
+    background-size: 800% 800%;
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+
 .animated-gradient {
+
     position: relative;
     min-height: 100vh;
     overflow: hidden;
     display: block;
     width:100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    
+    /* backdrop-filter: blur(10px); */
 }
 
 .dark-gradient {
-    background-image: linear-gradient( 76.3deg,  rgba(44,62,78,1) 12.6%, rgba(69,103,131,1) 82.8% );
+    /* background-image: linear-gradient( 76.3deg,  rgba(44,62,78,1) 12.6%, rgba(69,103,131,1) 82.8% ); */
+    
+    background-size: 100% 100%;
     color: white;
+    
 }
 
 .dark {
@@ -34,4 +63,60 @@
 
 .main-container {
     padding-bottom: 5.5rem;
+    
 }
+
+
+
+
+/* Animated Gradient Selectors */
+
+@-webkit-keyframes BlueHues {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@-moz-keyframes BlueHues {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@-o-keyframes BlueHues {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes BlueHues {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* End Animated Gradient Selectors */
