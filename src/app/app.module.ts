@@ -20,6 +20,7 @@ import { EssayCardComponent } from './components/essay-card/essay-card.component
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: 'about', component: AboutMeComponent },
       {path: 'contact', component: ContactMeComponent},

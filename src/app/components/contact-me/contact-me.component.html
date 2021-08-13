@@ -21,29 +21,28 @@
 
 <p [ngClass]="{'text': true}" style="margin-top: 5%;">Let's talk! Submit this form below and I will get back to you as soon as possible.</p>
 <div id="contactme">
-    <form id="contactForm" [formGroup]="submitForm" method="POST" action="https://formspree.io/f/meqpekvo" (ngSubmit)="submitForm.valid">
-        <input type="text" formControlName="fullname" id="fullName" name="fullname" placeholder="Enter your name here..." required />
+    <form id="contactForm" [formGroup]="submitForm" method="POST" action="https://formspree.io/f/meqpekvo" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="fullName" id="fullName" placeholder="Enter your name here..." required>
         <br />
-        <input type="text" id="emailadd" name="mailadd" placeholder="Enter your e-mail address here..." 
-            required #mailadd="ngModel" [(ngModel)]="email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>
+        <input type="text" formControlName="emailAddress" id="emailAddress" placeholder="Enter your e-mail address here..." required>
         <br />
-        <textarea id="subject" name="subject"
-            placeholder="Type your message, questions, feedback in here. If necessary, expand this box using the slider grip at the bottom right."
-            style="height: 200px;" required #subject="ngModel" [(ngModel)]="message"></textarea>
+        <textarea id="subject" formControlName="message" 
+            placeholder="Type your message, questions, feedback in here. If necessary, expand this box using the slider grip at the bottom right." 
+            style="height: 200px;" required></textarea>
         <br /><br />
-        <input id="submitButton" name="submit" type="submit" value="Submit"/>
+        <input id="submitButton" name="submit" type="submit" value="Submit" />
         <input id="resetButton" type="reset" value="Reset" />
         <br /><br />
-        
-        <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)">
-            <span *ngIf="fullname.errors?.required" id="errName" class="error">Full name is required</span><br />
+        <div *ngIf="submitFormControl.fullName.invalid && (submitFormControl.fullName.touched || dirty)">
+            <span *ngIf="submitFormControl.fullName.errors?.required" id="errName" class="error">Full name is required</span><br />
         </div>
-        <div *ngIf="mailadd.invalid && (mailadd.dirty || mailadd.touched)">
-            <span *ngIf="mailadd.errors?.required" id="errMail" class="error">Email address is required</span><br />
-            <span *ngIf="mailadd.errors?.pattern" id="errMail" class="error">Incorrect email pattern entered</span><br/>
+        <div *ngIf="submitFormControl.emailAddress.invalid && (submitFormControl.emailAddress.touched || dirty)">
+            <span *ngIf="submitFormControl.emailAddress.errors?.required" id="errMail" class="error">Email address is required</span><br />
+            <span *ngIf="submitFormControl.emailAddress.errors?.email" id="errMailPattern" class="error">Incorrect email pattern entered</span><br/>
         </div>
-        <div *ngIf="subject.invalid && (subject.dirty || subject.touched)">
-            <span *ngIf="subject.errors?.required" id="errMesg" class="error">Message is required</span>
+        <div *ngIf="submitFormControl.message.invalid && (submitFormControl.message.touched || dirty)">
+            <span *ngIf="submitFormControl.message.errors?.required" id="errMesg" class="error">Message is required</span>
         </div>
     </form>
+    <p style="visibility: hidden; font-size: x-small;">asdf</p>
 </div>
