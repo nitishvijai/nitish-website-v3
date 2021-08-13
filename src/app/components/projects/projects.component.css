@@ -19,6 +19,15 @@ td {
 .project {
     width: 80%;
     margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.image {
+    float: left;
+    border-radius: 2px;
+    padding-right: 2%;
+    height: 230px;
+    width: 380px;
 }
 
 .link {

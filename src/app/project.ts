@@ -7,4 +7,5 @@ export interface Project {
     enddate: string;
     github?: string;
     otherlinks?: Array<Object>;
+    image: string;
 }
