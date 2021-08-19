@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +11,7 @@ export class AboutMeComponent implements OnInit, OnDestroy {
   lightMode: boolean;
   id: NodeJS.Timer;
 
-  constructor() { 
+  constructor(private bpObserver: BreakpointObserver) { 
     if (localStorage.getItem('lightMode') === 'true') {
       this.lightMode = true;
     } else {
@@ -19,9 +20,6 @@ export class AboutMeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
-    
-    
       //(document.querySelector('#aboutme') as HTMLElement).style.borderBottom = "2px solid black";
 
       this.id = setInterval(() => {
@@ -33,6 +31,25 @@ export class AboutMeComponent implements OnInit, OnDestroy {
           }
         }
       }, 50);
+
+      this.bpObserver.observe(['(max-width: 801px)'])
+      .subscribe((state: BreakpointState) => {
+         if (state.matches) {
+           // Switch to Mobile
+           (document.querySelector('.headshot') as HTMLElement).style.cssFloat = "none";
+           (document.querySelector('.headshot') as HTMLElement).style.margin = "0 auto";
+           (document.querySelector('#nitish-headshot') as HTMLElement).style.width = "100%";
+           (document.querySelector('.content') as HTMLElement).style.width = "auto";
+           (document.querySelector('.content') as HTMLElement).style.marginLeft = "10%";
+           (document.querySelector('.content') as HTMLElement).style.marginRight = "10%";
+         } else {
+           // Revert to Desktop
+           (document.querySelector('.headshot') as HTMLElement).style.cssFloat = "left";
+           (document.querySelector('.headshot') as HTMLElement).style.margin = "10% 0";
+           (document.querySelector('#nitish-headshot') as HTMLElement).style.width = "50%";
+           (document.querySelector('.content') as HTMLElement).style.width = "40%";
+         }
+      });
 
     localStorage.setItem('page', '/about');
   }
