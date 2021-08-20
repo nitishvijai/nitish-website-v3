@@ -24,11 +24,11 @@
     </div>
     <div id="info">
         <h2>{{ project.name }}</h2>
-        <p><strong>{{project.type | titlecase}}</strong> | {{ project.startdate + ' - ' + project.enddate }}</p>
-        <p>{{ project.description }}</p>
-        <p>Tools Utilized: {{ project.skills }}</p>
+        <p id="type"><strong>{{project.type | titlecase}}</strong> | {{ project.startdate + ' - ' + project.enddate }}</p>
+        <p id="desc">{{ project.description }}</p>
+        <p id="tools">Tools Utilized: {{ project.skills }}</p>
         <div *ngIf="project.github || project.otherlinks; else noLinks">
-            <p *ngIf="project.github"><a [ngClass]="lightMode ? 'link-light' : 'link-dark'" href="{{ project.github }}">GitHub Repository</a><span *ngIf="project.otherlinks">&nbsp;|&nbsp;<a *ngFor="let link of project.otherlinks" [ngClass]="lightMode ? 'link-light' : 'link-dark'" href="{{ link.link }}">{{ link.title }}</a></span></p>
+            <p *ngIf="project.github" id="links"><a [ngClass]="lightMode ? 'link-light' : 'link-dark'" href="{{ project.github }}">GitHub Repository</a><span *ngIf="project.otherlinks">&nbsp;|&nbsp;<a *ngFor="let link of project.otherlinks" [ngClass]="lightMode ? 'link-light' : 'link-dark'" href="{{ link.link }}">{{ link.title }}</a></span></p>
         </div>
         <ng-template #noLinks>
             <p style="visibility: hidden;">Blank</p>

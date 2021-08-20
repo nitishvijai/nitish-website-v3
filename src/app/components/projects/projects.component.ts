@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Project } from 'src/app/project';
 
@@ -18,7 +19,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   lightMode: boolean;
   id: NodeJS.Timer;
 
-  constructor() { 
+  constructor(private bpObserver: BreakpointObserver) { 
     if (localStorage.getItem('lightMode') === 'true') {
       this.lightMode = true;
     } else {
@@ -53,8 +54,21 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         this.lightMode = false;
       }
     }, 50);
+
+    
     
     this.renderList();
+
+    this.bpObserver.observe(['(max-width: 801px)'])
+      .subscribe((state: BreakpointState) => {
+        var curr = this;
+        for (let i = 0; i < 1; ++i) {
+          setTimeout(function() {
+            curr.switchForm();
+          }, 500);
+        }
+      });
+    
     sessionStorage.setItem('page', '/projects');
   }
 
@@ -65,6 +79,94 @@ export class ProjectsComponent implements OnInit, OnDestroy {
 
     if (this.id) {
       clearInterval(this.id);
+    }
+  }
+
+  switchForm() {
+    if (localStorage.getItem('mobile') === 'true') {
+      (document.querySelector('p.text') as HTMLElement).style.marginLeft = "10%";
+      (document.querySelector('p.text') as HTMLElement).style.marginRight = "10%";
+
+      (document.querySelector('table') as HTMLElement).style.visibility = "collapse";
+
+      const images = document.querySelectorAll('img.image');
+      images.forEach((image) => {
+        (image as HTMLElement).style.height = "auto";
+        (image as HTMLElement).style.width = "100%";
+      });
+
+      const titles = document.querySelectorAll('h2');
+      titles.forEach((title) => {
+        (title as HTMLElement).style.lineHeight = "50px";
+        (title as HTMLElement).style.textAlign = "center";
+      });
+
+      const types = document.querySelectorAll('p#type');
+      types.forEach((type) => {
+        (type as HTMLElement).style.textAlign = "center";
+        (type as HTMLElement).style.fontSize = "14px";
+      });
+
+      const descs = document.querySelectorAll('p#desc');
+      descs.forEach((desc) => {
+        (desc as HTMLElement).style.textAlign = "center";
+        (desc as HTMLElement).style.fontSize = "12px";
+      });
+
+      const tools = document.querySelectorAll('p#tools');
+      tools.forEach((tool) => {
+        (tool as HTMLElement).style.textAlign = "center";
+        (tool as HTMLElement).style.fontSize = "12px";
+      });
+
+      const links = document.querySelectorAll('p#links');
+      links.forEach((link) => {
+        (link as HTMLElement).style.textAlign = "center";
+        (link as HTMLElement).style.fontSize = "14px";
+      });
+    }
+    else {
+      (document.querySelector('p.text') as HTMLElement).style.marginLeft = "auto";
+      (document.querySelector('p.text') as HTMLElement).style.marginRight = "auto";
+
+      (document.querySelector('table') as HTMLElement).style.visibility = "visible";
+
+
+      const images = document.querySelectorAll('img.image');
+      images.forEach((image) => {
+        (image as HTMLElement).style.height = "230px";
+        (image as HTMLElement).style.width = "380px";
+      });
+
+      const titles = document.querySelectorAll('h2');
+      titles.forEach((title) => {
+        (title as HTMLElement).style.lineHeight = "normal";
+        (title as HTMLElement).style.textAlign = "left";
+      });
+
+      const types = document.querySelectorAll('p#type');
+      types.forEach((type) => {
+        (type as HTMLElement).style.textAlign = "left";
+        (type as HTMLElement).style.fontSize = "16px";
+      });
+
+      const descs = document.querySelectorAll('p#desc');
+      descs.forEach((desc) => {
+        (desc as HTMLElement).style.textAlign = "left";
+        (desc as HTMLElement).style.fontSize = "16px";
+      });
+
+      const tools = document.querySelectorAll('p#tools');
+      tools.forEach((tool) => {
+        (tool as HTMLElement).style.textAlign = "left";
+        (tool as HTMLElement).style.fontSize = "16px";
+      });
+
+      const links = document.querySelectorAll('p#links');
+      links.forEach((link) => {
+        (link as HTMLElement).style.textAlign = "left";
+        (link as HTMLElement).style.fontSize = "16px";
+      });
     }
   }
 
