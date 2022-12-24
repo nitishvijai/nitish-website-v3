@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const moveGradient = (e) => {
+    let btn = document.querySelector('.gradient, a');
+    let x = e.clientX - 0;
+    let y = e.clientY - 0;
+    btn.style.setProperty('--x', x + 'px');
+    btn.style.setProperty('--y', y + 'px');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App gradient" onMouseMove={(e) => moveGradient(e)}>
+      <h1>Nitish Website v3.0</h1>
     </div>
   );
 }
