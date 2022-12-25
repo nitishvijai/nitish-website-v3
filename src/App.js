@@ -1,4 +1,5 @@
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const moveGradient = (e) => {
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <div className="App gradient" onMouseMove={(e) => moveGradient(e)}>
+      <Navbar />
       <h1>Nitish Website v3.0</h1>
     </div>
   );
