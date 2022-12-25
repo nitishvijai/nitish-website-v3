@@ -40,7 +40,10 @@ a, button {
 h1, p {
   position: relative;
   z-index: 90;
-  cursor: default;
   color: white;
   padding-left: 2%;
+}
+
+#message {
+  margin-top: 240px;
 }
