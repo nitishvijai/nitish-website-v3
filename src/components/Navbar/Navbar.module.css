@@ -36,3 +36,19 @@
     margin-top: 14px;
     margin-bottom: 14px;
 }
+
+.selected {
+    font-weight: bold;
+    color: cornflowerblue;
+    text-decoration: none;
+}
+
+.normal {
+    color: white;
+    text-decoration: none;
+}
+
+.normal:hover {
+    color: cornflowerblue;
+    cursor: pointer;
+}
