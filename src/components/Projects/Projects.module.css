@@ -7,3 +7,44 @@
     margin-top: 4%;
     z-index: 90;
 }
+
+.projects {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+}
+
+.project {
+    width: 100%;
+    overflow: hidden;
+    height: 300px;
+}
+
+.project:first-child {
+    margin-top: 70px;
+}
+
+.img {
+    float: left;
+    padding-right: 20px;
+    height: 300px;
+}
+
+.info {
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: left;
+}
+
+img {
+    float: left;
+    z-index: 85;
+    position: relative;
+}
+
+h3 {
+    margin-top: 0;
+    z-index: 95;
+    position: relative;
+}

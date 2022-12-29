@@ -15,11 +15,11 @@ ul, li {
 }
 
 
-img {
+#nitish {
     z-index: 86;
     width: 400px;
     border-radius: 16px;
-    position: relative;
+    position: absolute;
 }
 
 .parent {

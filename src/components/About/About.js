@@ -19,7 +19,7 @@ const About = () => {
       <h1 id={styles.header}>A little about me</h1>
       <div className={styles.parent}>
         <div className={styles.pic}>
-          <img src="/Nitish_Diwali.jpg" />
+          <img id={styles.nitish} src="/Nitish_Diwali.jpg" />
         </div>
         <div className={styles.aboutMe}>
           <p>Hi there! I'm Nitish and I'm a senior (in my last semester!) double majoring in computer science and data science at the University of Michigan. After graduating in April, I plan on joining Capital One as an Associate Software Engineer next August.</p>
