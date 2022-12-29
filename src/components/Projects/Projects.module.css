@@ -1,0 +1,9 @@
+.Projects {
+    text-align: center;
+}
+
+#header {
+    text-align: center;
+    margin-top: 4%;
+    z-index: 90;
+}

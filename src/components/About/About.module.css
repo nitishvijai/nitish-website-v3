@@ -11,11 +11,13 @@
 ul, li {
     z-index: 85;
     position: relative;
+    left: 0.5%;
 }
+
 
 img {
     z-index: 86;
-    width: 368px;
+    width: 400px;
     border-radius: 16px;
     position: relative;
 }
@@ -34,4 +36,9 @@ img {
 
 .aboutMe {
     margin-left: 250px;
+    margin-right: 250px;
+}
+
+.aboutMe p {
+    margin-bottom: 30px;
 }

@@ -1,4 +1,4 @@
-import {React, setState} from 'react';
+import { React } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
@@ -8,7 +8,7 @@ const Navbar = (props) => {
     <div className={styles.Navbar}>
       <div className={styles.links}>
         <p><Link to="/about" className={`${props.selected == 1 ? styles.selected : styles.normal}`}>About</Link></p>
-        <p>Projects</p>
+        <p><Link to="/projects" className={`${props.selected == 2 ? styles.selected : styles.normal}`}>Projects</Link></p>
         <p>Resume</p>
         <p id={styles.Nitish}><Link to="/" className={styles.normal}>Nitish Vijai</Link></p>
         <p>Writing</p>

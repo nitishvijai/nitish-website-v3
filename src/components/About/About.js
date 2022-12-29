@@ -21,7 +21,7 @@ const About = () => {
         <div className={styles.pic}>
           <img src="/Nitish_Diwali.jpg" />
         </div>
-        <div className='aboutMe'>
+        <div className={styles.aboutMe}>
           <p>Hi there! I'm Nitish and I'm a senior (in my last semester!) double majoring in computer science and data science at the University of Michigan. After graduating in April, I plan on joining Capital One as an Associate Software Engineer next August.</p>
           <p>My primary interests are in full-stack web and app development, database management, UI/UX design, and machine learning. As a firm believer in the growth mindset, I've always preferred to gain a breadth of experience in various technologies.</p>
           <p>With that out of the way, here are a few fun facts about me:</p>
