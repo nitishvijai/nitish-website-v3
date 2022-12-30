@@ -18,7 +18,7 @@
 .project {
     width: 100%;
     overflow: hidden;
-    height: 300px;
+    height: 400px;
 }
 
 .project:first-child {
@@ -28,7 +28,7 @@
 .img {
     float: left;
     padding-right: 20px;
-    height: 300px;
+    height: 400px;
 }
 
 .info {
@@ -48,3 +48,32 @@ h3 {
     z-index: 95;
     position: relative;
 }
+
+.gradient {
+    background: #1f1f1f;
+    font-size: 1.2rem;
+    border: none;
+    color: white;
+    outline: none;
+    width: 100%;
+    height: 260vh;
+    position: relative;
+    overflow-y: auto;
+  }
+
+  .gradient:before {
+    --size: 1500px;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #414141, transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+  }
+  
+  .gradient:hover:before {
+    --size: 1500px;
+  }

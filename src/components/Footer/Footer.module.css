@@ -5,3 +5,11 @@
     height: 50px;
     text-align: center;
 }
+
+.relFooter {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    height: 50px;
+    text-align: center;
+}
