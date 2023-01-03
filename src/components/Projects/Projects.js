@@ -129,10 +129,10 @@ const Projects = () => {
           </div>
           <div className={styles.info}>
             <h3>{project.name}</h3>
-            <p>{project.date}</p>
+            <p className={styles.date}>{project.date}</p>
             <p><strong>Info:</strong>{" " + project.info}</p>
             <p><strong>Stack:</strong>{" " + project.stack}</p>
-            {project.github && <p>GitHub Link</p>}
+            {project.github && <p className={styles.btngrad}>GitHub Link</p>}
           </div>
         </div>
         )}

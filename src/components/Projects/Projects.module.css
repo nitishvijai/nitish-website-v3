@@ -77,3 +77,33 @@ h3 {
   .gradient:hover:before {
     --size: 1500px;
   }
+
+.date {
+    margin-top: -12px;
+}
+
+           
+.btngrad {
+    background-image: linear-gradient(to right, #000428 0%, #000099  51%, #000428  100%);
+    margin: 10px;
+    padding: 5px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    width: 115px;
+    position: relative;
+    margin-left: 300px
+  }
+
+  .btngrad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+ 

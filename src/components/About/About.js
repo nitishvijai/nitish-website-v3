@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './About.module.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
@@ -22,7 +21,7 @@ const About = () => {
           <img id={styles.nitish} src="/Nitish_Diwali.jpg" />
         </div>
         <div className={styles.aboutMe}>
-          <p>Hi there! I'm Nitish and I'm a senior (in my last semester!) double majoring in computer science and data science at the University of Michigan. After graduating in April, I plan on joining Capital One as an Associate Software Engineer next August.</p>
+          <p>Hi there! I'm Nitish and I'm a senior (in my last semester!) double majoring in computer science and data science at the University of Michigan. I grew up in Centerville, OH, and after graduating in April, I plan on joining Capital One as an Associate Software Engineer next August.</p>
           <p>My primary interests are in full-stack web and app development, database management, UI/UX design, and machine learning. As a firm believer in the growth mindset, I've always preferred to gain a breadth of experience in various technologies.</p>
           <p>With that out of the way, here are a few fun facts about me:</p>
           <ul>
