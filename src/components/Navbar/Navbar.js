@@ -16,7 +16,7 @@ const Navbar = (props) => {
         <div className={styles.links}>
           <p><Link to="/about" className={`${props.selected == 1 ? styles.selected : styles.normal}`}>About</Link></p>
           <p><Link to="/projects" className={`${props.selected == 2 ? styles.selected : styles.normal}`}>Projects</Link></p>
-          <p>Resume</p>
+          <p><Link to="/resume" className={`${props.selected == 3 ? styles.selected : styles.normal}`}>Resume</Link></p>
           <p id={styles.Nitish}><Link to="/" className={styles.normal}>Nitish Vijai</Link></p>
           <p>Writing</p>
           <p>Traveling</p>

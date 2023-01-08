@@ -44,6 +44,11 @@ h1, p {
   padding-left: 2%;
 }
 
+h2, h3, h4 {
+  z-index: 91;
+  position: relative;
+}
+
 #message {
   margin-top: 240px;
 }

@@ -1,0 +1,101 @@
+.Resume {}
+
+.header {
+    text-align: center;
+    width: 100%;
+}
+
+.gradient {
+    background: #1f1f1f;
+    font-size: 1.2rem;
+    border: none;
+    color: white;
+    outline: none;
+    width: 100%;
+    height: 250vh;
+    position: relative;
+    overflow-y: auto;
+}
+
+.gradient:before {
+    --size: 1500px;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #414141, transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.gradient:hover:before {
+    --size: 1500px;
+}
+
+
+#resume_container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    width: 85%;
+}
+
+#col1, #col2 {
+    width: 40%;
+}
+
+.title {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.heading {
+    text-align: center;
+}
+
+h4 {
+    text-align: left;
+    font-weight: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+ul {
+    text-align: left;
+}
+
+#courses {
+    text-align: left;
+}
+
+#fulllist {
+    width: 160px;
+    margin: 0 auto;
+}
+
+.btngrad {
+    background-image: linear-gradient(to right, #000428 0%, #000099  51%, #000428  100%);
+    margin: 10px;
+    padding: 5px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    width: 115px;
+    position: relative;
+    margin-left: 300px
+  }
+
+  .btngrad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
