@@ -29,10 +29,10 @@ const About = () => {
             <li>I have a bad habit of going on random Wikipedia binges online...</li>
             <li>I'm an Eagle Scout from Ohio!</li>
             <li>I enjoy dancing to Indian/Tamil music and have frequently taken part in Michigan IASA's Annual Cultural Show -- check out my most recent performance here!</li>
-            <li>I love traveling -- check out my Traveling page for more info!</li>
+            <li>I love traveling -- check out my Traveling page to hear more about my adventures!</li>
             <li>I got my motorcycle license last summer!</li>
             <li>I'm a fitness freak -- catch me in the NCRB every day either running or lifting weights!</li>
-            <li>Finally, I'm also a semi-decent cook -- trying to learn new recipes but for now I guess I'm an expert at cooking eggs...</li>
+            <li>Finally, I'm also a below-average cook -- trying to learn new recipes but for now I guess I'm an expert at cooking eggs...</li>
           </ul>
         </div>
       </div>

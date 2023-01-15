@@ -65,8 +65,12 @@
 .dropdowncontent {
     position: fixed;
     background-color: black;
-    left: 39.5%;
+    left: 50%;
     z-index: 110;
+    opacity: 0;
+    transition: opacity 0.5s;
+    margin-left: -38.5%;
+    width: 75%;
 }
 
 .start {

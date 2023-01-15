@@ -1,14 +1,19 @@
-import { React, useState } from 'react';
+import { React, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import MediaQuery from 'react-responsive';
 
 const Navbar = (props) => {
-  const [open, setOpen] = useState(false);
+  const dropdown = useRef(null);
 
-  const openMenu = () => {
-    setOpen(!open);
-  };
+  let openMenu = () => {
+    if (dropdown.current.style.opacity == '0') {
+      dropdown.current.style.opacity = '1';
+    }
+    else {
+      dropdown.current.style.opacity = '0';
+    }
+  }
 
   return (
     <div className={styles.Navbar}>
@@ -30,7 +35,7 @@ const Navbar = (props) => {
         <div className={styles.start}>
           <button className={styles.dropbtn} onClick={openMenu}>Nitish Vijai</button>
         </div>
-        {open && <div id="dropdown" className={styles.dropdowncontent}>
+        <div id="dropdown" className={styles.dropdowncontent} ref={dropdown} style={{opacity: 0, visibility: 'visible'}}>
           <p>About</p>
           <p>Projects</p>
           <p>Resume</p>
@@ -38,7 +43,7 @@ const Navbar = (props) => {
           <p>Traveling</p>
           <p>Contact</p>
           <p>Light/Dark Mode</p>
-        </div>}
+        </div>
       </MediaQuery>
     </div>
   );
