@@ -17,9 +17,9 @@ ul, li {
 
 #nitish {
     z-index: 86;
-    width: 400px;
+    width: 20%;
     border-radius: 16px;
-    position: absolute;
+    margin-left: 14%;
 }
 
 .parent {
@@ -28,15 +28,28 @@ ul, li {
 }
 
 .pic {
-    float: left;
-    height: 700px;
-    width: 900px;
-    text-align: center;
+}
+
+.paragraph {
+    width: 50%;
+    margin-right: 12%;
+    float: right;
+    position: relative;
+    display: block;
+    margin-top: 0;
+}
+
+#list {
+    margin-top: 0;
+    width: 50%;
+    margin-right: 12%;
+    float: right;
+    position: relative;
+    display: block;
 }
 
 .aboutMe {
-    margin-left: 250px;
-    margin-right: 250px;
+    position: relative;
 }
 
 .aboutMe p {

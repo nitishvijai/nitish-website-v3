@@ -18,7 +18,9 @@
 .project {
     width: 100%;
     overflow: hidden;
-    height: 400px;
+    height: auto;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
 }
 
 .project:first-child {
@@ -33,7 +35,7 @@
 
 .info {
     margin-left: 100px;
-    margin-right: 100px;
+    margin-right: 25px;
     text-align: left;
 }
 

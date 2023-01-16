@@ -152,7 +152,7 @@ const Resume = () => {
     },
     {
       'name': 'Tech, Frameworks & Tools',
-      'list': 'Windows, Linux, WSL, Git, Selenium, Flask, React, Firebase, NumPy, Tableau, Salesforce, Windows/UWP, AWS (S3)'
+      'list': 'Windows/UWP, Linux, WSL, Git, Selenium, Flask, React, Firebase, NumPy, Tableau, Salesforce, AWS (S3)'
     },
     {
       'name': 'Spoken Languages',
@@ -235,7 +235,7 @@ const Resume = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer projects='true'/>
   </div>
 );
 }
