@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Resume from './components/Resume/Resume';
+import Writing from './components/Writing/Writing';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/about" element={<About />}/>
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="/essays" element={<Writing />} />
       </Routes>
     </BrowserRouter>
   );
