@@ -1,5 +1,36 @@
 .Writing {}
 
+.gradient {
+    background: #1f1f1f;
+    font-size: 1.2rem;
+    border: none;
+    color: white;
+    outline: none;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-bottom: 15px;
+}
+
+.gradient:before {
+    --size: 1500px;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #414141, transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.gradient:hover:before {
+    --size: 1500px;
+}
+
 #header {
     text-align: center;
     margin-top: 4%;
@@ -9,4 +40,12 @@
 #subheader {
     text-align: center;
     z-index: 91;
+}
+
+#essayList {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    width: 25%;
+    padding-bottom: 250px;
 }

@@ -14,7 +14,8 @@
     width: 100%;
     height: auto;
     position: relative;
-    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
     padding-bottom: 15px;
 }
 

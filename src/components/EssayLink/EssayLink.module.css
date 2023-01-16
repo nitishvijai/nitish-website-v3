@@ -1,0 +1,11 @@
+.EssayLink {
+    background-color: #2C2C2C;
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+    border-radius: 16px;
+}
+
+h2 {
+    font-weight: normal;
+}
