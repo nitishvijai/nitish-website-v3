@@ -5,6 +5,7 @@ import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Resume from './components/Resume/Resume';
 import Writing from './components/Writing/Writing';
+import Travel from './components/Travel/Travel';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/essays" element={<Writing />} />
+        <Route path="/travels" element={<Travel />} />
       </Routes>
     </BrowserRouter>
   );

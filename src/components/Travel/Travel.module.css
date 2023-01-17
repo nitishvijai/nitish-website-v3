@@ -1,0 +1,11 @@
+#header {
+    text-align: center;
+    margin-top: 4%;
+    z-index: 90;
+}
+
+#subheader {
+    text-align: center;
+    z-index: 91;
+    margin-bottom: 4%;
+}
