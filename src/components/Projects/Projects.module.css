@@ -38,6 +38,12 @@
     z-index: 90;
 }
 
+#subheader {
+    text-align: center;
+    z-index: 91;
+    margin-bottom: 4%;
+}
+
 .projects {
     text-align: center;
     margin: 0 auto;

@@ -183,7 +183,7 @@ const Resume = () => {
                 </ul>
               </div>)}
           </div>
-          <div id="awards">
+          <div id={styles.awards}>
             <h2 className={styles.heading}>Awards</h2>
             {awards.map((award, i) => 
               <div>
@@ -212,7 +212,7 @@ const Resume = () => {
                 
               </div>)}
           </div>
-          <div id="orgs">
+          <div id={styles.orgs}>
             <h2 className={styles.heading}>Organizations</h2>
             {orgs.map((org, i) =>
               <div>
@@ -225,7 +225,7 @@ const Resume = () => {
                 </ul>
               </div>)}
           </div>
-          <div id="skills">
+          <div id={styles.skills}>
             <h2 className={styles.heading}>Skills</h2>
             {skills.map((skill, i) =>
               <div>

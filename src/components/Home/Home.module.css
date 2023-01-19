@@ -44,7 +44,7 @@
     padding-left: 2%;
   }
   
-  #message {
+  .message {
     text-align: center;
     position: relative;
     top: 25%;

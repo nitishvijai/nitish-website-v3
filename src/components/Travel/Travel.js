@@ -38,6 +38,7 @@ const Travel = () => {
       <h1 className={styles.fact}>27 US states visited</h1>
       <h1 className={styles.fact}>14 countries visited</h1>
       <h1 className={styles.fact}>5 Indian states visited</h1>
+      <h1 className={styles.fact}>1 planet visited</h1>
       <h1 className={styles.fact}>and counting...</h1>
       <div className={styles.destList}>
         {destinations.map((dest, i) =>

@@ -121,6 +121,7 @@ const Projects = () => {
     <div className={`${styles.gradient}`} onMouseMove={(e) => moveGradient(e)}>
       <Navbar selected='2' />
       <h1 id={styles.header}>Projects</h1>
+      <p id={styles.subheader}>Check out some of the coolest projects I've worked on over the past few years!</p>
       <div className={styles.projects}>
         {projects.map((project, i) => 
         <div className={styles.project}>

@@ -1,19 +1,30 @@
-import React from 'react';
+import { React, useRef } from 'react';
 import styles from './About.module.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import MediaQuery from 'react-responsive';
 
 const About = () => {
+  const gradient = useRef(null);
+
   let moveGradient = (e) => {
-    let btn = document.querySelector('.gradient, a');
-    let x = e.clientX - 0;
-    let y = e.clientY - 0;
-    btn.style.setProperty('--x', x + 'px');
-    btn.style.setProperty('--y', y + 'px');
+    let x = e.pageX - 0;
+    let y = e.pageY - 0;
+    gradient.current.style.setProperty('--x', x + 'px');
+    gradient.current.style.setProperty('--y', y + 'px');
+
+    if (window.innerHeight <= 1000) {
+      gradient.current.style.setProperty('overflow-y', 'hidden');
+      gradient.current.style.setProperty('height', 'auto');
+    }
+    else {
+      gradient.current.style.setProperty('overflow-y', 'hidden');
+      gradient.current.style.setProperty('height', '100%');
+    }
   }
 
   return (
-    <div className="About gradient" onMouseMove={(e) => moveGradient(e)}>
+    <div className={`${styles.gradient}`} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='1' />
       <h1 id={styles.header}>A little about me</h1>
       <div className={styles.parent}>
@@ -36,7 +47,13 @@ const About = () => {
           </ul>
         </div>
       </div>
-      <Footer />
+      <MediaQuery maxHeight={1000}>
+        <Footer projects='true'/>
+      </MediaQuery>
+      <MediaQuery minHeight={1001}>
+        <Footer />
+      </MediaQuery>
+      
     </div>
   );
 };

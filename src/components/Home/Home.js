@@ -15,7 +15,8 @@ const Home = () => {
   return (
     <div className="Home gradient" onMouseMove={(e) => moveGradient(e)}>
       <Navbar />
-      <p id={styles.message}>Hello and welcome to my site! To get started, click on some of the links above to learn more about me.</p>
+      <p className={styles.message}>Hello and welcome to my site! You're in the right place if you're looking for everything I've done in the cool world of tech -- thanks for visiting!</p>
+      <p className={styles.message}>To get started, please click on the links above to learn more about me.</p>
       <Footer />
     </div>
   );
