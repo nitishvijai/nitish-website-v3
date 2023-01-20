@@ -116,7 +116,7 @@ const Resume = () => {
   const orgs = [
     {
       'name': 'Michigan Hackers',
-      'title': 'Core Member (Interviewing)',
+      'title': 'Core Member (Interviewing and System Design)',
       'timestamp': 'September 2019 - Present',
       'info': []
     },

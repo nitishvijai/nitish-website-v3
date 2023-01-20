@@ -6,6 +6,7 @@ import Projects from './components/Projects/Projects';
 import Resume from './components/Resume/Resume';
 import Writing from './components/Writing/Writing';
 import Travel from './components/Travel/Travel';
+import Contact from './components/Contact/Contact';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/resume" element={<Resume />} />
         <Route path="/essays" element={<Writing />} />
         <Route path="/travels" element={<Travel />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );
