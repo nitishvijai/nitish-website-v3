@@ -1,1 +1,115 @@
-.Contact {}
+.gradient {
+    background: #1f1f1f;
+    font-size: 1.2rem;
+    border: none;
+    color: white;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.gradient:before {
+    --size: 1500px;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #414141, transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.gradient:hover:before {
+    --size: 1500px;
+}
+
+#header {
+    text-align: center;
+    margin-top: 4%;
+    z-index: 90;
+}
+
+#subheader {
+    text-align: center;
+    z-index: 91;
+    margin-bottom: 4%;
+}
+
+#methods {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 4%;
+}
+
+.btngrad {
+    display: inline-block;
+    background-image: linear-gradient(to right, #000428 0%, #0a66c2  51%, #000428  100%);
+    margin: 10px;
+    padding: 5px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    width: 115px;
+    position: relative;
+}
+
+.btngrad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#linkedin {
+    display: inline-block;
+}
+
+#email {
+    display: inline-block;
+    background-image: linear-gradient(to right, #F7971E 0%, #FFD200  51%, #F7971E  100%);
+    color: black;
+}
+
+#github {
+    display: inline-block;
+    background-image: linear-gradient(to right, #834d9b 0%, #d04ed6  51%, #834d9b  100%);
+}
+
+.message {
+    text-align: center;
+}
+
+#contactme {
+    margin-bottom: 4%;
+}
+
+#contactForm {
+    text-align: center;
+}
+
+#fullName, #emailadd, #subject {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 40%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-top: 15px;
+    z-index: 92;
+    position: relative;
+}
+
+textarea {
+    min-height: 200px;
+    min-width: 40%;
+}

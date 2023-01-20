@@ -25,7 +25,7 @@ const Navbar = (props) => {
           <p id={styles.Nitish}><Link to="/" className={styles.normal}>Nitish Vijai</Link></p>
           <p><Link to="/essays" className={`${props.selected == 4 ? styles.selected : styles.normal}`}>Writing</Link></p>
           <p><Link to="/travels" className={`${props.selected == 5 ? styles.selected : styles.normal}`}>Traveling</Link></p>
-          <p>Contact</p>
+          <p><Link to="/contact" className={`${props.selected == 6 ? styles.selected : styles.normal}`}>Contact</Link></p>
         </div>
         <div className={styles.toggle}>
           <p>Light Mode</p>
