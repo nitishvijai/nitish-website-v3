@@ -47,7 +47,34 @@
   .message {
     text-align: center;
     position: relative;
-    top: 25%;
-    transform: translate(-50%, -50%);
-    left: 50%;
+  }
+
+  #main {
+    margin-top: 7%;
+  }
+
+  #tldr {
+    padding-top: 7%;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .headshot {
+    border-radius: 50%;
+    height: 250px;
+    text-align: center;
+    position: relative;
+  }
+
+  #left {
+    display: inline-block;
+  }
+
+  #right {
+    display: inline-block;
+  }
+
+  .fact {
+    text-align: left;
   }

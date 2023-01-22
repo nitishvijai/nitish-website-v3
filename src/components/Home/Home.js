@@ -15,8 +15,22 @@ const Home = () => {
   return (
     <div className="Home gradient" onMouseMove={(e) => moveGradient(e)}>
       <Navbar />
-      <p className={styles.message}>Hello and welcome to my site! You're in the right place if you're looking for everything I've done in the cool world of tech -- thanks for visiting!</p>
-      <p className={styles.message}>To get started, please click on the links above to learn more about me.</p>
+      <div id={styles.main}>
+        <p className={styles.message}>Hello and welcome to my site! You're in the right place if you're looking for everything I've done in the cool world of tech -- thanks for visiting!</p>
+        <p className={styles.message}>To get started, please click on the links above to learn more about me.</p>
+      </div>
+      <div id={styles.tldr}>
+        <h2>tl;dr:</h2>
+        <div id={styles.left}>
+          <img src="/Nitish_2022.jpg" className={styles.headshot} />
+        </div>
+        <div id={styles.right}>
+          <h2 className={styles.fact}>&nbsp;&nbsp;Nitish Vijai</h2>
+          <p  className={styles.fact}>📚 B.S.E. Computer Science and Data Science @ University of Michigan</p>
+          <p  className={styles.fact}>🖥️ Incoming Associate Software Engineer @ Capital One</p>
+        </div>
+        
+      </div>
       <Footer />
     </div>
   );
