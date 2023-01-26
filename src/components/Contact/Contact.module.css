@@ -57,7 +57,7 @@
     transition: 0.5s;
     background-size: 200% auto;
     color: white;            
-    box-shadow: 0 0 20px #eee;
+    box-shadow: 0 0 10px #eee;
     border-radius: 10px;
     width: 115px;
     position: relative;
@@ -112,4 +112,9 @@
 textarea {
     min-height: 200px;
     min-width: 40%;
+}
+
+.formBtns {
+    position: relative;
+    z-index: 100;
 }

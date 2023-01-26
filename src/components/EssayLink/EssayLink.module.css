@@ -2,10 +2,27 @@
     background-color: #2C2C2C;
     width: 100%;
     height: auto;
-    padding-bottom: 40px;
-    border-radius: 16px;
+    margin-bottom: 40px;
+    border-radius: 6px;
+    z-index: 100;
+    position: relative;
+    box-shadow: 0 0 10px #eee;
 }
 
 .essay_title {
     font-weight: normal;
+}
+
+#sep {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.date {
+    margin-top: 0;
+}
+
+.read {
+    margin-bottom: 100px;
 }

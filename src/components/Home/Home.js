@@ -25,9 +25,10 @@ const Home = () => {
           <img src="/Nitish_2022.jpg" className={styles.headshot} />
         </div>
         <div id={styles.right}>
-          <h2 className={styles.fact}>&nbsp;&nbsp;Nitish Vijai</h2>
+          <h2 className={styles.fact} id={styles.tldrHeading}>&nbsp;&nbsp;Nitish Vijai</h2>
           <p  className={styles.fact}>📚 B.S.E. Computer Science and Data Science @ University of Michigan</p>
           <p  className={styles.fact}>🖥️ Incoming Associate Software Engineer @ Capital One</p>
+          <p  className={styles.fact}>⚒️ Currently working on this website</p>
         </div>
         
       </div>

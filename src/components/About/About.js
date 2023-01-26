@@ -33,6 +33,7 @@ const About = () => {
         </div>
         <div className={styles.aboutMe}>
           <p className={styles.paragraph}>Hi there! I'm Nitish and I'm a senior (in my last semester!) double majoring in computer science and data science at the University of Michigan. After graduating in April, I plan on joining Capital One as an Associate Software Engineer in August.</p>
+          <p className={styles.paragraph}>I enjoy the field of computer science because it allows me to utilize my problem-solving skills and love for technology to help people around me do more and have a better day.</p>
           <p className={styles.paragraph}>My primary interests are in full-stack web and app development, database management, UI/UX design, and machine learning. As a firm believer in the growth mindset, I've always preferred to gain a breadth of experience in various technologies.</p>
           <p className={styles.paragraph}>With that out of the way, here are a few fun facts about me:</p>
           <ul id={styles.list}>

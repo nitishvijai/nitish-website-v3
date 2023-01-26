@@ -43,8 +43,8 @@ const Contact = () => {
           <textarea id={styles.subject} name="subject"
               placeholder="What's up?"></textarea>
           <br /><br />
-          <input id="submitButton" name="submit" type="submit" value="Submit" />
-          <input id="resetButton" type="reset" value="Reset" />
+          <input id="submitButton" className={styles.formBtns} name="submit" type="submit" value="Submit" />
+          <input id="resetButton" className={styles.formBtns} type="reset" value="Reset" />
         </form>
       </div>
       <MediaQuery maxHeight={1000}>

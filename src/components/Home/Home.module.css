@@ -60,15 +60,15 @@
     margin: 0 auto;
   }
 
+  #tldrHeading {
+    font-weight: 500;
+  }
+
   .headshot {
     border-radius: 50%;
     height: 250px;
     text-align: center;
     position: relative;
-  }
-
-  #left {
-    display: inline-block;
   }
 
   #right {
