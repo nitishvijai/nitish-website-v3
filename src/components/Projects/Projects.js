@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import styles from './Projects.module.css';
@@ -133,7 +134,8 @@ const Projects = () => {
             <p className={styles.date}>{project.date}</p>
             <p><strong>Info:</strong>{" " + project.info}</p>
             <p><strong>Stack:</strong>{" " + project.stack}</p>
-            {project.github && <p className={styles.btngrad}>GitHub Link</p>}
+            {project.github !== 'N/A' && <a href={project.github} target="_blank" className={styles.btngrad}>GitHub Repo</a>}
+            {project.github === 'N/A' && <Link to="/contact" className={styles.classProj}>Contact Me for code</Link>}
           </div>
         </div>
         )}
