@@ -13,9 +13,22 @@
     height: 100%;
     position: relative;
   }
+
+  .gradient_mobile {
+    background: #1f1f1f;
+    font-size: 1.2rem;
+    border: none;
+    color: white;
+    outline: none;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow-y: auto;
+  }
   
-  .gradient:before {
-    --size: 1500px;
+  .gradient:before, .gradient_mobile:before {
+    --size: 1000px;
     content: '';
     position: absolute;
     left: var(--x);
@@ -53,11 +66,24 @@
     margin-top: 7%;
   }
 
+  #main_mobile {
+    width: 80%;
+    margin: 0 auto;
+  }
+
   #tldr {
     padding-top: 7%;
     text-align: center;
     width: 50%;
     margin: 0 auto;
+  }
+
+  #tldr_mobile {
+    padding-top: 1%;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 100px;
   }
 
   #tldrHeading {
@@ -71,10 +97,24 @@
     position: relative;
   }
 
+  .headshot_mobile {
+    border-radius: 50%;
+    height: 200px;
+  }
+
+  #left_mobile {
+    display: inline-block;
+  }
+
   #right {
     display: inline-block;
   }
 
   .fact {
     text-align: left;
+  }
+
+  .fact_mobile {
+    padding-left: 0%;
+    text-align: center;
   }
