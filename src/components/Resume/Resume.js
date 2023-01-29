@@ -165,7 +165,7 @@ const Resume = () => {
     <Navbar selected='3' />
     <div className={styles.header}>
       <h1 style={{ display: 'inline-block' }}>Resume</h1>
-      <p style={{ display: 'inline-block' }} className={styles.btngrad}>Print (PDF)</p>
+      <a style={{ display: 'inline-block' }} target="_blank" href="/Nitish_Vijai_Resume_W23.pdf" className={styles.btngrad}>Print (PDF)</a>
     </div>
     <div id={styles.resume_container}>
         <div id={styles.col1}>

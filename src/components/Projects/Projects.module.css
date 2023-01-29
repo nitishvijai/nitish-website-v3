@@ -134,3 +134,9 @@ h3 {
     position: relative;
     margin-left: 300px
   }
+
+  .proj_pic {
+    height: 230px;
+    width: 380px;
+    z-index: 105;
+  }
