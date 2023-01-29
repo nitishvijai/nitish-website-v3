@@ -27,7 +27,20 @@ ul, li {
     overflow-y: hidden;
 }
 
-.gradient:before {
+.gradient_mobile {
+    background: #1f1f1f;
+    font-size: 1.2rem;
+    border: none;
+    color: white;
+    outline: none;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow-y: auto;
+}
+
+.gradient:before, .gradient_mobile:before {
     --size: 1500px;
     content: '';
     position: absolute;
@@ -52,11 +65,29 @@ ul, li {
     margin-left: 14%;
 }
 
+#nitish_mobile {
+    float: none;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+.pic_mobile {
+    text-align: center;
+}
+
 .parent {
     width: 100%;
     overflow: hidden;
     margin-top: 4%;
     margin-bottom: 6%;
+}
+
+.parent_mobile {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 4%;
+    margin-bottom: 20%;
 }
 
 .paragraph {
@@ -68,6 +99,13 @@ ul, li {
     margin-top: 0;
 }
 
+.paragraph_mobile {
+    float: none;
+    margin: 4% auto;
+    width: 70%;
+    text-align: center;
+}
+
 #list {
     margin-top: 0;
     width: 50%;
@@ -77,8 +115,19 @@ ul, li {
     display: block;
 }
 
+#list_mobile {
+    float: none;
+    margin: 4% auto;
+    width: 70%;
+}
+
 .aboutMe {
     position: relative;
+}
+
+.aboutMe_mobile {
+    margin-top: 4%;
+    width: 100%;
 }
 
 .aboutMe p {
