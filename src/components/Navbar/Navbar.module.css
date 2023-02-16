@@ -3,7 +3,7 @@
     overflow: hidden;
 }
 
-.links {
+.linksdark {
     background-color: #393838;
     overflow: hidden;
     float: none;
@@ -16,18 +16,39 @@
     border: 3px #2f2f32 solid;
 }
 
-.links p {
+.linkslight {
+    background-color: #ffffff;
+    overflow: hidden;
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    width: 860px;
+    border-radius: 50px;
+    border: 2px #eeeeee solid;
+}
+
+.linksdark p, .linkslight p {
     float: left;
     margin-left: 25px;
 }
 
-.links p:hover {
+.toggleSelect {
+    float: left;
+    margin-left: 25px;
+}
+
+.linksdark p:hover, .linkslight p:hover {
     color: cornflowerblue;
     cursor: pointer;
 }
 
 .toggle {
     float: right;
+    margin-top: 28px;
+    margin-bottom: 28px;
+    margin-right: 20px;
 }
 
 #Nitish {
@@ -43,12 +64,17 @@
     text-decoration: none;
 }
 
-.normal {
+.normaldark {
     color: white;
     text-decoration: none;
 }
 
-.normal:hover {
+.normallight {
+    color: black;
+    text-decoration: none;
+}
+
+.normaldark:hover, .normallight:hover {
     color: cornflowerblue;
     cursor: pointer;
 }

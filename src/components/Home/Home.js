@@ -1,4 +1,4 @@
-import { React, useRef } from 'react';
+import { React, useRef, useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
@@ -7,6 +7,28 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 const Home = () => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
+  const darkMode = true;
+  const [mode, setMode] = useState();
+
+  useEffect(() => {
+    if (mode === 'system') {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        console.log("Dark Mode");
+        setMode('dark');
+      }
+      else {
+        setMode('light');
+        console.log("Light Mode");
+      }
+    
+      window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', event => {
+          const colorScheme = event.matches ? "dark" : "light";
+          console.log(colorScheme); // "dark" or "light"
+          setMode(colorScheme);
+        });
+    }
+  });
 
   let moveGradient = (e) => {
     let x = e.clientX - 0;
@@ -20,9 +42,18 @@ const Home = () => {
     }
   }
 
+  let toggleColorMode = () => {
+    if (mode === 'dark') {
+      setMode('light');
+    }
+    else {
+      setMode('dark');
+    }
+  }
+
   return (
-    <div className={mobilePortrait ? styles.gradient_mobile : styles.gradient} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar />
+    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+      <Navbar toggleColorMode={toggleColorMode} />
       <div id={mobilePortrait ? styles.main_mobile : styles.main}>
         <p className={styles.message}>Hello and welcome to my site! You're in the right place if you're looking for everything I've done in the cool world of tech -- thanks for visiting!</p>
         <p className={styles.message}>To get started, please click on the links above to learn more about me.</p>

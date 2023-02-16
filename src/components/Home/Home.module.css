@@ -1,120 +1,161 @@
 .Home {
-    text-align: center;
+  text-align: center;
 }
 
-.gradient {
-    background: #1f1f1f;
-    font-size: 1.2rem;
-    border: none;
-    color: white;
-    outline: none;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
+.darkgradient {
+  background: #1f1f1f;
+  font-size: 1.2rem;
+  border: none;
+  color: white;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 
-  .gradient_mobile {
-    background: #1f1f1f;
-    font-size: 1.2rem;
-    border: none;
-    color: white;
-    outline: none;
-    overflow: hidden;
-    width: 100%;
-    height: auto;
-    position: relative;
-    overflow-y: auto;
-  }
-  
-  .gradient:before, .gradient_mobile:before {
-    --size: 1000px;
-    content: '';
-    position: absolute;
-    left: var(--x);
-    top: var(--y);
-    width: var(--size);
-    height: var(--size);
-    background: radial-gradient(circle closest-side, #414141, transparent);
-    transform: translate(-50%, -50%);
-    transition: width 0.5s ease, height 0.5s ease;
-  }
-  
-  .gradient:hover:before {
-    --size: 1500px;
-  }
-  
-  a, button {
-    position: relative;
-    cursor: pointer;
-    z-index: 100;
-  }
-  
-  h1, p {
-    position: relative;
-    z-index: 90;
-    color: white;
-    padding-left: 2%;
-  }
-  
-  .message {
-    text-align: center;
-    position: relative;
-  }
+.lightgradient {
+  background: #f4f4f4;
+  font-size: 1.2rem;
+  border: none;
+  color: black;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 
-  #main {
-    margin-top: 7%;
-  }
+.darkgradient_mobile {
+  background: #1f1f1f;
+  font-size: 1.2rem;
+  border: none;
+  color: white;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow-y: auto;
+}
 
-  #main_mobile {
-    width: 80%;
-    margin: 0 auto;
-  }
+.lightgradient_mobile {
+  background: #f4f4f4;
+  font-size: 1.2rem;
+  border: none;
+  color: black;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow-y: auto;
+}
 
-  #tldr {
-    padding-top: 7%;
-    text-align: center;
-    width: 60%;
-    margin: 0 auto;
-  }
+.darkgradient:before,
+.darkgradient_mobile:before {
+  --size: 1000px;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, #414141, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
 
-  #tldr_mobile {
-    padding-top: 1%;
-    text-align: center;
-    width: 80%;
-    margin: 0 auto;
-    margin-bottom: 100px;
-  }
+.lightgradient:before,
+.lightgradient_mobile:before {
+  --size: 1000px;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, #dbd8d8, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
 
-  #tldrHeading {
-    font-weight: 500;
-  }
+.darkgradient:hover:before, .lightgradient:hover:before {
+  --size: 1500px;
+}
 
-  .headshot {
-    border-radius: 50%;
-    height: 250px;
-    text-align: center;
-    position: relative;
-  }
+a,
+button {
+  position: relative;
+  cursor: pointer;
+  z-index: 100;
+}
 
-  .headshot_mobile {
-    border-radius: 50%;
-    height: 200px;
-  }
+h1,
+p {
+  position: relative;
+  z-index: 90;
+  padding-left: 2%;
+}
 
-  #left_mobile {
-    display: inline-block;
-  }
+.message {
+  text-align: center;
+  position: relative;
+}
 
-  #right {
-    display: inline-block;
-  }
+#main {
+  margin-top: 7%;
+}
 
-  .fact {
-    text-align: left;
-  }
+#main_mobile {
+  width: 80%;
+  margin: 0 auto;
+}
 
-  .fact_mobile {
-    padding-left: 0%;
-    text-align: center;
-  }
+#tldr {
+  padding-top: 7%;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+#tldr_mobile {
+  padding-top: 1%;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
+#tldrHeading {
+  font-weight: 500;
+}
+
+.headshot {
+  border-radius: 50%;
+  height: 250px;
+  text-align: center;
+  position: relative;
+}
+
+.headshot_mobile {
+  border-radius: 50%;
+  height: 200px;
+}
+
+#left_mobile {
+  display: inline-block;
+}
+
+#right {
+  display: inline-block;
+}
+
+.fact {
+  text-align: left;
+}
+
+.fact_mobile {
+  padding-left: 0%;
+  text-align: center;
+}

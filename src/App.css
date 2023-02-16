@@ -6,7 +6,6 @@
   background: #1f1f1f;
   font-size: 1.2rem;
   border: none;
-  color: white;
   outline: none;
   overflow: hidden;
   overflow-x: hidden;
@@ -41,7 +40,6 @@ a, button {
 h1, p {
   position: relative;
   z-index: 90;
-  color: white;
   padding-left: 2%;
 }
 
