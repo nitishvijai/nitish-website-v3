@@ -76,12 +76,12 @@ ul, li {
     height: var(--size);
     background: radial-gradient(circle closest-side, #414141, transparent);
     transform: translate(-50%, -50%);
-    transition: width 0.5s ease, height 0.5s ease;
+    transition: width 0.1s ease, height 0.1s ease;
 }
 
 .lightgradient:before,
 .lightgradient_mobile:before {
-  --size: 1000px;
+  --size: 1500px;
   content: '';
   position: absolute;
   left: var(--x);
@@ -90,7 +90,7 @@ ul, li {
   height: var(--size);
   background: radial-gradient(circle closest-side, #dbd8d8, transparent);
   transform: translate(-50%, -50%);
-  transition: width 0.5s ease, height 0.5s ease;
+  transition: width 0.1s ease, height 0.1s ease;
 }
 
 .darkgradient:hover:before, .lightgradient:hover:before {
