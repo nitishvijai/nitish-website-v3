@@ -6,7 +6,7 @@ import Cookies from 'universal-cookie';
 
 const Navbar = (props) => {
   const dropdown = useRef(null);
-  const [mode, setMode] = useState('dark');
+  const [mode, setMode] = [props.mode, props.toggle];
   const cookies = new Cookies();
 
   
@@ -17,6 +17,15 @@ const Navbar = (props) => {
     }
     else {
       dropdown.current.style.opacity = '0';
+    }
+  }
+
+  let renderMode = () => {
+    if (mode === 'dark') {
+      return "DARK";
+    }
+    else {
+      return "LIGHT";
     }
   }
 
@@ -35,7 +44,7 @@ const Navbar = (props) => {
           <p><Link to="/contact" className={`${props.selected == 6 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Contact</Link></p>
         </div>
         <div className={styles.toggle}>
-          <a className={styles.toggleSelect}>DARK</a>
+          <a className={styles.toggleSelect} onClick={setMode}>{renderMode()}</a>
         </div>
       </MediaQuery>
       <MediaQuery maxWidth={1024} >

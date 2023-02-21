@@ -4,10 +4,10 @@ import Footer from '../Footer/Footer';
 import styles from './Travel.module.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const Travel = () => {
+const Travel = (props) => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = [props.color, props.toggle];
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
@@ -36,7 +36,7 @@ const Travel = () => {
 
   return (
     <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)}  onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar selected='5' />
+      <Navbar selected='5' toggle={setMode} mode={mode} />
       <h1 id={styles.header}>Travels</h1>
       <p id={styles.subheader}>Check out some cool pics from the places I've recently visited!</p>
       <h1 className={styles.fact}>27 US states visited</h1>

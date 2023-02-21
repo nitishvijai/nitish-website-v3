@@ -5,10 +5,10 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const About = () => {
+const About = (props) => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = [props.color, props.toggle];
 
   useEffect(() => {
     if (mobilePortrait) {
@@ -45,7 +45,7 @@ const About = () => {
 
   return (
     <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar selected='1' />
+      <Navbar selected='1' toggle={setMode} mode={mode} />
       <h1 id={styles.header}>A little about me</h1>
       <div className={mobilePortrait ? styles.parent_mobile : styles.parent}>
         <div className={mobilePortrait ? styles.pic_mobile : styles.pic}>

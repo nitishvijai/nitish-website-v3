@@ -4,10 +4,10 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const Home = () => {
+const Home = (props) => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = [props.color, props.toggle];
 
 
   let moveGradient = (e) => {
@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar />
+      <Navbar toggle={setMode} mode={mode}/>
       <div id={mobilePortrait ? styles.main_mobile : styles.main}>
         <p className={styles.message}>Hello and welcome to my site! You're in the right place if you're looking for everything I've done in the cool world of tech -- thanks for visiting!</p>
         <p className={styles.message}>To get started, please click on the links above to learn more about me.</p>

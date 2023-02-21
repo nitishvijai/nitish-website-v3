@@ -4,10 +4,10 @@ import Footer from '../Footer/Footer';
 import styles from './Contact.module.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const Contact = () => {
+const Contact = (props) => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = [props.color, props.toggle];
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
@@ -27,7 +27,7 @@ const Contact = () => {
 
   return (
     <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar selected='6' />
+      <Navbar selected='6' toggle={setMode} mode={mode} />
       <h1 id={styles.header}>Contact me</h1>
       <p id={styles.subheader}>Check me out on the other side of the web below!</p>
       <div id={styles.methods}>

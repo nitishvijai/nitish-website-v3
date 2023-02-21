@@ -4,10 +4,10 @@ import Navbar from '../Navbar/Navbar';
 import styles from './Resume.module.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const Resume = () => {
+const Resume = (props) => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = [props.color, props.toggle];
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
@@ -166,7 +166,7 @@ const Resume = () => {
   
   return (
   <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-    <Navbar selected='3' />
+    <Navbar selected='3' toggle={setMode} mode={mode} />
     <div className={styles.header}>
       <h1 style={{ display: 'inline-block' }}>Resume</h1>
       <a style={{ display: 'inline-block' }} target="_blank" href="/Nitish_Vijai_Resume_W23.pdf" className={styles.btngrad}>Print (PDF)</a>
