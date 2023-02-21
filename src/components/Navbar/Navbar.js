@@ -66,9 +66,25 @@ const Navbar = (props) => {
       setMode('light');
       cookies.set("color", "light");
     }
+    else if (mode === 'light') {
+      setMode('system');
+      cookies.set("color", "system");
+    }
     else {
       setMode('dark');
       cookies.set("color", "dark");
+    }
+  }
+
+  let renderColorMode = () => {
+    if (mode === 'dark') {
+      return "DARK";
+    }
+    else if (mode === 'light') {
+      return "LIGHT";
+    }
+    else {
+      return "AUTO";
     }
   }
 
@@ -85,7 +101,7 @@ const Navbar = (props) => {
           <p><Link to="/contact" className={`${props.selected == 6 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Contact</Link></p>
         </div>
         <div className={styles.toggle}>
-          <a className={styles.toggleSelect} onClick={toggleColorMode}>Light/Dark</a>
+          <a className={styles.toggleSelect} onClick={toggleColorMode}>{renderColorMode()}</a>
         </div>
       </MediaQuery>
       <MediaQuery maxWidth={1024} >

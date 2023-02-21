@@ -8,6 +8,7 @@ const Home = () => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
   const [mode, setMode] = useState();
+  const [auto, setAuto] = useState(true);
 
   useEffect(() => {
     if (mode === 'system') {
@@ -41,9 +42,15 @@ const Home = () => {
 
   let toggleColorMode = () => {
     if (mode === 'dark') {
+      setAuto(false);
       setLightMode();
     }
+    else if (mode === 'light') {
+      setAuto(true);
+      setMode('system');
+    }
     else {
+      setAuto(false);
       setDarkMode();
     }
   }
