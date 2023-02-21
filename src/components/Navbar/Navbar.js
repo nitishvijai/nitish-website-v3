@@ -6,49 +6,10 @@ import Cookies from 'universal-cookie';
 
 const Navbar = (props) => {
   const dropdown = useRef(null);
-  const [mode, setMode] = useState();
-  const [auto, setAuto] = useState(true);
+  const [mode, setMode] = useState('dark');
   const cookies = new Cookies();
 
-  useEffect(() => {
-    if (cookies.get("color") === undefined) {
-      cookies.set("color", "system");
-    }
-    else if (cookies.get("color") === "system") {
-      setAuto(true);
-    } else {
-      setAuto(false);
-      if (cookies.get("color") === "light") {
-        setMode('light');
-        props.setLight();
-      } else {
-        setMode('dark');
-        props.setDark();
-      }
-    }
-
-
-    if (auto) {
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        console.log("Dark Mode");
-        setMode('dark');
-        props.setDark();
-      }
-      else {
-        setMode('light');
-        console.log("Light Mode");
-        props.setLight();
-      }
   
-      window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', event => {
-          const colorScheme = event.matches ? "dark" : "light";
-          console.log(colorScheme); // "dark" or "light"
-          setMode(colorScheme);
-        });
-    }
-    
-  });
 
   let openMenu = () => {
     if (dropdown.current.style.opacity == '0') {
@@ -59,34 +20,7 @@ const Navbar = (props) => {
     }
   }
 
-  let toggleColorMode = () => {
-    props.toggleColorMode();
-
-    if (mode === 'dark') {
-      setMode('light');
-      cookies.set("color", "light");
-    }
-    else if (mode === 'light') {
-      setMode('system');
-      cookies.set("color", "system");
-    }
-    else {
-      setMode('dark');
-      cookies.set("color", "dark");
-    }
-  }
-
-  let renderColorMode = () => {
-    if (mode === 'dark') {
-      return "DARK";
-    }
-    else if (mode === 'light') {
-      return "LIGHT";
-    }
-    else {
-      return "AUTO";
-    }
-  }
+  
 
   return (
     <div className={styles.Navbar}>
@@ -101,7 +35,7 @@ const Navbar = (props) => {
           <p><Link to="/contact" className={`${props.selected == 6 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Contact</Link></p>
         </div>
         <div className={styles.toggle}>
-          <a className={styles.toggleSelect} onClick={toggleColorMode}>{renderColorMode()}</a>
+          <a className={styles.toggleSelect}>DARK</a>
         </div>
       </MediaQuery>
       <MediaQuery maxWidth={1024} >

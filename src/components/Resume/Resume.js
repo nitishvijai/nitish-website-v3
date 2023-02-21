@@ -7,48 +7,13 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 const Resume = () => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
-  const [mode, setMode] = useState();
-
-  useEffect(() => {
-    if (mode === 'system') {
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setDarkMode();
-      }
-      else {
-        setLightMode();
-      }
-    
-      window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', event => {
-          const colorScheme = event.matches ? "dark" : "light";
-          console.log(colorScheme); // "dark" or "light"
-          setMode(colorScheme);
-        });
-    }
-  });
+  const [mode, setMode] = useState("dark");
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
     gradient.current.style.setProperty('--x', x + 'px');
     gradient.current.style.setProperty('--y', y + 'px');
-  }
-
-  let toggleColorMode = () => {
-    if (mode === 'dark') {
-      setLightMode();
-    }
-    else {
-      setDarkMode();
-    }
-  }
-
-  let setLightMode = () => {
-    setMode('light');
-  }
-
-  let setDarkMode = () => {
-    setMode('dark');
   }
 
   const workExperience = [
@@ -201,7 +166,7 @@ const Resume = () => {
   
   return (
   <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-    <Navbar selected='3' toggleColorMode={toggleColorMode} setLight={setLightMode} setDark={setDarkMode}/>
+    <Navbar selected='3' />
     <div className={styles.header}>
       <h1 style={{ display: 'inline-block' }}>Resume</h1>
       <a style={{ display: 'inline-block' }} target="_blank" href="/Nitish_Vijai_Resume_W23.pdf" className={styles.btngrad}>Print (PDF)</a>

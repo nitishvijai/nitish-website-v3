@@ -8,42 +8,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 const Projects = () => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
-  const [mode, setMode] = useState();
-
-  useEffect(() => {
-    if (mode === 'system') {
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setDarkMode();
-      }
-      else {
-        setLightMode();
-      }
-    
-      window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', event => {
-          const colorScheme = event.matches ? "dark" : "light";
-          console.log(colorScheme); // "dark" or "light"
-          setMode(colorScheme);
-        });
-    }
-  });
-
-  let toggleColorMode = () => {
-    if (mode === 'dark') {
-      setLightMode();
-    }
-    else {
-      setDarkMode();
-    }
-  }
-
-  let setLightMode = () => {
-    setMode('light');
-  }
-
-  let setDarkMode = () => {
-    setMode('dark');
-  }
+  const [mode, setMode] = useState("dark");
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
@@ -158,7 +123,7 @@ const Projects = () => {
 
   return (
     <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar toggleColorMode={toggleColorMode} setLight={setLightMode} setDark={setDarkMode} selected='2' />
+      <Navbar selected='2' />
       <h1 id={styles.header}>Projects</h1>
       <p id={styles.subheader}>Check out some of the coolest projects I've worked on over the past few years!</p>
       <div className={styles.projects}>

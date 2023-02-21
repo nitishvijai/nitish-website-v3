@@ -8,48 +8,13 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 const Writing = () => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
-  const [mode, setMode] = useState();
-
-  useEffect(() => {
-    if (mode === 'system') {
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setDarkMode();
-      }
-      else {
-        setLightMode();
-      }
-    
-      window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', event => {
-          const colorScheme = event.matches ? "dark" : "light";
-          console.log(colorScheme); // "dark" or "light"
-          setMode(colorScheme);
-        });
-    }
-  });
+  const [mode, setMode] = useState("dark");
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
     gradient.current.style.setProperty('--x', x + 'px');
     gradient.current.style.setProperty('--y', y + 'px');
-  }
-
-  let toggleColorMode = () => {
-    if (mode === 'dark') {
-      setLightMode();
-    }
-    else {
-      setDarkMode();
-    }
-  }
-
-  let setLightMode = () => {
-    setMode('light');
-  }
-
-  let setDarkMode = () => {
-    setMode('dark');
   }
 
   let essays = [
@@ -72,7 +37,7 @@ const Writing = () => {
 
   return (
     <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar selected='4' toggleColorMode={toggleColorMode} setLight={setLightMode} setDark={setDarkMode} />
+      <Navbar selected='4' />
       <h1 id={styles.header}>Writing</h1>
       <p id={styles.subheader}>Check out some of my favorite articles I've written!</p>
       <div id={styles.essayList}>
@@ -80,7 +45,7 @@ const Writing = () => {
           <EssayLink name={essay.name} link={essay.link} posted={essay.posted}/>
         )}
       </div>
-      <Footer projects='true' />
+      <Footer />
     </div>
   );
 };
