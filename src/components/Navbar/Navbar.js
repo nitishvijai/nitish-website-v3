@@ -2,20 +2,42 @@ import { React, useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import MediaQuery from 'react-responsive';
+import Cookies from 'universal-cookie';
 
 const Navbar = (props) => {
   const dropdown = useRef(null);
   const [mode, setMode] = useState();
+  const [auto, setAuto] = useState(true);
+  const cookies = new Cookies();
 
   useEffect(() => {
-    if (mode === 'system') {
+    if (cookies.get("color") === undefined) {
+      cookies.set("color", "system");
+    }
+    else if (cookies.get("color") === "system") {
+      setAuto(true);
+    } else {
+      setAuto(false);
+      if (cookies.get("color") === "light") {
+        setMode('light');
+        props.setLight();
+      } else {
+        setMode('dark');
+        props.setDark();
+      }
+    }
+
+
+    if (auto) {
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         console.log("Dark Mode");
         setMode('dark');
+        props.setDark();
       }
       else {
         setMode('light');
         console.log("Light Mode");
+        props.setLight();
       }
   
       window.matchMedia('(prefers-color-scheme: dark)')
@@ -42,9 +64,11 @@ const Navbar = (props) => {
 
     if (mode === 'dark') {
       setMode('light');
+      cookies.set("color", "light");
     }
     else {
       setMode('dark');
+      cookies.set("color", "dark");
     }
   }
 

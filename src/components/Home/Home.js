@@ -7,18 +7,15 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 const Home = () => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
-  const darkMode = true;
   const [mode, setMode] = useState();
 
   useEffect(() => {
     if (mode === 'system') {
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        console.log("Dark Mode");
-        setMode('dark');
+        setDarkMode();
       }
       else {
-        setMode('light');
-        console.log("Light Mode");
+        setLightMode();
       }
     
       window.matchMedia('(prefers-color-scheme: dark)')
@@ -44,16 +41,24 @@ const Home = () => {
 
   let toggleColorMode = () => {
     if (mode === 'dark') {
-      setMode('light');
+      setLightMode();
     }
     else {
-      setMode('dark');
+      setDarkMode();
     }
+  }
+
+  let setLightMode = () => {
+    setMode('light');
+  }
+
+  let setDarkMode = () => {
+    setMode('dark');
   }
 
   return (
     <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar toggleColorMode={toggleColorMode} />
+      <Navbar toggleColorMode={toggleColorMode} setLight={setLightMode} setDark={setDarkMode} />
       <div id={mobilePortrait ? styles.main_mobile : styles.main}>
         <p className={styles.message}>Hello and welcome to my site! You're in the right place if you're looking for everything I've done in the cool world of tech -- thanks for visiting!</p>
         <p className={styles.message}>To get started, please click on the links above to learn more about me.</p>

@@ -1,16 +1,55 @@
-import React from 'react';
+import { React, useRef, useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import styles from './Travel.module.css';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Travel = () => {
+  const mobilePortrait = useMediaQuery('(max-width:1024px)');
+  const gradient = useRef(null);
+  const [mode, setMode] = useState();
+
+  useEffect(() => {
+    if (mode === 'system') {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setDarkMode();
+      }
+      else {
+        setLightMode();
+      }
+    
+      window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', event => {
+          const colorScheme = event.matches ? "dark" : "light";
+          console.log(colorScheme); // "dark" or "light"
+          setMode(colorScheme);
+        });
+    }
+  });
+
   let moveGradient = (e) => {
-    let btn = document.querySelector('.Travel_gradient__j3U9A, a');
     let x = e.pageX - 0;
     let y = e.pageY - 0;
-    btn.style.setProperty('--x', x + 'px');
-    btn.style.setProperty('--y', y + 'px');
+    gradient.current.style.setProperty('--x', x + 'px');
+    gradient.current.style.setProperty('--y', y + 'px');
   };
+
+  let toggleColorMode = () => {
+    if (mode === 'dark') {
+      setLightMode();
+    }
+    else {
+      setDarkMode();
+    }
+  }
+
+  let setLightMode = () => {
+    setMode('light');
+  }
+
+  let setDarkMode = () => {
+    setMode('dark');
+  }
 
   let destinations = [
     {
@@ -31,8 +70,8 @@ const Travel = () => {
   ];
 
   return (
-    <div className={`${styles.gradient}`}  onMouseMove={(e) => moveGradient(e)}>
-      <Navbar selected='5' />
+    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)}  onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+      <Navbar selected='5' toggleColorMode={toggleColorMode} setLight={setLightMode} setDark={setDarkMode} />
       <h1 id={styles.header}>Travels</h1>
       <p id={styles.subheader}>Check out some cool pics from the places I've recently visited!</p>
       <h1 className={styles.fact}>27 US states visited</h1>

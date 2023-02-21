@@ -1,11 +1,31 @@
-import { React, useRef } from 'react';
+import { React, useRef, useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import styles from './Contact.module.css';
-import MediaQuery from 'react-responsive';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Contact = () => {
+  const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
+  const [mode, setMode] = useState();
+
+  useEffect(() => {
+    if (mode === 'system') {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setDarkMode();
+      }
+      else {
+        setLightMode();
+      }
+    
+      window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', event => {
+          const colorScheme = event.matches ? "dark" : "light";
+          console.log(colorScheme); // "dark" or "light"
+          setMode(colorScheme);
+        });
+    }
+  });
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
@@ -23,9 +43,26 @@ const Contact = () => {
     }
   }
 
+  let toggleColorMode = () => {
+    if (mode === 'dark') {
+      setLightMode();
+    }
+    else {
+      setDarkMode();
+    }
+  }
+
+  let setLightMode = () => {
+    setMode('light');
+  }
+
+  let setDarkMode = () => {
+    setMode('dark');
+  }
+
   return (
-    <div className={`${styles.gradient}`} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar selected='6' />
+    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+      <Navbar selected='6' toggleColorMode={toggleColorMode} setLight={setLightMode} setDark={setDarkMode} />
       <h1 id={styles.header}>Contact me</h1>
       <p id={styles.subheader}>Check me out on the other side of the web below!</p>
       <div id={styles.methods}>
@@ -47,12 +84,7 @@ const Contact = () => {
           <input id="resetButton" className={styles.formBtns} type="reset" value="Reset" />
         </form>
       </div>
-      <MediaQuery maxHeight={1000}>
-        <Footer projects='true'/>
-      </MediaQuery>
-      <MediaQuery minHeight={1001}>
-        <Footer />
-      </MediaQuery>
+      <Footer />
     </div>
   );
 };

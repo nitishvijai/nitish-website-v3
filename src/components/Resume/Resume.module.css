@@ -6,7 +6,7 @@
     margin-top: 3%;
 }
 
-.gradient {
+.darkgradient {
     background: #1f1f1f;
     font-size: 1.2rem;
     border: none;
@@ -20,7 +20,47 @@
     padding-bottom: 15px;
 }
 
-.gradient:before {
+.lightgradient {
+    background: #f4f4f4;
+    font-size: 1.2rem;
+    border: none;
+    color: black;
+    outline: none;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-bottom: 15px;
+}
+
+.darkgradient_mobile {
+    background: #1f1f1f;
+    font-size: 1.2rem;
+    border: none;
+    color: white;
+    outline: none;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow-y: auto;
+}
+
+.lightgradient_mobile {
+    background: #f4f4f4;
+    font-size: 1.2rem;
+    border: none;
+    color: black;
+    outline: none;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow-y: auto;
+  }
+
+.darkgradient:before, .darkgradient_mobile:before {
     --size: 1500px;
     content: '';
     position: absolute;
@@ -33,7 +73,21 @@
     transition: width 0.5s ease, height 0.5s ease;
 }
 
-.gradient:hover:before {
+.lightgradient:before,
+.lightgradient_mobile:before {
+  --size: 1000px;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, #dbd8d8, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.darkgradient:hover:before, .lightgradient_mobile:hover:before {
     --size: 1500px;
 }
 
@@ -45,7 +99,8 @@
     width: 85%;
 }
 
-#col1, #col2 {
+#col1,
+#col2 {
     width: 40%;
 }
 
@@ -80,7 +135,7 @@ ul {
 }
 
 .btngrad {
-    background-image: linear-gradient(to right, #000428 0%, #000099  51%, #000428  100%);
+    background-image: linear-gradient(to right, #000428 0%, #000099 51%, #000428 100%);
     margin: 10px;
     padding: 5px 25px;
     text-align: center;
@@ -88,22 +143,25 @@ ul {
     text-decoration: none;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;            
+    color: white;
     box-shadow: 0 0 10px #eee;
     border-radius: 10px;
     display: block;
     width: 115px;
     position: relative;
     margin-left: 300px
-  }
+}
 
-  .btngrad:hover {
-    background-position: right center; /* change the direction of the change here */
+.btngrad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  #orgs, #skills, #awards {
+#orgs,
+#skills,
+#awards {
     margin-top: 10%;
-  }
+}

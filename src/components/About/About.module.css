@@ -14,7 +14,7 @@ ul, li {
     left: 0.5%;
 }
 
-.gradient {
+.darkgradient {
     background: #1f1f1f;
     font-size: 1.2rem;
     border: none;
@@ -27,7 +27,20 @@ ul, li {
     overflow-y: hidden;
 }
 
-.gradient_mobile {
+.lightgradient {
+    background: #f4f4f4;
+    font-size: 1.2rem;
+    border: none;
+    color: black;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+.darkgradient_mobile {
     background: #1f1f1f;
     font-size: 1.2rem;
     border: none;
@@ -40,7 +53,20 @@ ul, li {
     overflow-y: auto;
 }
 
-.gradient:before, .gradient_mobile:before {
+.lightgradient_mobile {
+    background: #f4f4f4;
+    font-size: 1.2rem;
+    border: none;
+    color: black;
+    outline: none;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow-y: auto;
+  }
+
+.darkgradient:before, .darkgradient_mobile:before {
     --size: 1500px;
     content: '';
     position: absolute;
@@ -53,7 +79,21 @@ ul, li {
     transition: width 0.5s ease, height 0.5s ease;
 }
 
-.gradient:hover:before {
+.lightgradient:before,
+.lightgradient_mobile:before {
+  --size: 1000px;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, #dbd8d8, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.darkgradient:hover:before, .lightgradient:hover:before {
     --size: 1500px;
 }
 

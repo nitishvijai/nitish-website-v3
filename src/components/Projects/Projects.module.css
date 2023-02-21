@@ -1,142 +1,197 @@
 .Projects {
-    text-align: center;
+  text-align: center;
 }
 
-.gradient {
-    background: #1f1f1f;
-    font-size: 1.2rem;
-    border: none;
-    color: white;
-    outline: none;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  
-  .gradient:before {
-    --size: 1500px;
-    content: '';
-    position: absolute;
-    left: var(--x);
-    top: var(--y);
-    width: var(--size);
-    height: var(--size);
-    background: radial-gradient(circle closest-side, #414141, transparent);
-    transform: translate(-50%, -50%);
-    transition: width 0.5s ease, height 0.5s ease;
-  }
-  
-  .gradient:hover:before {
-    --size: 1500px;
-  }
+.darkgradient {
+  background: #1f1f1f;
+  font-size: 1.2rem;
+  border: none;
+  color: white;
+  outline: none;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.lightgradient {
+  background: #f4f4f4;
+  font-size: 1.2rem;
+  border: none;
+  color: black;
+  outline: none;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.darkgradient_mobile {
+  background: #1f1f1f;
+  font-size: 1.2rem;
+  border: none;
+  color: white;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow-y: auto;
+}
+
+.lightgradient_mobile {
+  background: #f4f4f4;
+  font-size: 1.2rem;
+  border: none;
+  color: black;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow-y: auto;
+}
+
+.darkgradient:before, .darkgradient_mobile:before {
+  --size: 1500px;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, #414141, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.lightgradient:before,
+.lightgradient_mobile:before {
+  --size: 1000px;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, #dbd8d8, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.darkgradient:hover:before, .lightgradient:hover:before {
+  --size: 1500px;
+}
 
 #header {
-    text-align: center;
-    margin-top: 4%;
-    z-index: 90;
+  text-align: center;
+  margin-top: 4%;
+  z-index: 90;
 }
 
 #subheader {
-    text-align: center;
-    z-index: 91;
-    margin-bottom: 4%;
+  text-align: center;
+  z-index: 91;
+  margin-bottom: 4%;
 }
 
 .projects {
-    text-align: center;
-    margin: 0 auto;
-    display: block;
-    width: 60%;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  width: 60%;
 }
 
 .project {
-    width: 100%;
-    overflow: hidden;
-    height: auto;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
 }
 
 .project:first-child {
-    margin-top: 70px;
+  margin-top: 70px;
 }
 
 .img {
-    float: left;
-    padding-right: 20px;
-    height: 400px;
+  float: left;
+  padding-right: 20px;
+  height: 400px;
 }
 
 .info {
-    margin-left: 100px;
-    margin-right: 25px;
-    text-align: left;
+  margin-left: 100px;
+  margin-right: 25px;
+  text-align: left;
 }
 
 img {
-    float: left;
-    z-index: 85;
-    position: relative;
+  float: left;
+  z-index: 85;
+  position: relative;
 }
 
 h3 {
-    margin-top: 0;
-    z-index: 95;
-    position: relative;
+  margin-top: 0;
+  z-index: 95;
+  position: relative;
 }
 
 .date {
-    margin-top: -12px;
+  margin-top: -12px;
 }
 
-           
+
 .btngrad {
-    background-image: linear-gradient(to right, #000428 0%, #000099  51%, #000428  100%);
-    margin: 10px;
-    padding: 5px 25px;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;            
-    box-shadow: 0 0 10px #eee;
-    border-radius: 10px;
-    display: block;
-    width: 120px;
-    position: relative;
-    margin-left: 300px
-  }
+  background-image: linear-gradient(to right, #000428 0%, #000099 51%, #000428 100%);
+  margin: 10px;
+  padding: 5px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 10px #eee;
+  border-radius: 10px;
+  display: block;
+  width: 120px;
+  position: relative;
+  margin-left: 300px
+}
 
-  .btngrad:hover, .classProj:hover {
-    background-position: right center; /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-  }
- 
-  .classProj {
-    background-image: linear-gradient(to right, #2b0000 0%, #FF0000  51%, #2b0000  100%);
-    margin: 10px;
-    padding: 4px 25px;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;            
-    box-shadow: 0 0 10px #eee;
-    border-radius: 10px;
-    display: block;
-    width: 210px;
-    position: relative;
-    margin-left: 300px
-  }
+.btngrad:hover,
+.classProj:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-  .proj_pic {
-    height: 230px;
-    width: 380px;
-    z-index: 105;
-  }
+.classProj {
+  background-image: linear-gradient(to right, #2b0000 0%, #FF0000 51%, #2b0000 100%);
+  margin: 10px;
+  padding: 4px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 10px #eee;
+  border-radius: 10px;
+  display: block;
+  width: 210px;
+  position: relative;
+  margin-left: 300px
+}
+
+.proj_pic {
+  height: 230px;
+  width: 380px;
+  z-index: 105;
+}

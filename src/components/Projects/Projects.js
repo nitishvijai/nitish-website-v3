@@ -1,18 +1,56 @@
-import React from 'react';
+import { React, useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import styles from './Projects.module.css';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Projects = () => {
-  let moveGradient = (e) => {
-    let btn = document.querySelector(".Projects_gradient__0P10l");
+  const mobilePortrait = useMediaQuery('(max-width:1024px)');
+  const gradient = useRef(null);
+  const [mode, setMode] = useState();
 
+  useEffect(() => {
+    if (mode === 'system') {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setDarkMode();
+      }
+      else {
+        setLightMode();
+      }
+    
+      window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', event => {
+          const colorScheme = event.matches ? "dark" : "light";
+          console.log(colorScheme); // "dark" or "light"
+          setMode(colorScheme);
+        });
+    }
+  });
+
+  let toggleColorMode = () => {
+    if (mode === 'dark') {
+      setLightMode();
+    }
+    else {
+      setDarkMode();
+    }
+  }
+
+  let setLightMode = () => {
+    setMode('light');
+  }
+
+  let setDarkMode = () => {
+    setMode('dark');
+  }
+
+  let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
 
-    btn.style.setProperty('--x', x + 'px');
-    btn.style.setProperty('--y', y + 'px');
+    gradient.current.style.setProperty('--x', x + 'px');
+    gradient.current.style.setProperty('--y', y + 'px');
   }
 
   const projects = [
@@ -119,8 +157,8 @@ const Projects = () => {
   ]
 
   return (
-    <div className={`${styles.gradient}`} onMouseMove={(e) => moveGradient(e)}>
-      <Navbar selected='2' />
+    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+      <Navbar toggleColorMode={toggleColorMode} setLight={setLightMode} setDark={setDarkMode} selected='2' />
       <h1 id={styles.header}>Projects</h1>
       <p id={styles.subheader}>Check out some of the coolest projects I've worked on over the past few years!</p>
       <div className={styles.projects}>

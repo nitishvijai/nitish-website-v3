@@ -1,4 +1,4 @@
-import { React, useEffect, useRef } from 'react';
+import { React, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './About.module.css';
 import Navbar from '../Navbar/Navbar';
@@ -8,6 +8,25 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 const About = () => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
+  const [mode, setMode] = useState();
+
+  useEffect(() => {
+    if (mode === 'system') {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setDarkMode();
+      }
+      else {
+        setLightMode();
+      }
+    
+      window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', event => {
+          const colorScheme = event.matches ? "dark" : "light";
+          console.log(colorScheme); // "dark" or "light"
+          setMode(colorScheme);
+        });
+    }
+  });
 
   useEffect(() => {
     if (mobilePortrait) {
@@ -42,9 +61,26 @@ const About = () => {
     }
   }
 
+  let toggleColorMode = () => {
+    if (mode === 'dark') {
+      setLightMode();
+    }
+    else {
+      setDarkMode();
+    }
+  }
+
+  let setLightMode = () => {
+    setMode('light');
+  }
+
+  let setDarkMode = () => {
+    setMode('dark');
+  }
+
   return (
-    <div className={mobilePortrait ? styles.gradient_mobile : styles.gradient} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar selected='1' />
+    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+      <Navbar selected='1' toggleColorMode={toggleColorMode} setLight={setLightMode} setDark={setDarkMode} />
       <h1 id={styles.header}>A little about me</h1>
       <div className={mobilePortrait ? styles.parent_mobile : styles.parent}>
         <div className={mobilePortrait ? styles.pic_mobile : styles.pic}>
