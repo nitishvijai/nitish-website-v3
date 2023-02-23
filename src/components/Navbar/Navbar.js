@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import MediaQuery from 'react-responsive';
 import Cookies from 'universal-cookie';
+import DarkModeToggle from 'react-dark-mode-toggle';
 
 const Navbar = (props) => {
   const dropdown = useRef(null);
@@ -44,7 +45,7 @@ const Navbar = (props) => {
           <p><Link to="/contact" className={`${props.selected == 6 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Contact</Link></p>
         </div>
         <div className={styles.toggle}>
-          <a className={styles.toggleSelect} onClick={setMode}>{renderMode()}</a>
+          <DarkModeToggle onChange={setMode} checked={mode === 'dark'} />
         </div>
       </MediaQuery>
       <MediaQuery maxWidth={1024} >
