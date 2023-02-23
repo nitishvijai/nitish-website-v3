@@ -13,6 +13,8 @@
   width: 100%;
   height: auto;
   position: relative;
+  transition-property: background, color;
+  transition-duration: 2s;
 }
 
 .lightgradient {
@@ -26,6 +28,8 @@
   width: 100%;
   height: auto;
   position: relative;
+  transition-property: background, color;
+  transition-duration: 2s;
 }
 
 .darkgradient_mobile {

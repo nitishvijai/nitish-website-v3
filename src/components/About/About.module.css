@@ -25,6 +25,8 @@ ul, li {
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
+    transition-property: background, color;
+    transition-duration: 2s;
 }
 
 .lightgradient {
@@ -38,6 +40,8 @@ ul, li {
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
+    transition-property: background, color;
+    transition-duration: 2s;
   }
 
 .darkgradient_mobile {

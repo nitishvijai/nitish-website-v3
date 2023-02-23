@@ -18,6 +18,8 @@
     overflow-x: hidden;
     overflow-y: hidden;
     padding-bottom: 15px;
+    transition-property: background, color;
+    transition-duration: 2s;
 }
 
 .lightgradient {
@@ -32,6 +34,8 @@
     overflow-x: hidden;
     overflow-y: hidden;
     padding-bottom: 15px;
+    transition-property: background, color;
+    transition-duration: 2s;
 }
 
 .darkgradient_mobile {

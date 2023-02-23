@@ -14,6 +14,8 @@
     width: 860px;
     border-radius: 50px;
     border: 3px #2f2f32 solid;
+    transition-property: background-color, border;
+    transition-duration: 2s;
 }
 
 .linkslight {
@@ -27,6 +29,8 @@
     width: 860px;
     border-radius: 50px;
     border: 2px #eeeeee solid;
+    transition-property: background-color, border;
+    transition-duration: 2s;
 }
 
 .linksdark p, .linkslight p {
@@ -67,11 +71,15 @@
 .normaldark {
     color: white;
     text-decoration: none;
+    transition-property: color;
+    transition-duration: 2s;
 }
 
 .normallight {
     color: black;
     text-decoration: none;
+    transition-property: color;
+    transition-duration: 2s;
 }
 
 .normaldark:hover, .normallight:hover {
