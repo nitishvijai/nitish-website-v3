@@ -1,3 +1,8 @@
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 .darkgradient {
     background: #1f1f1f;
     font-size: 1.2rem;
@@ -89,12 +94,14 @@
     text-align: center;
     margin-top: 4%;
     z-index: 90;
+    animation: fadeIn 3s;
 }
 
 #subheader {
     text-align: center;
     z-index: 91;
     margin-bottom: 4%;
+    animation: fadeIn 3s;
 }
 
 #methods {
@@ -102,6 +109,7 @@
     text-align: center;
     width: 100%;
     margin-bottom: 4%;
+    animation: fadeIn 3s;
 }
 
 .btngrad {
@@ -118,6 +126,7 @@
     border-radius: 10px;
     width: 115px;
     position: relative;
+    animation: fadeIn 3s;
 }
 
 .btngrad:hover {
@@ -129,29 +138,35 @@
 
 #linkedin {
     display: inline-block;
+    animation: fadeIn 3s;
 }
 
 #email {
     display: inline-block;
     background-image: linear-gradient(to right, #F7971E 0%, #FFD200  51%, #F7971E  100%);
     color: black;
+    animation: fadeIn 3s;
 }
 
 #github {
     display: inline-block;
     background-image: linear-gradient(to right, #834d9b 0%, #d04ed6  51%, #834d9b  100%);
+    animation: fadeIn 3s;
 }
 
 .message {
     text-align: center;
+    animation: fadeIn 3s;
 }
 
 #contactme {
     margin-bottom: 4%;
+    animation: fadeIn 3s;
 }
 
 #contactForm {
     text-align: center;
+    animation: fadeIn 3s;
 }
 
 #fullName, #emailadd, #subject {
@@ -164,14 +179,17 @@
     margin-top: 15px;
     z-index: 92;
     position: relative;
+    animation: fadeIn 3s;
 }
 
 textarea {
     min-height: 200px;
     min-width: 40%;
+    animation: fadeIn 3s;
 }
 
 .formBtns {
     position: relative;
     z-index: 100;
+    animation: fadeIn 3s;
 }

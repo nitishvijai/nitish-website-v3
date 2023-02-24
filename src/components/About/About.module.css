@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
 #header {
     text-align: center;
     margin-top: 4%;
@@ -107,6 +112,7 @@ ul, li {
     width: 20%;
     border-radius: 12px;
     margin-left: 14%;
+    animation: fadeIn 3s;
 }
 
 #nitish_mobile {
@@ -114,10 +120,12 @@ ul, li {
     width: 50%;
     margin: 0 auto;
     border-radius: 12px;
+    animation: fadeIn 3s;
 }
 
 .pic_mobile {
     text-align: center;
+    animation: fadeIn 3s;
 }
 
 .parent {
@@ -141,6 +149,7 @@ ul, li {
     position: relative;
     display: block;
     margin-top: 0;
+    animation: fadeIn 3s;
 }
 
 .paragraph_mobile {
@@ -148,6 +157,7 @@ ul, li {
     margin: 4% auto;
     width: 70%;
     text-align: center;
+    animation: fadeIn 3s;
 }
 
 #list {
@@ -157,12 +167,14 @@ ul, li {
     float: right;
     position: relative;
     display: block;
+    animation: fadeIn 3s;
 }
 
 #list_mobile {
     float: none;
     margin: 4% auto;
     width: 70%;
+    animation: fadeIn 3s;
 }
 
 .aboutMe {
@@ -176,6 +188,11 @@ ul, li {
 
 .aboutMe p {
     margin-bottom: 30px;
+    animation: fadeIn 3s;
+}
+
+#header {
+    animation: fadeIn 3s;
 }
 
 .pgLink, .pgLink:visited {

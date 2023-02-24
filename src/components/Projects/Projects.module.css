@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .darkgradient {
   background: #1f1f1f;
   font-size: 1.2rem;
@@ -93,12 +98,14 @@
   text-align: center;
   margin-top: 4%;
   z-index: 90;
+  animation: fadeIn 3s;
 }
 
 #subheader {
   text-align: center;
   z-index: 91;
   margin-bottom: 4%;
+  animation: fadeIn 3s;
 }
 
 .projects {
@@ -106,6 +113,7 @@
   margin: 0 auto;
   display: block;
   width: 60%;
+  animation: fadeIn 3s;
 }
 
 .project {
@@ -114,6 +122,7 @@
   height: auto;
   margin-bottom: 15px;
   padding-bottom: 15px;
+  animation: fadeIn 3s;
 }
 
 .project:first-child {
@@ -124,28 +133,33 @@
   float: left;
   padding-right: 20px;
   height: 400px;
+  animation: fadeIn 3s;
 }
 
 .info {
   margin-left: 100px;
   margin-right: 25px;
   text-align: left;
+  animation: fadeIn 3s;
 }
 
 img {
   float: left;
   z-index: 85;
   position: relative;
+  animation: fadeIn 3s;
 }
 
 h3 {
   margin-top: 0;
   z-index: 95;
   position: relative;
+  animation: fadeIn 3s;
 }
 
 .date {
   margin-top: -12px;
+  animation: fadeIn 3s;
 }
 
 
@@ -164,7 +178,8 @@ h3 {
   display: block;
   width: 120px;
   position: relative;
-  margin-left: 300px
+  margin-left: 300px;
+  animation: fadeIn 3s;
 }
 
 .btngrad:hover,
@@ -191,11 +206,13 @@ h3 {
   display: block;
   width: 210px;
   position: relative;
-  margin-left: 300px
+  margin-left: 300px;
+  animation: fadeIn 3s;
 }
 
 .proj_pic {
   height: 230px;
   width: 380px;
   z-index: 105;
+  animation: fadeIn 3s;
 }

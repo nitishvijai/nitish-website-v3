@@ -42,7 +42,7 @@ const Writing = (props) => {
       <p id={styles.subheader}>Check out some of my favorite articles I've written!</p>
       <div id={styles.essayList}>
         {essays.map((essay, i) => 
-          <EssayLink name={essay.name} link={essay.link} posted={essay.posted}/>
+          <EssayLink name={essay.name} link={essay.link} posted={essay.posted} toggle={setMode} color={mode}/>
         )}
       </div>
       <Footer />

@@ -1,5 +1,11 @@
 .Home {
   text-align: center;
+  
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .darkgradient {
@@ -67,7 +73,7 @@
   height: var(--size);
   background: radial-gradient(circle closest-side, #414141, transparent);
   transform: translate(-50%, -50%);
-  transition: width 0.1s ease, height 0.1s ease, background 0.5s;
+  transition: width 0.1s ease, height 0.1s ease, background 2s;
 }
 
 .lightgradient:before,
@@ -81,7 +87,7 @@
   height: var(--size);
   background: radial-gradient(circle closest-side, #dbd8d8, transparent);
   transform: translate(-50%, -50%);
-  transition: width 0.1s ease, height 0.1s ease, background 0.5s;
+  transition: width 0.1s ease, height 0.1s ease, background 2s;
 }
 
 .darkgradient:hover:before, .lightgradient:hover:before {
@@ -105,6 +111,7 @@ p {
 .message {
   text-align: center;
   position: relative;
+  animation: fadeIn 3s;
 }
 
 #main {
@@ -121,6 +128,7 @@ p {
   text-align: center;
   width: 60%;
   margin: 0 auto;
+  animation: fadeIn 3s;
 }
 
 #tldr_mobile {
@@ -129,6 +137,7 @@ p {
   width: 80%;
   margin: 0 auto;
   margin-bottom: 100px;
+  animation: fadeIn 3s;
 }
 
 #tldrHeading {
