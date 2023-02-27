@@ -46,6 +46,7 @@ const Navbar = (props) => {
         </div>
         <div className={styles.toggle}>
           <DarkModeToggle onChange={setMode} checked={mode === 'dark'} />
+          <span className={styles.tooltipText}>{mode === 'dark' ? "Dark Mode" : "Light Mode"}</span>
         </div>
       </MediaQuery>
       <MediaQuery maxWidth={1024} >
