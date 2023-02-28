@@ -20,17 +20,17 @@ const Travel = (props) => {
     {
       'name': 'Cochin, Kerala, India',
       'date': '1/3/2023 - 1/5/2023',
-      'pics': [1, 2, 3]
+      'pics': ['website_pics/Cochin1.jpg', 'website_pics/Cochin2.jpg', 'website_pics/Cochin3.jpg']
     },
     {
       'name': 'Dubai, United Arab Emirates',
       'date': '12/19/2022 - 12/22/2022',
-      'pics': [1, 2, 3]
+      'pics': ['website_pics/Dubai1.jpg', 'website_pics/Dubai2.jpg', 'website_pics/Dubai3.jpg']
     },
     {
       'name': 'Cairo, Egypt',
       'date': '12/18/2022 - 12/19/2022',
-      'pics': [1, 2, 3]
+      'pics': ['website_pics/Egypt1.jpg', 'website_pics/Egypt2.jpg', 'website_pics/Egypt3.jpg']
     }
   ];
 
@@ -52,7 +52,7 @@ const Travel = (props) => {
             <div class={styles.row}>
               {dest.pics.map((image, i) =>
                 <div className={styles.column}>
-                  <img className={styles.pic} src="/unavailable.png" />
+                  <img className={styles.pic} src={image} height="95"/>
                 </div>
               )}
             </div>

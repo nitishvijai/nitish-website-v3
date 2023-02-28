@@ -72,6 +72,74 @@ const Resume = (props) => {
     }
   ];
 
+  const courses = [
+    {
+      'term': 'Fall 2019',
+      'courses': ['EECS 151 - Accelerated Intro to Computers & Programming',
+                  'EECS 203 - Discrete Math',
+                  'MATH 116 - Calculus II',
+                  'PHYSICS 140 - Physics I: Mechanics',
+                  'PHYSICS 141 - Physics I Lab']
+    },
+    {
+      'term': 'Winter 2020',
+      'courses': ['EECS 280 - Programming & Intro to Data Structures',
+                  'ENGR 100 - Intro to Engineering: Design in the Real World',
+                  'CHEM 130 - Chemistry I',
+                  'CHEM 125/126 - Chemistry I Lab']
+    },
+    {
+      'term': 'Summer 2020',
+      'courses': ['MATH 215 - Multivariable & Vector Calculus',
+                  'PHYSICS 240 - Physics II: Electricity & Magnetism',
+                  'PHYSICS 241 - Physics II Lab',
+                  'PHIL 361 - Intro to Ethics']
+    },
+    {
+      'term': 'Fall 2020',
+      'courses': ['EECS 281 - Data Structures & Algorithms',
+                  'EECS 285 - Practical Programming in Java',
+                  'MATH 214 - Applied Linear Algebra',
+                  'STATS 412 - Intro to Probability & Statistics',
+                  'TCHNCLCM 300 - Technical Communication for EECS']
+    },
+    {
+      'term': 'Winter 2021',
+      'courses': ['EECS 201 - Computer Science Pragmatics (Unix)',
+                  'EECS 370 - Intro to Computer Organization',
+                  'EECS 376 - Foundations of Computer Science',
+                  'EECS 485 - Web Systems']
+    },
+    {
+      'term': 'Fall 2021',
+      'courses': ['EECS 445 - Intro to Machine Learning',
+                  'EECS 493 - User Interface Development',
+                  'STATS 406 - Computational Methods for Statistics and Data Science',
+                  'ASIANLAN 155 - Intro to Tamil I']
+    },
+    {
+      'term': 'Winter 2022',
+      'courses': ['EECS 442 - Computer Vision',
+                  'EECS 481 - Software Engineering',
+                  'STATS 413 - Applied Regression Analysis']
+    },
+    {
+      'term': 'Fall 2022',
+      'courses': ['EECS 496 - Major Design Experience: Professionalism',
+                  'EECS 497 - Human-Centered Software Design and Development',
+                  'TCHNCLCM 497 - Advanced Technical Communication',
+                  'EECS 484 - Database Management Systems',
+                  'STATS 315 - Intro to Deep Learning (Statistics & AI)']
+    },
+    {
+      'term': 'Winter 2023 (Final Semester)',
+      'courses': ['EECS 390 - Programming Paradigms',
+                  'EECS 486 - Information Retrieval & Web Search',
+                  'STATS 425 - Intro to Probability & Combinatorics',
+                  'ENTR 407 - Entrepreneurship Hour']
+    }
+  ];
+
   const education = [
     {
       'name': 'University of Michigan - Ann Arbor (College of Engineering)',
@@ -172,23 +240,25 @@ const Resume = (props) => {
       <h1 style={{ display: 'inline-block' }}>Resume</h1>
       <a style={{ display: 'inline-block' }} target="_blank" href="/Nitish_Vijai_Resume_W23.pdf" className={styles.btngrad}>Print (PDF)</a>
     </div>
-    <div id={styles.updated_resume_ux}>
+    <div id={styles.updated_resume_ux} className={mode === 'dark' ? styles.dark_resume : styles.light_resume}>
       <div className={styles.resume_tabs}>
-        <button onClick={() => setTab("Experience")}>Experience</button>
-        <button onClick={() => setTab("Education")}>Education</button>
-        <button onClick={() => setTab("Courses")}>Coursework</button>
-        <button onClick={() => setTab("Skills")}>Skills</button>
-        <button onClick={() => setTab("Honors")}>Honors/Awards</button>
-        <button onClick={() => setTab("Orgs")}>Organizations</button>
+        <button className={tab === 'Experience' ? styles.button_selected : ''} onClick={() => setTab("Experience")}>Experience</button>
+        <button className={tab === 'Education' ? styles.button_selected : ''} onClick={() => setTab("Education")}>Education</button>
+        <button className={tab === 'Courses' ? styles.button_selected : ''} onClick={() => setTab("Courses")}>Coursework</button>
+        <button className={tab === 'Skills' ? styles.button_selected : ''} onClick={() => setTab("Skills")}>Skills</button>
+        <button className={tab === 'Honors' ? styles.button_selected : ''} onClick={() => setTab("Honors")}>Honors/Awards</button>
+        <button className={tab === 'Orgs' ? styles.button_selected : ''} onClick={() => setTab("Orgs")}>Organizations</button>
       </div>
       <div className={styles.resume_tab_content}>
         {
           (function() {
             switch(tab) {
               case 'Experience':
-              gradient.current.style.setProperty('height', 'auto');
+              if (gradient.current !== null) {
+                gradient.current.style.setProperty('height', 'auto');
+              }
               return workExperience.map((exp, i) => 
-              <div>
+              <div className={styles.experience}>
                 <h3 className={styles.title}>{exp.company}</h3>
                 <h4>{exp.title} | {exp.location}</h4>
                 <h4>{exp.timestamp}</h4>
@@ -201,30 +271,40 @@ const Resume = (props) => {
               case 'Education':
                 gradient.current.style.setProperty('height', '100%');
                 return education.map((edu, i) => 
-                <div>
+                <div className={styles.experience}>
                   <h3 className={styles.title}>{edu.name}</h3>
                   <h4>{edu.degree} | {edu.location}</h4>
                   <h4>{edu.timestamp}</h4>
                   {edu.courses && <div>
                     <p id={styles.courses}><em>Relevant Courses</em>: {edu.courses}</p>
-                    <p id={styles.fulllist} className={styles.btngrad}>Full Course List</p>
+                    <p>To see a full list of courses, check out the Coursework tab.</p>
                   </div>}
                   
                 </div>);
               case 'Courses':
-                gradient.current.style.setProperty('height', '100%');
-                return <div><h1>In Progress</h1></div>;
+                gradient.current.style.setProperty('height', 'auto');
+                return <div className={styles.experience}>
+                  <h3 className={styles.title}>Classes taken at the University of Michigan:</h3>
+                  {courses.map((course, i) =>
+                    <div>
+                      <h4>{course.term}</h4>
+                      <div>
+                        {course.courses.map((c_id, i) => <p>{c_id}</p>)}
+                      </div>
+                    </div>
+                  )}
+                </div>;
               case 'Skills':
                 gradient.current.style.setProperty('height', '100%');
                 return skills.map((skill, i) =>
-                <div>
+                <div className={styles.experience}>
                   <h3 className={styles.title}>{skill.name}</h3>
                   <p>{skill.list}</p>
                 </div>);
               case 'Honors':
                 gradient.current.style.setProperty('height', 'auto');
                 return awards.map((award, i) => 
-                <div>
+                <div className={styles.experience}>
                   <h3 className={styles.title}>{award.name}</h3>
                   <h4>{award.timestamp}</h4>
                   <ul>
@@ -235,7 +315,7 @@ const Resume = (props) => {
                 </div>);
               case 'Orgs':
                 return orgs.map((org, i) =>
-                <div>
+                <div className={styles.experience}>
                   <h3 className={styles.title}>{org.name}</h3>
                   <h4>{org.title} | {org.timestamp}</h4>
                   <ul>
@@ -251,7 +331,8 @@ const Resume = (props) => {
         }
       </div>
     </div>
-    <Footer projects='true'/>
+    {(tab === "Education" || tab === "Skills") && <Footer/>}
+    {tab !== "Education" && tab !== "Skills" && <Footer projects='true'/>}
   </div>
 );
 }
