@@ -1,4 +1,4 @@
-import { React, useRef, useEffect, useState } from 'react';
+import { React, useRef, useEffect, useState, useReducer } from 'react';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import styles from './Resume.module.css';
@@ -8,6 +8,7 @@ const Resume = (props) => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
+  const [tab, setTab] = useState("Experience");
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
@@ -171,11 +172,22 @@ const Resume = (props) => {
       <h1 style={{ display: 'inline-block' }}>Resume</h1>
       <a style={{ display: 'inline-block' }} target="_blank" href="/Nitish_Vijai_Resume_W23.pdf" className={styles.btngrad}>Print (PDF)</a>
     </div>
-    <div id={styles.resume_container}>
-        <div id={styles.col1}>
-          <div id="experience">
-            <h2 className={styles.heading}>Experience</h2>
-            {workExperience.map((exp, i) => 
+    <div id={styles.updated_resume_ux}>
+      <div className={styles.resume_tabs}>
+        <button onClick={() => setTab("Experience")}>Experience</button>
+        <button onClick={() => setTab("Education")}>Education</button>
+        <button onClick={() => setTab("Courses")}>Coursework</button>
+        <button onClick={() => setTab("Skills")}>Skills</button>
+        <button onClick={() => setTab("Honors")}>Honors/Awards</button>
+        <button onClick={() => setTab("Orgs")}>Organizations</button>
+      </div>
+      <div className={styles.resume_tab_content}>
+        {
+          (function() {
+            switch(tab) {
+              case 'Experience':
+              gradient.current.style.setProperty('height', 'auto');
+              return workExperience.map((exp, i) => 
               <div>
                 <h3 className={styles.title}>{exp.company}</h3>
                 <h4>{exp.title} | {exp.location}</h4>
@@ -185,61 +197,61 @@ const Resume = (props) => {
                     <li>{bullet}</li>
                   )}
                 </ul>
-              </div>)}
-          </div>
-          <div id={styles.awards}>
-            <h2 className={styles.heading}>Awards</h2>
-            {awards.map((award, i) => 
-              <div>
-                <h3 className={styles.title}>{award.name}</h3>
-                <h4>{award.timestamp}</h4>
-                <ul>
-                  {award.info.map((bullet, i) =>
-                    <li>{bullet}</li>
-                  )}
-                </ul>
-              </div>)}
-          </div>
-        </div>
-        <div id={styles.col2}>
-          <div id="education">
-            <h2 className={styles.heading}>Education</h2>
-            {education.map((edu, i) => 
-              <div>
-                <h3 className={styles.title}>{edu.name}</h3>
-                <h4>{edu.degree} | {edu.location}</h4>
-                <h4>{edu.timestamp}</h4>
-                {edu.courses && <div>
-                  <p id={styles.courses}><em>Relevant Courses</em>: {edu.courses}</p>
-                  <p id={styles.fulllist} className={styles.btngrad}>Full Course List</p>
-                </div>}
-                
-              </div>)}
-          </div>
-          <div id={styles.orgs}>
-            <h2 className={styles.heading}>Organizations</h2>
-            {orgs.map((org, i) =>
-              <div>
-                <h3 className={styles.title}>{org.name}</h3>
-                <h4>{org.title} | {org.timestamp}</h4>
-                <ul>
-                  {org.info.map((bullet, i) =>
-                    <li>{bullet}</li>
-                  )}
-                </ul>
-              </div>)}
-          </div>
-          <div id={styles.skills}>
-            <h2 className={styles.heading}>Skills</h2>
-            {skills.map((skill, i) =>
-              <div>
-                <h3 className={styles.title}>{skill.name}</h3>
-                <p>{skill.list}</p>
-              </div>)}
-          </div>
-        </div>
+              </div>);
+              case 'Education':
+                gradient.current.style.setProperty('height', '100%');
+                return education.map((edu, i) => 
+                <div>
+                  <h3 className={styles.title}>{edu.name}</h3>
+                  <h4>{edu.degree} | {edu.location}</h4>
+                  <h4>{edu.timestamp}</h4>
+                  {edu.courses && <div>
+                    <p id={styles.courses}><em>Relevant Courses</em>: {edu.courses}</p>
+                    <p id={styles.fulllist} className={styles.btngrad}>Full Course List</p>
+                  </div>}
+                  
+                </div>);
+              case 'Courses':
+                gradient.current.style.setProperty('height', '100%');
+                return <div><h1>In Progress</h1></div>;
+              case 'Skills':
+                gradient.current.style.setProperty('height', '100%');
+                return skills.map((skill, i) =>
+                <div>
+                  <h3 className={styles.title}>{skill.name}</h3>
+                  <p>{skill.list}</p>
+                </div>);
+              case 'Honors':
+                gradient.current.style.setProperty('height', 'auto');
+                return awards.map((award, i) => 
+                <div>
+                  <h3 className={styles.title}>{award.name}</h3>
+                  <h4>{award.timestamp}</h4>
+                  <ul>
+                    {award.info.map((bullet, i) =>
+                      <li>{bullet}</li>
+                    )}
+                  </ul>
+                </div>);
+              case 'Orgs':
+                return orgs.map((org, i) =>
+                <div>
+                  <h3 className={styles.title}>{org.name}</h3>
+                  <h4>{org.title} | {org.timestamp}</h4>
+                  <ul>
+                    {org.info.map((bullet, i) =>
+                      <li>{bullet}</li>
+                    )}
+                  </ul>
+                </div>);
+            default:
+              break;
+            }
+          })()
+        }
       </div>
-      <Footer projects='true'/>
+    </div>
+    <Footer projects='true'/>
   </div>
 );
 }

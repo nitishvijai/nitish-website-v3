@@ -101,6 +101,28 @@
     --size: 1500px;
 }
 
+#updated_resume_ux {
+    background-color: black;
+    margin: 0 auto;
+    width: 85%;
+    animation: fadeIn 3s;
+}
+
+.resume_tabs {
+    overflow: hidden;
+    background-color: black;
+}
+
+.resume_tabs button {
+    background-color: gray;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    width: 16.66667%;
+}
 
 #resume_container {
     display: flex;
