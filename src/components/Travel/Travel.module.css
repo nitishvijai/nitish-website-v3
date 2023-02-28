@@ -147,6 +147,7 @@ table {
     border-spacing: 20px 0;
     position: relative;
     z-index: 120;
+    animation: fadeIn 3s;
 }
 
 tr {

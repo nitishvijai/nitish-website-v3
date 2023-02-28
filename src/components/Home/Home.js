@@ -38,7 +38,7 @@ const Home = (props) => {
           <h2 className={mobilePortrait ? styles.fact_mobile : styles.fact} id={styles.tldrHeading}>&nbsp;&nbsp;Nitish Vijai</h2>
           <p  className={mobilePortrait ? styles.fact_mobile : styles.fact}>〽️ B.S.E. Computer Science and Data Science @ University of Michigan</p>
           <p  className={mobilePortrait ? styles.fact_mobile : styles.fact}>🖥️ Incoming Associate Software Engineer @ Capital One</p>
-          <p  className={mobilePortrait ? styles.fact_mobile : styles.fact}>⚒️ Currently working on this website</p>
+          <p  className={mobilePortrait ? styles.fact_mobile : styles.fact}>⚒️ Most likely seizing the day</p>
         </div>
       </div>
       <Footer />
