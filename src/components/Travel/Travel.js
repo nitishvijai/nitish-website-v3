@@ -39,11 +39,22 @@ const Travel = (props) => {
       <Navbar selected='5' toggle={setMode} mode={mode} />
       <h1 id={styles.header}>Travels</h1>
       <p id={styles.subheader}>Check out some cool pics from the places I've recently visited!</p>
-      <h1 className={styles.fact}>27 US states visited</h1>
-      <h1 className={styles.fact}>14 countries visited</h1>
-      <h1 className={styles.fact}>5 Indian states visited</h1>
-      <h1 className={styles.fact}>4 continents visited</h1>
-      <h1 className={styles.fact}>1 planet visited</h1>
+      <table>
+        <tr>
+          <td className={styles.number}>27</td>
+          <td className={styles.number}>14</td>
+          <td className={styles.number}>5</td>
+          <td className={styles.number}>4</td>
+          <td className={styles.number}>1</td>
+        </tr>
+        <tr>
+          <td>U.S. STATES VISITED</td>
+          <td>COUNTRIES VISITED</td>
+          <td>INDIAN STATES VISITED</td>
+          <td>CONTINENTS VISITED</td>
+          <td>PLANETS VISITED</td>
+        </tr>
+      </table>
       <h1 className={styles.fact}>and counting...</h1>
       <div className={styles.destList}>
         {destinations.map((dest, i) =>
