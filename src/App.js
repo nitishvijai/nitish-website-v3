@@ -6,6 +6,7 @@ import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Resume from './components/Resume/Resume';
 import Writing from './components/Writing/Writing';
+import BlogPost from './components/BlogPost/BlogPost';
 import Travel from './components/Travel/Travel';
 import Contact from './components/Contact/Contact';
 import useLocalStorage from 'use-local-storage';
@@ -32,6 +33,7 @@ function App() {
         <Route path="/resume" element={<Resume color={mode} toggle={toggleMode}/>} />
         <Route path="/essays" element={<Writing color={mode} toggle={toggleMode}/>} />
         <Route path="/travels" element={<Travel color={mode} toggle={toggleMode}/>} />
+        <Route path="/blog-post" element={<BlogPost color={mode} toggle={toggleMode} />} />
         <Route path="/contact" element={<Contact color={mode} toggle={toggleMode}/>} />
       </Routes>
     </BrowserRouter>

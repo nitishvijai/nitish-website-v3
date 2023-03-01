@@ -199,6 +199,7 @@ ul, li {
     text-decoration: none;
     font-weight: bold;
     color: orange;
+    text-align: center;
 }
 
 .pgLink:hover {
