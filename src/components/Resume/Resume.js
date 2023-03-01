@@ -75,7 +75,7 @@ const Resume = (props) => {
   const courses = [
     {
       'term': 'Fall 2019',
-      'courses': ['EECS 151 - Accelerated Intro to Computers & Programming',
+      'courses': ['ENGR 151 - Accelerated Intro to Computers & Programming',
                   'EECS 203 - Discrete Math',
                   'MATH 116 - Calculus II',
                   'PHYSICS 140 - Physics I: Mechanics',
@@ -177,7 +177,7 @@ const Resume = (props) => {
       'name': 'National Merit Commended Scholar',
       'timestamp': 'September 2018',
       'info': ['Received score within top 1% of test-takers across the nation on the PSAT',
-               'Honored along with several other high school seniors at a school board meeting']
+               'Honored along with several other high school seniors at a Centerville Board of Education meeting']
     },
     {
       'name': 'Eagle Scout Award - Boy Scout Troop 516',
@@ -225,7 +225,7 @@ const Resume = (props) => {
     },
     {
       'name': 'Tech, Frameworks & Tools',
-      'list': 'Windows/UWP, Linux, WSL, Git, Selenium, Flask, React, Firebase, NumPy, Tableau, Salesforce, AWS (S3)'
+      'list': 'Windows/UWP, Linux, WSL, Git, Selenium, Flask, React, Firebase, NumPy, TensorFlow, Tableau, Salesforce, AWS (S3)'
     },
     {
       'name': 'Spoken Languages',

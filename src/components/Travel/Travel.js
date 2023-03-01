@@ -23,7 +23,7 @@ const Travel = (props) => {
       'pics': ['website_pics/Cochin1.jpg', 'website_pics/Cochin2.jpg', 'website_pics/Cochin3.jpg']
     },
     {
-      'name': 'Dubai, United Arab Emirates',
+      'name': 'Dubai, UAE',
       'date': '12/19/2022 - 12/22/2022',
       'pics': ['website_pics/Dubai1.jpg', 'website_pics/Dubai2.jpg', 'website_pics/Dubai3.jpg']
     },
@@ -52,7 +52,7 @@ const Travel = (props) => {
           <td>COUNTRIES VISITED</td>
           <td>INDIAN STATES VISITED</td>
           <td>CONTINENTS VISITED</td>
-          <td>PLANETS VISITED</td>
+          <td>PLANET(S) VISITED</td>
         </tr>
       </table>
       <h1 className={styles.fact}>and counting...</h1>

@@ -1,6 +1,11 @@
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .darkgradient {
@@ -44,9 +49,9 @@
     height: auto;
     position: relative;
     overflow-y: auto;
-  }
-  
-  .lightgradient_mobile {
+}
+
+.lightgradient_mobile {
     background: #f4f4f4;
     font-size: 1.2rem;
     border: none;
@@ -57,9 +62,10 @@
     height: auto;
     position: relative;
     overflow-y: auto;
-  }
+}
 
-.darkgradient:before, .darkgradient_mobile:before {
+.darkgradient:before,
+.darkgradient_mobile:before {
     --size: 1500px;
     content: '';
     position: absolute;
@@ -74,19 +80,20 @@
 
 .lightgradient:before,
 .lightgradient_mobile:before {
-  --size: 1500px;
-  content: '';
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  width: var(--size);
-  height: var(--size);
-  background: radial-gradient(circle closest-side, #dbd8d8, transparent);
-  transform: translate(-50%, -50%);
-  transition: width 0.1s ease, height 0.1s ease;
+    --size: 1500px;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #dbd8d8, transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.1s ease, height 0.1s ease;
 }
 
-.darkgradient:hover:before, .lightgradient:hover:before {
+.darkgradient:hover:before,
+.lightgradient:hover:before {
     --size: 1500px;
 }
 
@@ -114,26 +121,81 @@
 
 .btngrad {
     display: inline-block;
-    background-image: linear-gradient(to right, #000428 0%, #0a66c2  51%, #000428  100%);
+    background-image: linear-gradient(to right, #000428 0%, #0a66c2 51%, #000428 100%);
     margin: 10px;
     padding: 5px 25px;
     text-align: center;
     text-transform: uppercase;
+    text-decoration: none;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;            
+    color: white;
     box-shadow: 0 0 10px #eee;
     border-radius: 10px;
     width: 115px;
     position: relative;
     animation: fadeIn 3s;
+    outline: none;
+}
+
+.btngrad:disabled {
+    display: inline-block;
+    background-image: linear-gradient(to right, black 0%, gray 51%, black 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+    margin: 10px;
+    padding: 5px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 10px #eee;
+    border-radius: 10px;
+    width: 115px;
+    position: relative;
+    animation: fadeIn 3s;
+    outline: none;
 }
 
 .btngrad:hover {
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center;
+    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
     cursor: pointer;
+}
+
+.resetBtn:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.resetBtn {
+    display: inline-block;
+    background-image: linear-gradient(to right, #2b0000 0%, #FF0000 51%, #2b0000 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+    margin: 10px;
+    padding: 5px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 10px #eee;
+    border-radius: 10px;
+    width: 115px;
+    position: relative;
+    animation: fadeIn 3s;
+    outline: none;
+    cursor: pointer;
+    z-index: 120;
 }
 
 #linkedin {
@@ -143,15 +205,32 @@
 
 #email {
     display: inline-block;
-    background-image: linear-gradient(to right, #F7971E 0%, #FFD200  51%, #F7971E  100%);
+    background-image: linear-gradient(to right, #F7971E 0%, #FFD200 51%, #F7971E 100%);
     color: black;
     animation: fadeIn 3s;
 }
 
 #github {
     display: inline-block;
-    background-image: linear-gradient(to right, #834d9b 0%, #d04ed6  51%, #834d9b  100%);
+    background-image: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
     animation: fadeIn 3s;
+}
+
+#submitButton:disabled {
+    background-image: linear-gradient(to right, black 0%, gray 51%, black 100%);
+}
+
+#submitButton {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+    background-image: linear-gradient(to right, #2b0000 0%, #00FF00 51%, #2b0000 100%);
+}
+
+#submitButton, #resetButton {
+    width: 165px;
+    height: 35.5px;
+    animation: fadeIn 3s;
+    border: none;
 }
 
 .message {
@@ -169,7 +248,9 @@
     animation: fadeIn 3s;
 }
 
-#fullName, #emailadd, #subject {
+#fullName,
+#emailadd,
+#subject {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 40%;
     padding: 12px;
@@ -192,4 +273,12 @@ textarea {
     position: relative;
     z-index: 100;
     animation: fadeIn 3s;
+}
+
+#errors {
+    text-align: center;
+}
+
+.hide_error {
+    display: none;
 }
