@@ -15,6 +15,8 @@ function App() {
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [mode, setMode] = useLocalStorage('mode', defaultDark ? 'dark' : 'light');
 
+  const blog_posts = ["2020-parting-thoughts"];
+
   const toggleMode = () => {
     if (mode === "dark") {
       setMode("light");
@@ -34,6 +36,7 @@ function App() {
         <Route path="/essays" element={<Writing color={mode} toggle={toggleMode}/>} />
         <Route path="/travels" element={<Travel color={mode} toggle={toggleMode}/>} />
         <Route path="/blog-post" element={<BlogPost color={mode} toggle={toggleMode} />} />
+        {blog_posts.map((post) => <Route path={"/blog-post/" + post} element={<BlogPost color={mode} toggle={toggleMode} filename={"/blog-posts/" + post + ".xml"} />} />)}
         <Route path="/contact" element={<Contact color={mode} toggle={toggleMode}/>} />
       </Routes>
     </BrowserRouter>

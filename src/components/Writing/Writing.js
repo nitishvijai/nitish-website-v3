@@ -20,7 +20,7 @@ const Writing = (props) => {
   let essays = [
     {
       'name': '2020: Parting Thoughts',
-      'link': 'placeholder',
+      'link': '/blog-post/2020-parting-thoughts',
       'posted': 'December 31st, 2020'
     },
     {
