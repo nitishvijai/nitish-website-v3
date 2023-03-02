@@ -33,11 +33,13 @@ const BlogPost = (props) => {
     fetch(xml_post).then(
       (res) => res.text())
       .then(xmlString => {
-        const doc = new window.DOMParser().parseFromString(xmlString, "text/xml"); 
+        const doc = new window.DOMParser().parseFromString(xmlString, "text/xml");
 
         setTitle(doc.getElementsByTagName("Title")[0].childNodes[0].nodeValue);
         setSubtitle(doc.getElementsByTagName("Subtitle")[0].childNodes[0].nodeValue);
         setPosted(doc.getElementsByTagName("Posted")[0].childNodes[0].nodeValue);
+
+        document.title = doc.getElementsByTagName("Title")[0].childNodes[0].nodeValue + " - Writing - Nitish Vijai";
 
         let rendered_HTML = [];
 

@@ -17,6 +17,7 @@ const Contact = (props) => {
   const [emailValid, setEmailValid] = useState(true);
 
   useEffect(() => {
+    document.title = "Contact - Nitish Vijai";
     if (window.innerHeight <= 1000) {
       gradient.current.style.setProperty('overflow-y', 'hidden');
       gradient.current.style.setProperty('height', 'auto');

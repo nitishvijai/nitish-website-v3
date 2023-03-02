@@ -9,6 +9,10 @@ const Home = (props) => {
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
 
+  useEffect(() => {
+    document.title = 'Home - Nitish Vijai';
+  }, []);
+
 
   let moveGradient = (e) => {
     let x = e.clientX - 0;
@@ -24,7 +28,7 @@ const Home = (props) => {
 
   return (
     <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
-      <Navbar toggle={setMode} mode={mode}/>
+      <Navbar toggle={setMode} mode={mode} selected={0}/>
       <div id={mobilePortrait ? styles.main_mobile : styles.main}>
         <p className={styles.message}>Hello and welcome to my site! You're in the right place if you're looking for everything I've done in the cool world of tech -- thanks for visiting!</p>
         <p className={styles.message}>To get started, please click on the links above to learn more about me.</p>

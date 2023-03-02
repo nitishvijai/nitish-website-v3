@@ -11,7 +11,7 @@
     top: 45%;
     left: 51%;
     transform: translate(-50%, -50%);
-    width: 860px;
+    width: 910px;
     border-radius: 50px;
     border: 3px #2f2f32 solid;
     transition-property: background-color, border;
@@ -26,7 +26,7 @@
     top: 45%;
     left: 51%;
     transform: translate(-50%, -50%);
-    width: 860px;
+    width: 910px;
     border-radius: 50px;
     border: 2px #eeeeee solid;
     transition-property: background-color, border;
@@ -63,6 +63,11 @@
     font-size: 28px;
     margin-top: 14px;
     margin-bottom: 14px;
+    animation: none;
+}
+
+.link {
+    animation: none;
 }
 
 .selected {
@@ -76,6 +81,7 @@
     text-decoration: none;
     transition-property: color;
     transition-duration: 2s;
+    animation: none;
 }
 
 .normallight {
@@ -83,6 +89,7 @@
     text-decoration: none;
     transition-property: color;
     transition-duration: 2s;
+    animation: none;
 }
 
 .normaldark:hover, .normallight:hover {
@@ -169,4 +176,10 @@
 
 .toggle:hover .tooltipText {
     visibility: visible;
+}
+
+#icon {
+    margin-top: 2px;
+    margin-right: 10px;
+    animation: none;
 }

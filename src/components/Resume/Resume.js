@@ -10,6 +10,10 @@ const Resume = (props) => {
   const [mode, setMode] = [props.color, props.toggle];
   const [tab, setTab] = useState("Experience");
 
+  useEffect(() => {
+    document.title = 'Resume - Nitish Vijai';
+  }, []);
+
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;

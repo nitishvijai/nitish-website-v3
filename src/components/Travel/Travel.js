@@ -9,6 +9,10 @@ const Travel = (props) => {
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
 
+  useEffect(() => {
+    document.title = 'Traveling - Nitish Vijai';
+  }, []);
+
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;

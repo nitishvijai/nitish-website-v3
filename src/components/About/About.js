@@ -11,6 +11,7 @@ const About = (props) => {
   const [mode, setMode] = [props.color, props.toggle];
 
   useEffect(() => {
+    document.title = "About - Nitish Vijai";
     if (window.innerHeight <= 1000) {
       gradient.current.style.setProperty('overflow-y', 'hidden');
       gradient.current.style.setProperty('height', 'auto');

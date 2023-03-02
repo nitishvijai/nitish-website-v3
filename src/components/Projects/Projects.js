@@ -10,6 +10,10 @@ const Projects = (props) => {
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
 
+  useEffect(() => {
+    document.title = 'Projects - Nitish Vijai';
+  }, []);
+
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
