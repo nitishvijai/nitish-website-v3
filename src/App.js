@@ -15,7 +15,7 @@ function App() {
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [mode, setMode] = useLocalStorage('mode', defaultDark ? 'dark' : 'light');
 
-  const blog_posts = ["2020-parting-thoughts"];
+  const blog_posts = ["2020-parting-thoughts", "growth-mindset", "wsl", "first-post"];
 
   const toggleMode = () => {
     if (mode === "dark") {

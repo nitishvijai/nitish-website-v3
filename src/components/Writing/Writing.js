@@ -25,13 +25,18 @@ const Writing = (props) => {
     },
     {
       'name': 'The Science of the Growth Mindset',
-      'link': 'placeholder',
+      'link': '/blog-post/growth-mindset',
       'posted': 'August 18th, 2019'
     },
     {
       'name': 'Running Linux on Windows via the Windows Subsystem for Linux',
-      'link': 'placeholder',
+      'link': '/blog-post/wsl',
       'posted': 'July 14th, 2019'
+    },
+    {
+      'name': 'First Post',
+      'link': '/blog-post/first-post',
+      'posted': 'June 9th, 2019'
     }
   ];
 
