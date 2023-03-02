@@ -25,7 +25,20 @@
 }
 
 .essay_title {
-    font-weight: normal;
+    width: 360px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    padding-top: 0.5em;
+    text-align: left;
+    margin-bottom: 0.5em;
+    margin-left: 10px;
+}
+
+.essay_highlight {
+    text-align: left;
+    margin-left: 10px;
 }
 
 #sep {
@@ -36,8 +49,30 @@
 
 .date {
     margin-top: 0;
+    margin-bottom: 0.5em;
 }
 
 .read {
-    margin-bottom: 100px;
+    background-image: linear-gradient(to right, #000428 0%, blue 51%, #000428 100%);
+    padding: 5px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 10px #eee;
+    border-radius: 10px;
+    width: 115px;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 70px;
+}
+
+.read:hover {
+    background-position: right center;
+    text-decoration: none;
+    cursor: pointer;
 }

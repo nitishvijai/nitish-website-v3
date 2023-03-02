@@ -11,16 +11,15 @@ const About = (props) => {
   const [mode, setMode] = [props.color, props.toggle];
 
   useEffect(() => {
-    if (mobilePortrait) {
-      gradient.current.style.setProperty('--x', '0px');
-      gradient.current.style.setProperty('--y', '0px');
+    if (window.innerHeight <= 1000) {
       gradient.current.style.setProperty('overflow-y', 'hidden');
       gradient.current.style.setProperty('height', 'auto');
-    } else {
+    }
+    else {
       gradient.current.style.setProperty('overflow-y', 'hidden');
       gradient.current.style.setProperty('height', '100%');
     }
-  }, [mobilePortrait]);
+  }, []);
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
@@ -33,14 +32,7 @@ const About = (props) => {
       gradient.current.style.setProperty('--y', '0px');
     }
 
-    if (window.innerHeight <= 1000) {
-      gradient.current.style.setProperty('overflow-y', 'hidden');
-      gradient.current.style.setProperty('height', 'auto');
-    }
-    else {
-      gradient.current.style.setProperty('overflow-y', 'hidden');
-      gradient.current.style.setProperty('height', '100%');
-    }
+    
   }
 
   return (

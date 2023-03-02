@@ -88,6 +88,7 @@
 .normaldark:hover, .normallight:hover {
     color: cornflowerblue;
     cursor: pointer;
+    transition-duration: 0.5s;
 }
 
 .dropbtn {

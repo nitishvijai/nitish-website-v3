@@ -4,7 +4,6 @@ import Footer from '../Footer/Footer';
 import styles from './BlogPost.module.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Link, useLocation } from 'react-router-dom';
-import XMLParser from 'react-xml-parser';
 
 const BlogPost = (props) => {
   const mobilePortrait = useMediaQuery('(max-width:1024px)');

@@ -149,6 +149,7 @@ p {
   height: 250px;
   text-align: center;
   position: relative;
+  margin-left: 2em;
 }
 
 .headshot_mobile {
@@ -162,6 +163,7 @@ p {
 
 #right {
   display: inline-block;
+  width: 60%;
 }
 
 .fact {

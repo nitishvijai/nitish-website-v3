@@ -267,6 +267,7 @@ const Resume = (props) => {
                     <li>{bullet}</li>
                   )}
                 </ul>
+                {i < workExperience.length - 1 && <hr/>}
               </div>);
               case 'Education':
                 gradient.current.style.setProperty('height', '100%');
@@ -312,6 +313,7 @@ const Resume = (props) => {
                       <li>{bullet}</li>
                     )}
                   </ul>
+                  {i < awards.length - 1 && <hr/>}
                 </div>);
               case 'Orgs':
                 return orgs.map((org, i) =>
@@ -323,6 +325,7 @@ const Resume = (props) => {
                       <li>{bullet}</li>
                     )}
                   </ul>
+                  {i < orgs.length - 1 && <hr/>}
                 </div>);
             default:
               break;

@@ -21,21 +21,25 @@ const Writing = (props) => {
     {
       'name': '2020: Parting Thoughts',
       'link': '/blog-post/2020-parting-thoughts',
+      'highlight': 'One of the worst (yet most eye-opening) years of my life.',
       'posted': 'December 31st, 2020'
     },
     {
       'name': 'The Science of the Growth Mindset',
       'link': '/blog-post/growth-mindset',
+      'highlight': 'An analysis of its applications in engineering, education, and life',
       'posted': 'August 18th, 2019'
     },
     {
       'name': 'Running Linux on Windows via the Windows Subsystem for Linux',
       'link': '/blog-post/wsl',
+      'highlight': 'Attaining the full power of UNIX on the Windows platform',
       'posted': 'July 14th, 2019'
     },
     {
       'name': 'First Post',
       'link': '/blog-post/first-post',
+      'highlight': 'My first post, more to follow...',
       'posted': 'June 9th, 2019'
     }
   ];
@@ -47,7 +51,7 @@ const Writing = (props) => {
       <p id={styles.subheader}>Check out some of my favorite articles I've written!</p>
       <div id={styles.essayList}>
         {essays.map((essay, i) => 
-          <EssayLink name={essay.name} link={essay.link} posted={essay.posted} toggle={setMode} color={mode}/>
+          <EssayLink name={essay.name} link={essay.link} posted={essay.posted} highlight={essay.highlight} toggle={setMode} color={mode}/>
         )}
       </div>
       <Footer />

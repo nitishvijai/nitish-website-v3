@@ -16,6 +16,17 @@ const Contact = (props) => {
 
   const [emailValid, setEmailValid] = useState(true);
 
+  useEffect(() => {
+    if (window.innerHeight <= 1000) {
+      gradient.current.style.setProperty('overflow-y', 'hidden');
+      gradient.current.style.setProperty('height', 'auto');
+    }
+    else {
+      gradient.current.style.setProperty('overflow-y', 'hidden');
+      gradient.current.style.setProperty('height', '100%');
+    }
+  }, []);
+
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
