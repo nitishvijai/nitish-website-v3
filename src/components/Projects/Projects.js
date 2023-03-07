@@ -6,7 +6,9 @@ import styles from './Projects.module.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Projects = (props) => {
-  const mobilePortrait = useMediaQuery('(max-width:1024px)');
+  const mobilePortrait = useMediaQuery('(max-width:600px) and (orientation:portrait)');
+  const mobileLandscape = useMediaQuery('(min-width:600px) and (max-width:1023px) and (orientation:landscape)');
+
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
 
@@ -18,8 +20,13 @@ const Projects = (props) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
 
-    gradient.current.style.setProperty('--x', x + 'px');
-    gradient.current.style.setProperty('--y', y + 'px');
+    if (!mobilePortrait || !mobileLandscape) {
+      gradient.current.style.setProperty('--x', x + 'px');
+      gradient.current.style.setProperty('--y', y + 'px');
+    } else {
+      gradient.current.style.setProperty('--x', '0px');
+      gradient.current.style.setProperty('--y', '0px');
+    }
   }
 
   const projects = [
@@ -128,21 +135,23 @@ const Projects = (props) => {
   return (
     <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='2' toggle={setMode} mode={mode} />
-      <h1 id={styles.header}>Projects</h1>
-      <p id={styles.subheader}>Check out some of the coolest projects I've worked on over the past few years!</p>
-      <div className={styles.projects}>
+      <div id={mobilePortrait ? styles.main_mobile : styles.main}>
+        <h1 id={styles.header}>Projects</h1>
+        <p id={styles.subheader}>Check out some of the coolest projects I've worked on over the past few years!</p>
+      </div>
+      <div className={mobilePortrait ? styles.projects_mobile : (mobileLandscape ? styles.projects_landscape : styles.projects)}>
         {projects.map((project, i) => 
         <div className={styles.project}>
-          <div className={styles.img}>
-            {project.pic ? (<img className={styles.proj_pic} src={'/' + project.pic}/>) : (<img src="/unavailable.png" />)}
+          <div className={mobilePortrait || mobileLandscape ? styles.img_mobile : styles.img}>
+            {project.pic ? (<img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src={'/' + project.pic} height="230" width="380"/>) : (<img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src="/unavailable.png" height="230" width="380" />)}
           </div>
-          <div className={styles.info}>
-            <h3 className={styles.projName}>{project.name}</h3>
+          <div className={mobilePortrait || mobileLandscape ? styles.info_mobile : styles.info}>
+            <h3 className={(mobilePortrait || mobileLandscape ? styles.projName_mobile : styles.projName)}>{project.name}</h3>
             <p className={styles.date}>{project.date}</p>
             <p><strong>Info:</strong>{" " + project.info}</p>
             <p><strong>Stack:</strong>{" " + project.stack}</p>
-            {project.github !== 'N/A' && <a href={project.github} target="_blank" className={styles.btngrad}>GitHub Repo</a>}
-            {project.github === 'N/A' && <Link to="/contact" className={styles.classProj}>Contact Me for code</Link>}
+            {project.github !== 'N/A' && <a href={project.github} target="_blank" className={mobilePortrait || mobileLandscape ? styles.btngrad_mobile : styles.btngrad}>GitHub Repo</a>}
+            {project.github === 'N/A' && <Link to="/contact" className={mobilePortrait || mobileLandscape ? styles.classProj_mobile : styles.classProj}>Contact Me for code</Link>}
           </div>
         </div>
         )}

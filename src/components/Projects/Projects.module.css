@@ -108,11 +108,39 @@
   animation: fadeIn 3s;
 }
 
+#main {
+}
+
+#main_mobile {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .projects {
   text-align: center;
   margin: 0 auto;
   display: block;
   width: 60%;
+  animation: fadeIn 3s;
+}
+
+.projects_mobile {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  animation: fadeIn 3s;
+}
+
+.projects_landscape {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  width: 50%;
+  padding-left: 5%;
+  padding-right: 5%;
   animation: fadeIn 3s;
 }
 
@@ -136,10 +164,23 @@
   animation: fadeIn 3s;
 }
 
+.img_mobile {
+  float: left;
+  height: 250px;
+  animation: fadeIn 3s;
+}
+
 .info {
   margin-left: 100px;
   margin-right: 25px;
   text-align: left;
+  animation: fadeIn 3s;
+}
+
+.info_mobile {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
   animation: fadeIn 3s;
 }
 
@@ -152,6 +193,13 @@ img {
 
 .projName {
   margin-top: 0;
+  z-index: 95;
+  position: relative;
+  animation: fadeIn 3s;
+}
+
+.projName_mobile {
+  margin-top: 275px;
   z-index: 95;
   position: relative;
   animation: fadeIn 3s;
@@ -179,6 +227,24 @@ img {
   width: 120px;
   position: relative;
   margin-left: 300px;
+  animation: fadeIn 3s;
+}
+
+.btngrad_mobile {
+  background-image: linear-gradient(to right, #000428 0%, #000099 51%, #000428 100%);
+  margin: 0 auto;
+  padding: 5px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 10px #eee;
+  border-radius: 10px;
+  display: block;
+  width: 120px;
+  position: relative;
   animation: fadeIn 3s;
 }
 
@@ -210,9 +276,31 @@ img {
   animation: fadeIn 3s;
 }
 
+.classProj_mobile {
+  background-image: linear-gradient(to right, #2b0000 0%, #FF0000 51%, #2b0000 100%);
+  margin: 0 auto;
+  padding: 4px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 10px #eee;
+  border-radius: 10px;
+  display: block;
+  width: 210px;
+  position: relative;
+  animation: fadeIn 3s;
+}
+
 .proj_pic {
-  height: 230px;
-  width: 380px;
   z-index: 105;
   animation: fadeIn 3s;
+}
+
+.proj_pic_mobile {
+  animation: fadeIn 3s;
+  width: 100%;
+  height: 100%;
 }
