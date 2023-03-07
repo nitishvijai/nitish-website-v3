@@ -140,6 +140,16 @@ p {
   animation: fadeIn 3s;
 }
 
+#tldr_tablet {
+  padding-top: 1%;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  margin-right: 50px;
+  animation: fadeIn 3s;
+}
+
 #tldrHeading {
   font-weight: 500;
 }
@@ -157,6 +167,13 @@ p {
   height: 200px;
 }
 
+.headshot_tablet {
+  border-radius: 50%;
+  height: 187px;
+  margin-top: 2em;
+  margin-left: 4em;
+}
+
 #left_mobile {
   display: inline-block;
 }
@@ -164,6 +181,11 @@ p {
 #right {
   display: inline-block;
   width: 60%;
+}
+
+#right_mobile {
+  display: inline-block;
+  width: 90%;
 }
 
 .fact {

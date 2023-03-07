@@ -44,8 +44,8 @@ const Navbar = (props) => {
           <button className={styles.dropbtn} onClick={openMenu}>Nitish Vijai</button>
         </div>
         <div id="dropdown" className={styles.dropdowncontent} ref={dropdown} style={{opacity: 0, visibility: 'visible'}}>
-          <p>About</p>
-          <p>Projects</p>
+          <p><Link to="/about" className={`${props.selected == 1 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>About</Link></p>
+          <p><Link to="/projects" className={`${props.selected == 2 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Projects</Link></p>
           <p>Resume</p>
           <p>Writing</p>
           <p>Traveling</p>

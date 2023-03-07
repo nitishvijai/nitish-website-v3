@@ -276,7 +276,7 @@ const Resume = (props) => {
               case 'Education':
                 gradient.current.style.setProperty('height', '100%');
                 return education.map((edu, i) => 
-                <div className={styles.experience}>
+                <div className={styles.edu}>
                   <h3 className={styles.title}>{edu.name}</h3>
                   <h4>{edu.degree} | {edu.location}</h4>
                   <h4>{edu.timestamp}</h4>
@@ -288,7 +288,7 @@ const Resume = (props) => {
                 </div>);
               case 'Courses':
                 gradient.current.style.setProperty('height', 'auto');
-                return <div className={styles.experience}>
+                return <div className={styles.courses}>
                   <h3 className={styles.title}>Classes taken at the University of Michigan:</h3>
                   {courses.map((course, i) =>
                     <div>
@@ -302,14 +302,14 @@ const Resume = (props) => {
               case 'Skills':
                 gradient.current.style.setProperty('height', '100%');
                 return skills.map((skill, i) =>
-                <div className={styles.experience}>
+                <div className={styles.skills}>
                   <h3 className={styles.title}>{skill.name}</h3>
                   <p>{skill.list}</p>
                 </div>);
               case 'Honors':
                 gradient.current.style.setProperty('height', 'auto');
                 return awards.map((award, i) => 
-                <div className={styles.experience}>
+                <div className={styles.awards}>
                   <h3 className={styles.title}>{award.name}</h3>
                   <h4>{award.timestamp}</h4>
                   <ul>
@@ -321,7 +321,7 @@ const Resume = (props) => {
                 </div>);
               case 'Orgs':
                 return orgs.map((org, i) =>
-                <div className={styles.experience}>
+                <div className={styles.orgs}>
                   <h3 className={styles.title}>{org.name}</h3>
                   <h4>{org.title} | {org.timestamp}</h4>
                   <ul>

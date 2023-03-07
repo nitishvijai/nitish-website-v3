@@ -137,7 +137,7 @@ const Projects = (props) => {
             {project.pic ? (<img className={styles.proj_pic} src={'/' + project.pic}/>) : (<img src="/unavailable.png" />)}
           </div>
           <div className={styles.info}>
-            <h3>{project.name}</h3>
+            <h3 className={styles.projName}>{project.name}</h3>
             <p className={styles.date}>{project.date}</p>
             <p><strong>Info:</strong>{" " + project.info}</p>
             <p><strong>Stack:</strong>{" " + project.stack}</p>
