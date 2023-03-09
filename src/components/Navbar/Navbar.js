@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import MediaQuery from 'react-responsive';
 import DarkModeToggle from 'react-dark-mode-toggle';
+import zIndex from '@mui/material/styles/zIndex';
 
 const Navbar = (props) => {
   const dropdown = useRef(null);
@@ -11,9 +12,11 @@ const Navbar = (props) => {
   let openMenu = () => {
     if (dropdown.current.style.opacity == '0') {
       dropdown.current.style.opacity = '1';
+      dropdown.current.style.zIndex = '125';
     }
     else {
       dropdown.current.style.opacity = '0';
+      dropdown.current.style.zIndex = '105';
     }
   }
 
@@ -46,7 +49,7 @@ const Navbar = (props) => {
         <div id="dropdown" className={styles.dropdowncontent} ref={dropdown} style={{opacity: 0, visibility: 'visible'}}>
           <p><Link to="/about" className={`${props.selected == 1 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>About</Link></p>
           <p><Link to="/projects" className={`${props.selected == 2 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Projects</Link></p>
-          <p>Resume</p>
+          <p><Link to="/resume" className={`${props.selected == 3 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Resume</Link></p>
           <p>Writing</p>
           <p>Traveling</p>
           <p>Contact</p>
