@@ -125,6 +125,14 @@
     animation: fadeIn 3s;
 }
 
+.destList_mobile {
+    margin: 0 auto;
+    width: 75%;
+    margin-top: 100px;
+    padding-bottom: 50px;
+    animation: fadeIn 3s;
+}
+
 .pic {
     margin-right: 10px;
     width: 100%;

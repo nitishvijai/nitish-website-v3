@@ -5,7 +5,9 @@ import styles from './Travel.module.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Travel = (props) => {
-  const mobilePortrait = useMediaQuery('(max-width:1024px)');
+  const mobilePortrait = useMediaQuery('(max-width:600px) and (orientation:portrait)');
+  const mobileLandscape = useMediaQuery('(min-width:600px) and (max-width:1023px) and (orientation:landscape)');
+
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
 
@@ -43,7 +45,7 @@ const Travel = (props) => {
       <Navbar selected='5' toggle={setMode} mode={mode} />
       <h1 id={styles.header}>Travels</h1>
       <p id={styles.subheader}>Check out some cool pics from the places I've recently visited!</p>
-      <table>
+      {!mobilePortrait && <table>
         <tr>
           <td className={styles.number}>27</td>
           <td className={styles.number}>14</td>
@@ -58,9 +60,16 @@ const Travel = (props) => {
           <td>CONTINENTS VISITED</td>
           <td>PLANET(S) VISITED</td>
         </tr>
-      </table>
+      </table>}
+      {mobilePortrait && <div>
+        <h1 className={styles.fact}>27 U.S. states visited</h1>
+      <h1 className={styles.fact}>14 countries visited</h1>
+      <h1 className={styles.fact}>5 Indian states visited</h1>
+      <h1 className={styles.fact}>4 continents visited</h1>
+      <h1 className={styles.fact}>1 planet visited</h1>
+      </div>}
       <h1 className={styles.fact}>and counting...</h1>
-      <div className={styles.destList}>
+      <div className={mobilePortrait || mobileLandscape ? styles.destList_mobile : styles.destList}>
         {destinations.map((dest, i) =>
           <div key={i}>
             <p><strong>{dest.name} -</strong> {dest.date}</p>
@@ -74,7 +83,7 @@ const Travel = (props) => {
           </div>
         )}
       </div>
-      <Footer />
+      {mobilePortrait ? <Footer projects="true"/> :<Footer />}
     </div>
   );
 };

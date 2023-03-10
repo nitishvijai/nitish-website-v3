@@ -88,6 +88,16 @@ const BlogPost = (props) => {
           gradient.current.style.setProperty('height', 'auto');
           setRel(true);
         }
+        else if (!mobileLandscape && !mobilePortrait) {
+          if (gradient.current.clientHeight < 800) {
+            gradient.current.style.setProperty('height', '100%');
+            setRel(false);
+          }
+          else {
+            gradient.current.style.setProperty('height', 'auto');
+            setRel(true);
+          }
+        }
         
       });
 
