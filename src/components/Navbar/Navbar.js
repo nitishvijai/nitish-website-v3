@@ -19,7 +19,8 @@ const Navbar = (props) => {
     function clickOut(event) {
       if (dropdown.current && !dropdown.current.contains(event.target) && !button.current.contains(event.target)) {
         setOpened(false);
-        dropdown.current.style.opacity = '0';
+        dropdown.current.style.opacity = 0;
+        dropdown.current.style.visibility = "hidden";
         dropdown.current.style.zIndex = '105';
       }
     }
@@ -33,12 +34,14 @@ const Navbar = (props) => {
   let openMenu = () => {
     if (opened) {
       setOpened(false);
-      dropdown.current.style.opacity = '0';
+      dropdown.current.style.opacity = 0;
+      dropdown.current.style.visibility = "hidden";
       dropdown.current.style.zIndex = '105';
     }
     else {
       setOpened(true);
-      dropdown.current.style.opacity = '1';
+      dropdown.current.style.opacity = 1;
+      dropdown.current.style.visibility = "visible";
       dropdown.current.style.zIndex = '125';
     }
   }
@@ -69,15 +72,15 @@ const Navbar = (props) => {
         <div className={styles.start}>
           <button className={styles.dropbtn} onClick={openMenu} ref={button}>Nitish Vijai</button>
         </div>
-        <div id="dropdown" className={mode === 'dark' ? styles.dropdowncontent : styles.dropdowncontent_light} ref={dropdown} style={{opacity: 0, visibility: 'visible'}}>
+        <div id="dropdown" className={mode === 'dark' ? styles.dropdowncontent : styles.dropdowncontent_light} ref={dropdown}>
           {opened && <div id="links">
-            <p><Link to="/" className={`${props.selected == 0 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Home</Link></p>
-            <p><Link to="/about" className={`${props.selected == 1 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>About</Link></p>
-            <p><Link to="/projects" className={`${props.selected == 2 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Projects</Link></p>
-            <p><Link to="/resume" className={`${props.selected == 3 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Resume</Link></p>
-            <p><Link to="/essays" className={`${props.selected == 4 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Writing</Link></p>
-            <p><Link to="/travels" className={`${props.selected == 5 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Traveling</Link></p>
-            <p><Link to="/contact" className={`${props.selected == 6 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Contact</Link></p>
+            <p className={styles.link_mobile}><Link to="/" className={`${props.selected == 0 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Home</Link></p>
+            <p className={styles.link_mobile}><Link to="/about" className={`${props.selected == 1 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>About</Link></p>
+            <p className={styles.link_mobile}><Link to="/projects" className={`${props.selected == 2 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Projects</Link></p>
+            <p className={styles.link_mobile}><Link to="/resume" className={`${props.selected == 3 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Resume</Link></p>
+            <p className={styles.link_mobile}><Link to="/essays" className={`${props.selected == 4 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Writing</Link></p>
+            <p className={styles.link_mobile}><Link to="/travels" className={`${props.selected == 5 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Traveling</Link></p>
+            <p className={styles.link_mobile}><Link to="/contact" className={`${props.selected == 6 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Contact</Link></p>
             <div className={styles.toggle_mobile}>
               <span className={styles.label_left}>Light</span>
               <DarkModeToggle onChange={setMode} checked={mode === 'dark'} />

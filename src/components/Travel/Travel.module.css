@@ -46,9 +46,11 @@
     height: auto;
     position: relative;
     overflow-y: auto;
-  }
+    transition-property: background, color;
+    transition-duration: 2s;
+}
   
-  .lightgradient_mobile {
+.lightgradient_mobile {
     background: #f4f4f4;
     font-size: 1.2rem;
     border: none;
@@ -59,7 +61,9 @@
     height: auto;
     position: relative;
     overflow-y: auto;
-  }
+    transition-property: background, color;
+    transition-duration: 2s;
+}
 
 .darkgradient:before, .darkgradient_mobile:before {
     --size: 1500px;

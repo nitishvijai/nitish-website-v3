@@ -66,7 +66,7 @@ const Home = (props) => {
       <Navbar toggle={setMode} mode={mode} selected={0} />
       <div id={mobilePortrait ? styles.main_mobile : styles.main}>
         <p className={styles.message}>Hello and welcome to my site! You're in the right place if you're looking for everything I've done in the cool world of tech -- thanks for visiting!</p>
-        <p className={styles.message}>To get started, please {mobilePortrait ? "tap" : "click"} on the {mobilePortrait || mobileLandscape || tabletPortrait ? "menu" : "links"} above to learn more about me.</p>
+        <p className={styles.message}>To get started, please {mobilePortrait || mobileLandscape ? "tap" : "click"} on the {mobilePortrait || mobileLandscape || tabletPortrait ? "menu" : "links"} above to learn more about me.</p>
       </div>
       <div id={mobilePortrait ? styles.tldr_mobile : (mobileLandscape || tabletPortrait || tabletLandscape ? styles.tldr_tablet : styles.tldr)}>
         <h2>tl;dr:</h2>

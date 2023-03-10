@@ -75,6 +75,10 @@
     animation: none;
 }
 
+.link_mobile {
+    margin-left: 10px;
+}
+
 .selected {
     font-weight: bold;
     color: cornflowerblue;
@@ -118,7 +122,8 @@
     left: 50%;
     z-index: 110;
     opacity: 0;
-    transition: opacity 0.5s, background-color 2s;
+    visibility: hidden;
+    transition: visibility 1s, opacity 1s, background-color 2s;
     margin-left: -38.5%;
     width: 75%;
 }
@@ -129,7 +134,7 @@
     left: 50%;
     z-index: 110;
     opacity: 0;
-    transition: opacity 0.5s, background-color 2s;
+    transition: opacity 1s, background-color 2s;
     margin-left: -38.5%;
     width: 75%;
 }

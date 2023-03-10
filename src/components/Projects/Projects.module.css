@@ -48,6 +48,8 @@
   height: auto;
   position: relative;
   overflow-y: auto;
+  transition-property: background, color;
+  transition-duration: 2s;
 }
 
 .lightgradient_mobile {
@@ -61,6 +63,8 @@
   height: auto;
   position: relative;
   overflow-y: auto;
+  transition-property: background, color;
+  transition-duration: 2s;
 }
 
 .darkgradient:before, .darkgradient_mobile:before {
