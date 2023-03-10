@@ -318,7 +318,7 @@ const Resume = (props) => {
                   )}
                 </div>;
               case 'Skills':
-                if (!mobileLandscape && !mobilePortrait) {
+                if (!mobileLandscape) {
                   gradient.current.style.setProperty('height', '100%');
                 }
                 return skills.map((skill, i) =>

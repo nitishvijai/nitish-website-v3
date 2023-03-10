@@ -6,7 +6,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { Link, useLocation } from 'react-router-dom';
 
 const BlogPost = (props) => {
-  const mobilePortrait = useMediaQuery('(max-width:1024px)');
+  const mobilePortrait = useMediaQuery('(max-width:600px) and (orientation:portrait)');
+  const mobileLandscape = useMediaQuery('(min-width:600px) and (max-width:1023px) and (orientation:landscape)');
+
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
 
@@ -58,7 +60,7 @@ const BlogPost = (props) => {
             rendered_HTML.push(<h4 className={styles.subheading}>{text}</h4>);
           }
           else if (type === "Image") {
-            rendered_HTML.push(<a href={text}><img src={text} height="240px" className={styles.img} /></a>);
+            rendered_HTML.push(<a href={text}><img src={text} height="240px" className={mobilePortrait || mobileLandscape ? styles.img_mobile : styles.img} /></a>);
           }
           else if (type === "Caption") {
             rendered_HTML.push(<h6 className={styles.caption}>{text}</h6>);
@@ -82,11 +84,7 @@ const BlogPost = (props) => {
         console.log(rendered_HTML);
         setBody(rendered_HTML);
 
-        if (gradient.current.clientHeight < 800) {
-          gradient.current.style.setProperty('height', '100%');
-          setRel(false);
-        }
-        else {
+        if (mobilePortrait || mobileLandscape) {
           gradient.current.style.setProperty('height', 'auto');
           setRel(true);
         }
@@ -98,13 +96,13 @@ const BlogPost = (props) => {
   return (
     <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='4' toggle={setMode} mode={mode} />
-      <div className={styles.blog_header}>
-        <Link to="/essays" className={styles.pgLink}>Back to all Essays</Link>
+      <div className={mobilePortrait ? styles.blog_header_mobile : styles.blog_header}>
+        <Link to="/essays" className={mobilePortrait || mobileLandscape ? styles.pgLink_mobile : styles.pgLink}>Back to all Essays</Link>
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>
         <p className={styles.published}>Posted on: {posted}</p>
       </div>
-      <div className={styles.blog_content}>
+      <div className={mobilePortrait ? styles.blog_content_mobile : styles.blog_content}>
         {body}
       </div>
       {relFooter ? <Footer projects='true' /> : <Footer />}

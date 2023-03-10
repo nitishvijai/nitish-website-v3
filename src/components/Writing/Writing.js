@@ -6,7 +6,9 @@ import EssayLink from '../EssayLink/EssayLink';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Writing = (props) => {
-  const mobilePortrait = useMediaQuery('(max-width:1024px)');
+  const mobilePortrait = useMediaQuery('(max-width:600px) and (orientation:portrait)');
+  const mobileLandscape = useMediaQuery('(min-width:600px) and (max-width:1023px) and (orientation:landscape)');
+
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
 
@@ -53,7 +55,7 @@ const Writing = (props) => {
       <Navbar selected='4' toggle={setMode} mode={mode} />
       <h1 id={styles.header}>Writing</h1>
       <p id={styles.subheader}>Check out some of my favorite articles I've written!</p>
-      <div id={styles.essayList}>
+      <div id={mobilePortrait ? styles.essayList_mobile : (mobileLandscape ? styles.essayList_landscape : styles.essayList)}>
         {essays.map((essay, i) => 
           <EssayLink name={essay.name} link={essay.link} posted={essay.posted} highlight={essay.highlight} toggle={setMode} color={mode}/>
         )}

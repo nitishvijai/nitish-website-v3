@@ -8,7 +8,7 @@
     }
 }
 
-.darkgradient {
+.darkgradient, .darkgradient_mobile {
     background: #1f1f1f;
     font-size: 1.2rem;
     border: none;
@@ -23,7 +23,7 @@
     transition-duration: 2s;
 }
 
-.lightgradient {
+.lightgradient, .lightgradient_mobile {
     background: #f4f4f4;
     font-size: 1.2rem;
     border: none;
@@ -105,6 +105,15 @@
     display: block;
 }
 
+.pgLink_mobile, .pgLink_mobile:visited {
+    text-decoration: none;
+    font-weight: bold;
+    color: orange;
+    text-align: right;
+    display: block;
+    margin-top: 20px;
+}
+
 .pgLink:hover {
     color: green;
     cursor: pointer;
@@ -113,6 +122,15 @@
 .blog_header, .blog_content {
     text-align: center;
     width: 55%;
+    margin: 0 auto;
+    animation: fadeIn 3s;
+    cursor: text;
+    pointer-events: auto;
+}
+
+.blog_header_mobile, .blog_content_mobile {
+    text-align: center;
+    width: 75%;
     margin: 0 auto;
     animation: fadeIn 3s;
     cursor: text;
@@ -153,6 +171,16 @@
     text-align: center;
     float: none;
     margin-bottom: 2%;
+}
+
+.img_mobile {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    float: none;
+    margin-bottom: 2%;
+    width: 100%;
 }
 
 .caption {

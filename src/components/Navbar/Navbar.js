@@ -8,13 +8,16 @@ import zIndex from '@mui/material/styles/zIndex';
 const Navbar = (props) => {
   const dropdown = useRef(null);
   const [mode, setMode] = [props.mode, props.toggle];
+  const [opened, setOpened] = useState(false);
 
   let openMenu = () => {
     if (dropdown.current.style.opacity == '0') {
+      setOpened(true);
       dropdown.current.style.opacity = '1';
       dropdown.current.style.zIndex = '125';
     }
     else {
+      setOpened(false);
       dropdown.current.style.opacity = '0';
       dropdown.current.style.zIndex = '105';
     }
@@ -47,13 +50,16 @@ const Navbar = (props) => {
           <button className={styles.dropbtn} onClick={openMenu}>Nitish Vijai</button>
         </div>
         <div id="dropdown" className={styles.dropdowncontent} ref={dropdown} style={{opacity: 0, visibility: 'visible'}}>
-          <p><Link to="/about" className={`${props.selected == 1 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>About</Link></p>
-          <p><Link to="/projects" className={`${props.selected == 2 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Projects</Link></p>
-          <p><Link to="/resume" className={`${props.selected == 3 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Resume</Link></p>
-          <p>Writing</p>
-          <p>Traveling</p>
-          <p>Contact</p>
-          <p>Light/Dark Mode</p>
+          {opened && <div id="links">
+            <p><Link to="/about" className={`${props.selected == 1 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>About</Link></p>
+            <p><Link to="/projects" className={`${props.selected == 2 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Projects</Link></p>
+            <p><Link to="/resume" className={`${props.selected == 3 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Resume</Link></p>
+            <p><Link to="/essays" className={`${props.selected == 4 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Writing</Link></p>
+            <p>Traveling</p>
+            <p>Contact</p>
+            <p>Light/Dark Mode</p>
+          </div>}
+          
         </div>
       </MediaQuery>
     </div>
