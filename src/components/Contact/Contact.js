@@ -5,7 +5,9 @@ import styles from './Contact.module.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Contact = (props) => {
-  const mobilePortrait = useMediaQuery('(max-width:1024px)');
+  const mobilePortrait = useMediaQuery('(max-width:600px) and (orientation:portrait)');
+  const mobileLandscape = useMediaQuery('(min-width:600px) and (max-width:1023px) and (orientation:landscape)');
+
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
 
@@ -85,11 +87,11 @@ const Contact = (props) => {
       <p className={styles.message}>Let's talk -- submit the form below and I will get back to you ASAP:</p>
       <div id={styles.contactme}>
         <form id={styles.contactForm} method="POST" action="https://formspree.io/f/meqpekvo" onSubmit={(event) => submitFields(event)}>
-          <input type="text" id={styles.fullName} name="fullname" placeholder="Name" value={name} onChange={(event) => handleUserInput(event, "name")} />
+          <input type="text" id={mobilePortrait || mobileLandscape ? styles.fullName_mobile : styles.fullName} name="fullname" placeholder="Name" value={name} onChange={(event) => handleUserInput(event, "name")} />
           <br />
-          <input type="text" id={styles.emailadd} name="mailadd" placeholder="E-mail address" value={email} onChange={(event) => handleUserInput(event, "email")} />
+          <input type="text" id={mobilePortrait || mobileLandscape ? styles.emailadd_mobile : styles.emailadd} name="mailadd" placeholder="E-mail address" value={email} onChange={(event) => handleUserInput(event, "email")} />
           <br />
-          <textarea id={styles.subject} name="subject"
+          <textarea id={mobilePortrait || mobileLandscape ? styles.subject_mobile : styles.subject} name="subject"
               placeholder="What's up?" value={description} onChange={(event) => handleUserInput(event, "desc")}></textarea>
           <br /><br />
           <input id={styles.submitButton} className={styles.btngrad} name="submit" type="submit" value="Submit" disabled={!(name && email && description)}/>

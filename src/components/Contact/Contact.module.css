@@ -263,6 +263,21 @@
     animation: fadeIn 3s;
 }
 
+#fullName_mobile,
+#emailadd_mobile,
+#subject_mobile {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-top: 15px;
+    z-index: 92;
+    position: relative;
+    animation: fadeIn 3s;
+}
+
 textarea {
     min-height: 200px;
     min-width: 40%;
