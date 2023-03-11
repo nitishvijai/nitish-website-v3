@@ -70,7 +70,7 @@ const Navbar = (props) => {
       </MediaQuery>
       <MediaQuery maxWidth={1024} >
         <div className={styles.start}>
-          <button className={styles.dropbtn} onClick={openMenu} ref={button}>Nitish Vijai</button>
+          <button className={mode === 'dark' ? styles.dropbtn_dark : styles.dropbtn_light} onClick={openMenu} ref={button}><img id={styles.icon} height="32px" src={props.selected === 0 ? "logo_selected.png" : (mode === 'dark' ? "logo_normal.png" : "logo_light_normal.png")}/> Nitish Vijai</button>
         </div>
         <div id="dropdown" className={mode === 'dark' ? styles.dropdowncontent : styles.dropdowncontent_light} ref={dropdown}>
           {opened && <div id="links">

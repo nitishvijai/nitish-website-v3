@@ -47,7 +47,7 @@ const Travel = (props) => {
       <p id={styles.subheader}>Check out some cool pics from the places I've recently visited!</p>
       {!mobilePortrait && <table>
         <tr>
-          <td className={styles.number}>27</td>
+          <td className={styles.number}>30</td>
           <td className={styles.number}>14</td>
           <td className={styles.number}>5</td>
           <td className={styles.number}>4</td>
@@ -62,7 +62,7 @@ const Travel = (props) => {
         </tr>
       </table>}
       {mobilePortrait && <div>
-        <h1 className={styles.fact}>27 U.S. states visited</h1>
+        <h1 className={styles.fact}>30 U.S. states visited</h1>
       <h1 className={styles.fact}>14 countries visited</h1>
       <h1 className={styles.fact}>5 Indian states visited</h1>
       <h1 className={styles.fact}>4 continents visited</h1>
