@@ -171,6 +171,7 @@
 .img_mobile {
   float: left;
   height: 250px;
+  width: 380px;
   animation: fadeIn 3s;
 }
 

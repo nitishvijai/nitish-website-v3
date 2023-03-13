@@ -186,6 +186,8 @@
 .caption {
     margin-top: 2%;
     font-weight: normal;
+    position: relative;
+    z-index: 110;
 }
 
 .ending {

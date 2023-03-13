@@ -20,7 +20,7 @@ const Projects = (props) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
 
-    if (!mobilePortrait || !mobileLandscape) {
+    if (!mobilePortrait && !mobileLandscape) {
       gradient.current.style.setProperty('--x', x + 'px');
       gradient.current.style.setProperty('--y', y + 'px');
     } else {
@@ -143,7 +143,7 @@ const Projects = (props) => {
         {projects.map((project, i) => 
         <div className={styles.project}>
           <div className={mobilePortrait || mobileLandscape ? styles.img_mobile : styles.img}>
-            {project.pic ? (<img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src={'/' + project.pic} height="230" width="380"/>) : (<img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src="/unavailable.png" height="230" width="380" />)}
+            {project.pic ? (<a href={'/' + project.pic}><img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src={'/' + project.pic} height="230" width="380"/></a>) : (<img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src="/unavailable.png" height="230" width="380" />)}
           </div>
           <div className={mobilePortrait || mobileLandscape ? styles.info_mobile : styles.info}>
             <h3 className={(mobilePortrait || mobileLandscape ? styles.projName_mobile : styles.projName)}>{project.name}</h3>

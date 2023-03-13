@@ -18,8 +18,15 @@ const Travel = (props) => {
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
-    gradient.current.style.setProperty('--x', x + 'px');
-    gradient.current.style.setProperty('--y', y + 'px');
+    
+    if (!mobilePortrait && !mobileLandscape) {
+      gradient.current.style.setProperty('--x', x + 'px');
+      gradient.current.style.setProperty('--y', y + 'px');
+    }
+    else {
+      gradient.current.style.setProperty('--x', '0px');
+      gradient.current.style.setProperty('--y', '0px');
+    }
   };
 
   let destinations = [
@@ -76,7 +83,7 @@ const Travel = (props) => {
             <div class={styles.row}>
               {dest.pics.map((image, i) =>
                 <div className={styles.column}>
-                  <img className={styles.pic} src={image} height="95"/>
+                  <a href={image}><img className={styles.pic} src={image} height="120"/></a>
                 </div>
               )}
             </div>

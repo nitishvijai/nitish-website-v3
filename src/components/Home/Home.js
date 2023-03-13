@@ -52,7 +52,7 @@ const Home = (props) => {
   let moveGradient = (e) => {
     let x = e.clientX - 0;
     let y = e.clientY - 0;
-    if (!mobilePortrait || !mobileLandscape) {
+    if (!mobilePortrait && !mobileLandscape) {
       gradient.current.style.setProperty('--x', x + 'px');
       gradient.current.style.setProperty('--y', y + 'px');
     } else {

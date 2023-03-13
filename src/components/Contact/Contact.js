@@ -33,8 +33,15 @@ const Contact = (props) => {
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
-    gradient.current.style.setProperty('--x', x + 'px');
-    gradient.current.style.setProperty('--y', y + 'px');
+    
+    if (!mobilePortrait && !mobileLandscape) {
+      gradient.current.style.setProperty('--x', x + 'px');
+      gradient.current.style.setProperty('--y', y + 'px');
+    }
+    else {
+      gradient.current.style.setProperty('--x', '0px');
+      gradient.current.style.setProperty('--y', '0px');
+    }
 
     if (window.innerHeight <= 1024) {
       gradient.current.style.setProperty('overflow-y', 'hidden');
