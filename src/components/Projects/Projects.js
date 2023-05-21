@@ -32,7 +32,7 @@ const Projects = (props) => {
   const projects = [
     {
       'name': 'Website v3.0',
-      'date': 'December 2022 - Present',
+      'date': 'December 2022 - March 2023 (content still updated)',
       'info': 'Redesigned my website (again!) after three years, except this time in React.',
       'stack': 'React, JavaScript',
       'pic': 'project_pics/thirdsite.png',
@@ -140,7 +140,7 @@ const Projects = (props) => {
         <p id={styles.subheader}>Check out some of the coolest projects I've worked on over the past few years!</p>
       </div>
       <div className={mobilePortrait ? styles.projects_mobile : (mobileLandscape ? styles.projects_landscape : styles.projects)}>
-        {projects.map((project, i) => 
+        {projects.map((project, i) =>
         <div className={styles.project}>
           <div className={mobilePortrait || mobileLandscape ? styles.img_mobile : styles.img}>
             {project.pic ? (<a href={'/' + project.pic}><img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src={'/' + project.pic} height="230" width="380"/></a>) : (<img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src="/unavailable.png" height="230" width="380" />)}

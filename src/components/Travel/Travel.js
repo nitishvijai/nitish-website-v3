@@ -18,7 +18,7 @@ const Travel = (props) => {
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
-    
+
     if (!mobilePortrait && !mobileLandscape) {
       gradient.current.style.setProperty('--x', x + 'px');
       gradient.current.style.setProperty('--y', y + 'px');
@@ -30,6 +30,21 @@ const Travel = (props) => {
   };
 
   let destinations = [
+    {
+      'name': 'Ensenada, BC, Mexico',
+      'date': '5/17/2023',
+      'pics': ['unavailable.png', 'unavailable.png', 'unavailable.png']
+    },
+    {
+      'name': 'Catalina Island',
+      'date': '5/16/2023',
+      'pics': ['unavailable.png', 'unavailable.png', 'unavailable.png']
+    },
+    {
+      'name': 'Los Angeles, CA',
+      'date': '5/13/2023 - 5/15/2023',
+      'pics': ['unavailable.png', 'unavailable.png', 'unavailable.png']
+    },
     {
       'name': 'Cochin, Kerala, India',
       'date': '1/3/2023 - 1/5/2023',

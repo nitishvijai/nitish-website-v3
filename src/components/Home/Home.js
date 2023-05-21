@@ -1,4 +1,5 @@
-import { React, useRef, useEffect, useState } from 'react';
+import { React, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
@@ -71,13 +72,14 @@ const Home = (props) => {
       <div id={mobilePortrait ? styles.tldr_mobile : (mobileLandscape || tabletPortrait || tabletLandscape ? styles.tldr_tablet : styles.tldr)}>
         <h2>tl;dr:</h2>
         <div id={mobilePortrait ? styles.left_mobile : styles.left}>
-          <img src="/Nitish_2022.jpg" className={mobilePortrait ? styles.headshot_mobile : (tabletPortrait || tabletLandscape ? styles.headshot_tablet : styles.headshot)} />
+          <img src="/Nitish_2023.JPG" className={mobilePortrait ? styles.headshot_mobile : (tabletPortrait || tabletLandscape ? styles.headshot_tablet : styles.headshot)} />
         </div>
         <div id={mobilePortrait ? styles.right_mobile : styles.right}>
           <h2 className={mobilePortrait ? styles.fact_mobile : styles.fact} id={styles.tldrHeading}>&nbsp;&nbsp;Nitish Vijai</h2>
-          <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>〽️ B.S.E. Computer Science and Data Science @ University of Michigan (Class of 2023)</p>
+          <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>〽️ B.S.E. CS + DS @ University of Michigan 2023 Grad</p>
           <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>🖥️ Incoming Associate Software Engineer @ Capital One</p>
           <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>⚒️ Most likely seizing the day</p>
+          <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>📲 Let's talk? Connect with me <Link to="/contact" className={styles.pgLink}>here</Link></p>
         </div>
       </div>
       {mobilePortrait ? <Footer projects="true" /> : <Footer />}

@@ -168,12 +168,17 @@ const Resume = (props) => {
       'name': 'University of Michigan - Ann Arbor (College of Engineering)',
       'degree': 'B.S.E. in Computer Science and Data Science',
       'location': 'Ann Arbor, MI',
-      'timestamp': 'Expected April 2023',
+      'timestamp': 'Class of 2023',
       'courses': 'EECS 281 (Data Structures and Algorithms), EECS 485 (Web Systems), EECS 445 (Machine Learning), EECS 481 (Software Engineering), EECS 484 (Database Management Systems), MATH 214 (Applied Linear Algebra), EECS 370 (Intro to Computer Organization), EECS 442 (Computer Vision), EECS 493 (User Interface Development), EECS 497 (Human-Centered Software Design)'
     }
   ];
 
   const awards = [
+    {
+      'name': 'University Honors',
+      'timestamp': 'March 2022, March 2023',
+      'info': ['Achieved >3.5 GPA for a given term of 14 enrolled credits or greater (12 graded)']
+    },
     {
       'name': 'Engineering Dean\'s Honor List',
       'timestamp': 'Fall 2021 - Fall 2022',
@@ -184,11 +189,6 @@ const Resume = (props) => {
       'timestamp': 'July 2022',
       'info': ['Developed a web app (in the span of 10 hours!) in React that connects to a machine learning classification model to recommend insurance policies for Nationwide customers based on clustered policyholders in their demographic',
                'Pitched the app to company executives and judges, advancing with each round']
-    },
-    {
-      'name': 'University Honors',
-      'timestamp': 'March 2022',
-      'info': ['Achieved >3.5 GPA for a given term of 14 enrolled credits or greater (12 graded)']
     },
     {
       'name': 'University of Michigan Alumni Club of Dayton Scholarship',
@@ -213,7 +213,7 @@ const Resume = (props) => {
     {
       'name': 'Michigan Hackers',
       'title': 'Core Member (Interviewing and System Design)',
-      'timestamp': 'September 2019 - Present',
+      'timestamp': 'September 2019 - April 2023',
       'info': []
     },
     {
@@ -255,7 +255,7 @@ const Resume = (props) => {
       'list': 'English, Spanish, Tamil'
     }
   ]
-  
+
   return (
   <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
     <Navbar selected='3' toggle={setMode} mode={mode} />
@@ -284,7 +284,7 @@ const Resume = (props) => {
               if (gradient.current !== null) {
                 gradient.current.style.setProperty('height', 'auto');
               }
-              return workExperience.map((exp, i) => 
+              return workExperience.map((exp, i) =>
               <div className={styles.experience}>
                 <h3 className={styles.title}>{exp.company}</h3>
                 <h4>{exp.title} | {exp.location}</h4>
@@ -300,7 +300,7 @@ const Resume = (props) => {
                 if (!mobileLandscape && !mobilePortrait) {
                   gradient.current.style.setProperty('height', '100%');
                 }
-                return education.map((edu, i) => 
+                return education.map((edu, i) =>
                 <div className={styles.edu}>
                   <h3 className={styles.title}>{edu.name}</h3>
                   <h4>{edu.degree} | {edu.location}</h4>
@@ -309,7 +309,7 @@ const Resume = (props) => {
                     <p id={styles.courses}><em>Relevant Courses</em>: {edu.courses}</p>
                     <p>To see a full list of courses, check out the Coursework tab.</p>
                   </div>}
-                  
+
                 </div>);
               case 'Courses':
                 gradient.current.style.setProperty('height', 'auto');
@@ -335,7 +335,7 @@ const Resume = (props) => {
                 </div>);
               case 'Honors':
                 gradient.current.style.setProperty('height', 'auto');
-                return awards.map((award, i) => 
+                return awards.map((award, i) =>
                 <div className={styles.awards}>
                   <h3 className={styles.title}>{award.name}</h3>
                   <h4>{award.timestamp}</h4>

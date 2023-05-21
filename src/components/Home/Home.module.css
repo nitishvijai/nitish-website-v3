@@ -1,6 +1,6 @@
 .Home {
   text-align: center;
-  
+
 }
 
 @keyframes fadeIn {
@@ -199,4 +199,15 @@ p {
 .fact_mobile {
   padding-left: 0%;
   text-align: center;
+}
+
+.pgLink, .pgLink:visited {
+  text-decoration: none;
+  font-weight: bold;
+  color: orange;
+  text-align: center;
+}
+
+.pgLink:hover {
+  color: green;
 }
