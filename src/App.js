@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
@@ -27,7 +27,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route exact path="/" element={<Home color={mode} toggle={toggleMode}/>}/>
         <Route path="/about" element={<About color={mode} toggle={toggleMode}/>}/>
@@ -39,7 +39,7 @@ function App() {
         {blog_posts.map((post) => <Route path={"/blog-posts/" + post} element={<BlogPost color={mode} toggle={toggleMode} filename={"/blog-posts/" + post + ".xml"} />} />)}
         <Route path="/contact" element={<Contact color={mode} toggle={toggleMode}/>} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
