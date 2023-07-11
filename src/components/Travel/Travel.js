@@ -1,4 +1,4 @@
-import { React, useRef, useEffect, useState } from 'react';
+import { React, useRef, useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import styles from './Travel.module.css';
@@ -69,7 +69,7 @@ const Travel = (props) => {
       <p id={styles.subheader}>Check out some cool pics from the places I've recently visited!</p>
       {!mobilePortrait && <table>
         <tr>
-          <td className={styles.number}>30</td>
+          <td className={styles.number}>26</td>
           <td className={styles.number}>14</td>
           <td className={styles.number}>5</td>
           <td className={styles.number}>4</td>
@@ -84,13 +84,17 @@ const Travel = (props) => {
         </tr>
       </table>}
       {mobilePortrait && <div>
-        <h1 className={styles.fact}>30 U.S. states visited</h1>
+        <h1 className={styles.fact}>26 U.S. states visited</h1>
       <h1 className={styles.fact}>14 countries visited</h1>
       <h1 className={styles.fact}>5 Indian states visited</h1>
       <h1 className={styles.fact}>4 continents visited</h1>
       <h1 className={styles.fact}>1 planet visited</h1>
       </div>}
       <h1 className={styles.fact}>and counting...</h1>
+      {!mobilePortrait && <div className={styles.maps}>
+        <div className={styles.world} style={{maxWidth: '490px', margin: '5px auto 10px auto', fontSize: '14px'}}><div style={{position: 'relative', padding: '0 0 67% 0', height: 0, overflow: 'hidden'}}><iframe style={{position: 'absolute', width: '100%', height: '100%'}} src="https://www.fla-shop.com/visited-countries/embed/?st=AE%2CBE%2CBS%2CCA%2CCH%2CDE%2CEG%2CFR%2CIN%2CJM%2CLU%2CMX%2CNL%2CUS&vc=1ca032&uc=b3c3ca&hc=40bfa6&bc=ffffff&ss=on" frameborder="0" scrolling="no" title="Visited Countries around the World"></iframe></div></div>
+        <div className={styles.america} style={{maxWidth: '490px', fontSize: '14px'}}><div style={{position: 'relative', padding: '0 0 70% 0', height: 0, overflow: 'hidden'}}><iframe style={{position: 'absolute', width: '100%', height: '100%'}} src="//www.fla-shop.com/visited-states/embed/?st=CA%2CCO%2CDC%2CFL%2CGA%2CID%2CIL%2CIN%2CKY%2CMA%2CMD%2CMI%2CMO%2CNC%2CNJ%2CNV%2CNY%2COH%2CPA%2CSC%2CTN%2CTX%2CVA%2CWA%2CWI%2CWV&vc=ff0000&uc=90cfea&hc=40bfa6&bc=ffffff&ss=on&sl=on" frameborder="0" scrolling="no" title="Visited U.S. States"></iframe></div></div>
+      </div>}
       <div className={mobilePortrait || mobileLandscape ? styles.destList_mobile : styles.destList}>
         {destinations.map((dest, i) =>
           <div key={i}>
@@ -98,7 +102,7 @@ const Travel = (props) => {
             <div class={styles.row}>
               {dest.pics.map((image, i) =>
                 <div className={styles.column}>
-                  <a href={image}><img className={styles.pic} src={image} height="120"/></a>
+                  <a href={image}><img className={styles.pic} src={image} height="120" alt=""/></a>
                 </div>
               )}
             </div>

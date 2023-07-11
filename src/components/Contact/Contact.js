@@ -59,7 +59,7 @@ const Contact = (props) => {
     }
     else if (field === "email") {
       setEmail(e.target.value);
-      if (e.target.value != "") {
+      if (e.target.value !== "") {
         setEmailValid(email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/));
       }
     }
@@ -87,9 +87,9 @@ const Contact = (props) => {
       <h1 id={styles.header}>Contact me</h1>
       <p id={styles.subheader}>Check me out on the other side of the web below!</p>
       <div id={styles.methods}>
-        <a href="https://www.linkedin.com/in/nitish-vj" className={styles.btngrad} id={styles.linkedin} target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/nitish-vj" className={styles.btngrad} id={styles.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="mailto:nitishv@umich.edu" className={styles.btngrad} id={styles.email}>Email</a>
-        <a href="https://www.github.com/nitishvijai" className={styles.btngrad} id={styles.github} target="_blank">GitHub</a>
+        <a href="https://www.github.com/nitishvijai" className={styles.btngrad} id={styles.github} target="_blank" rel="noreferrer">GitHub</a>
       </div>
       <p className={styles.message}>Let's talk -- submit the form below and I will get back to you ASAP:</p>
       <div id={styles.contactme}>

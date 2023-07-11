@@ -165,3 +165,17 @@ table {
 tr {
     margin-right: 20px;
 }
+
+.maps {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.world {
+    width: 50%;
+    float: left;
+}
+
+.america {
+    margin-left: 50%;
+}

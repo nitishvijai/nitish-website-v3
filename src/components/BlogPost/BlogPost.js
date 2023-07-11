@@ -3,7 +3,7 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import styles from './BlogPost.module.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const BlogPost = (props) => {
   const mobilePortrait = useMediaQuery('(max-width:600px) and (orientation:portrait)');
