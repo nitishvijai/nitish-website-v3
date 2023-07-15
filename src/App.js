@@ -36,7 +36,7 @@ function App() {
         <Route path="/essays" element={<Writing color={mode} toggle={toggleMode}/>} />
         <Route path="/travels" element={<Travel color={mode} toggle={toggleMode}/>} />
         <Route path="/blog-post" element={<BlogPost color={mode} toggle={toggleMode} />} />
-        {blog_posts.map((post) => <Route path={"/blog-posts/" + post} element={<BlogPost color={mode} toggle={toggleMode} filename={"/blog-posts/" + post + ".xml"} />} />)}
+        {blog_posts.map((post, i) => <Route path={"/blog-posts/" + post} key={i} element={<BlogPost color={mode} toggle={toggleMode} filename={"/blog-posts/" + post + ".xml"} />} />)}
         <Route path="/contact" element={<Contact color={mode} toggle={toggleMode}/>} />
       </Routes>
     </HashRouter>

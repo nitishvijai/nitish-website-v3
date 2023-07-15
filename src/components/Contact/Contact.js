@@ -82,10 +82,10 @@ const Contact = (props) => {
   }
 
   return (
-    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+    <div className={mobilePortrait ? (mode === 'dark' ? 'darkgradient_mobile' : 'lightgradient_mobile') : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='6' toggle={setMode} mode={mode} />
-      <h1 id={styles.header}>Contact me</h1>
-      <p id={styles.subheader}>Check me out on the other side of the web below!</p>
+      <h1 id='header'>Contact me</h1>
+      <p id='subheader'>Check me out on the other side of the web below!</p>
       <div id={styles.methods}>
         <a href="https://www.linkedin.com/in/nitish-vj" className={styles.btngrad} id={styles.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="mailto:nitishv@umich.edu" className={styles.btngrad} id={styles.email}>Email</a>

@@ -18,42 +18,21 @@ const Home = (props) => {
   useEffect(() => {
     document.title = 'Home - Nitish Vijai';
 
-    const handleResize = () => {
-      // do magic for resize
-      if (window.innerHeight >= 768 && !mobilePortrait) {
-        gradient.current.style.setProperty('height', '100%');
-      }
-      else if (window.innerHeight < 768 || mobilePortrait || mobileLandscape) {
-        gradient.current.style.setProperty('height', 'auto');
-      }
-    }
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-
-  }, []);
-
-  useEffect(() => {
-    console.log("Mobile PORTRAIT: " + mobilePortrait);
-
-    if (window.innerHeight >= 768 && !mobilePortrait) {
-      gradient.current.style.setProperty('height', '100%');
-    }
-    else if (window.innerHeight < 768 || mobilePortrait || mobileLandscape) {
+    if (window.innerHeight < 768 || mobilePortrait) {
+      gradient.current.style.setProperty('overflow-y', 'hidden');
       gradient.current.style.setProperty('height', 'auto');
     }
-  }, [mobilePortrait, mobileLandscape]);
+    else if (window.innerHeight >= 768 && !mobilePortrait) {
+      gradient.current.style.setProperty('overflow-y', 'hidden');
+      gradient.current.style.setProperty('height', '100%');
+    }
 
+  }, []);
 
   let moveGradient = (e) => {
     let x = e.clientX - 0;
     let y = e.clientY - 0;
-    if (!mobilePortrait && !mobileLandscape) {
+    if (!mobilePortrait) {
       gradient.current.style.setProperty('--x', x + 'px');
       gradient.current.style.setProperty('--y', y + 'px');
     } else {
@@ -63,7 +42,7 @@ const Home = (props) => {
   }
 
   return (
-    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar toggle={setMode} mode={mode} selected={0} />
       <div id={mobilePortrait ? styles.main_mobile : styles.main}>
         <p className={styles.message}>Hello and welcome to my site! You're in the right place if you're looking for everything I've done in the cool world of tech -- thanks for visiting!</p>
@@ -79,7 +58,7 @@ const Home = (props) => {
           <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>〽️ B.S.E. CS + DS @ University of Michigan 2023 Grad</p>
           <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>🖥️ Incoming Associate Software Engineer @ Capital One</p>
           <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>⚒️ Most likely seizing the day</p>
-          <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>📲 Let's talk? Connect with me <Link to="/contact" className={styles.pgLink}>here</Link></p>
+          <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>📲 Let's talk? Connect with me <Link to="/contact" className="pgLink">here</Link></p>
         </div>
       </div>
       {mobilePortrait ? <Footer projects="true" /> : <Footer />}

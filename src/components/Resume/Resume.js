@@ -1,4 +1,4 @@
-import { React, useRef, useEffect, useState, useReducer } from 'react';
+import { React, useRef, useEffect, useState } from 'react';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import styles from './Resume.module.css';
@@ -257,7 +257,7 @@ const Resume = (props) => {
   ]
 
   return (
-  <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+  <div className={mobilePortrait ? (mode === 'dark' ? 'darkgradient_mobile' : 'lightgradient_mobile') : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
     <Navbar selected='3' toggle={setMode} mode={mode} />
     <div className={styles.header}>
       <h1 style={{ display: 'inline-block' }}>Resume</h1>
@@ -285,13 +285,13 @@ const Resume = (props) => {
                 gradient.current.style.setProperty('height', 'auto');
               }
               return workExperience.map((exp, i) =>
-              <div className={styles.experience}>
+              <div className={styles.experience} key={i}>
                 <h3 className={styles.title}>{exp.company}</h3>
                 <h4>{exp.title} | {exp.location}</h4>
                 <h4>{exp.timestamp}</h4>
                 <ul>
                   {exp.info.map((bullet, i) =>
-                    <li>{bullet}</li>
+                    <li key={i}>{bullet}</li>
                   )}
                 </ul>
                 {i < workExperience.length - 1 && <hr/>}
@@ -301,7 +301,7 @@ const Resume = (props) => {
                   gradient.current.style.setProperty('height', '100%');
                 }
                 return education.map((edu, i) =>
-                <div className={styles.edu}>
+                <div className={styles.edu} key={i}>
                   <h3 className={styles.title}>{edu.name}</h3>
                   <h4>{edu.degree} | {edu.location}</h4>
                   <h4>{edu.timestamp}</h4>
@@ -316,10 +316,10 @@ const Resume = (props) => {
                 return <div className={styles.courses}>
                   <h3 className={styles.title}>Classes taken at the University of Michigan:</h3>
                   {courses.map((course, i) =>
-                    <div>
+                    <div key={i}>
                       <h4>{course.term}</h4>
                       <div>
-                        {course.courses.map((c_id, i) => <p>{c_id}</p>)}
+                        {course.courses.map((c_id, i) => <p key={i}>{c_id}</p>)}
                       </div>
                     </div>
                   )}
@@ -329,31 +329,31 @@ const Resume = (props) => {
                   gradient.current.style.setProperty('height', '100%');
                 }
                 return skills.map((skill, i) =>
-                <div className={styles.skills}>
+                <div className={styles.skills} key={i}>
                   <h3 className={styles.title}>{skill.name}</h3>
                   <p>{skill.list}</p>
                 </div>);
               case 'Honors':
                 gradient.current.style.setProperty('height', 'auto');
                 return awards.map((award, i) =>
-                <div className={styles.awards}>
+                <div className={styles.awards} key={i}>
                   <h3 className={styles.title}>{award.name}</h3>
                   <h4>{award.timestamp}</h4>
                   <ul>
                     {award.info.map((bullet, i) =>
-                      <li>{bullet}</li>
+                      <li key={i}>{bullet}</li>
                     )}
                   </ul>
                   {i < awards.length - 1 && <hr/>}
                 </div>);
               case 'Orgs':
                 return orgs.map((org, i) =>
-                <div className={styles.orgs}>
+                <div className={styles.orgs} key={i}>
                   <h3 className={styles.title}>{org.name}</h3>
                   <h4>{org.title} | {org.timestamp}</h4>
                   <ul>
                     {org.info.map((bullet, i) =>
-                      <li>{bullet}</li>
+                      <li key={i}>{bullet}</li>
                     )}
                   </ul>
                   {i < orgs.length - 1 && <hr/>}

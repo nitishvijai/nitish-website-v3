@@ -104,10 +104,10 @@ const BlogPost = (props) => {
   }
 
   return (
-    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+    <div className={mobilePortrait ? (mode === 'dark' ? "darkgradient_mobile" : "lightgradient_mobile") : (mode === 'dark' ? "darkgradient" : "lightgradient")} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='4' toggle={setMode} mode={mode} />
       <div className={mobilePortrait ? styles.blog_header_mobile : styles.blog_header}>
-        <Link to="/essays" className={mobilePortrait || mobileLandscape ? styles.pgLink_mobile : styles.pgLink}>Back to all Essays</Link>
+        <Link to="/essays" className={mobilePortrait || mobileLandscape ? styles.pgLink_mobile : "pgLink"}>Back to all Essays</Link>
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>
         <p className={styles.published}>Posted on: {posted}</p>

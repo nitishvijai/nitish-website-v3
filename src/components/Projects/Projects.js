@@ -1,4 +1,4 @@
-import { React, useRef, useEffect, useState } from 'react';
+import { React, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
@@ -14,6 +14,8 @@ const Projects = (props) => {
 
   useEffect(() => {
     document.title = 'Projects - Nitish Vijai';
+    gradient.current.style.setProperty('overflow-y', 'hidden');
+    gradient.current.style.setProperty('height', 'auto');
   }, []);
 
   let moveGradient = (e) => {
@@ -133,24 +135,24 @@ const Projects = (props) => {
   ]
 
   return (
-    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='2' toggle={setMode} mode={mode} />
       <div id={mobilePortrait ? styles.main_mobile : styles.main}>
-        <h1 id={styles.header}>Projects</h1>
-        <p id={styles.subheader}>Check out some of the coolest projects I've worked on over the past few years!</p>
+        <h1 id='header'>Projects</h1>
+        <p id='subheader'>Check out some of the coolest projects I've worked on over the past few years!</p>
       </div>
       <div className={mobilePortrait ? styles.projects_mobile : (mobileLandscape ? styles.projects_landscape : styles.projects)}>
         {projects.map((project, i) =>
-        <div className={styles.project}>
+        <div className={styles.project} key={i}>
           <div className={mobilePortrait || mobileLandscape ? styles.img_mobile : styles.img}>
-            {project.pic ? (<a href={'/' + project.pic}><img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src={'/' + project.pic} height="230" width="380"/></a>) : (<img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src="/unavailable.png" height="230" width="380" />)}
+            {project.pic ? (<a href={'/' + project.pic}><img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} src={'/' + project.pic} alt="Project" height="230" width="380"/></a>) : (<img className={mobilePortrait || mobileLandscape ? styles.proj_pic_mobile : styles.proj_pic} alt="Project" src="/unavailable.png" height="230" width="380" />)}
           </div>
           <div className={mobilePortrait || mobileLandscape ? styles.info_mobile : styles.info}>
             <h3 className={(mobilePortrait || mobileLandscape ? styles.projName_mobile : styles.projName)}>{project.name}</h3>
             <p className={styles.date}>{project.date}</p>
             <p><strong>Info:</strong>{" " + project.info}</p>
             <p><strong>Stack:</strong>{" " + project.stack}</p>
-            {project.github !== 'N/A' && <a href={project.github} target="_blank" className={mobilePortrait || mobileLandscape ? styles.btngrad_mobile : styles.btngrad}>GitHub Repo</a>}
+            {project.github !== 'N/A' && <a href={project.github} target="_blank" rel="noreferrer" className={mobilePortrait || mobileLandscape ? styles.btngrad_mobile : styles.btngrad}>GitHub Repo</a>}
             {project.github === 'N/A' && <Link to="/contact" className={mobilePortrait || mobileLandscape ? styles.classProj_mobile : styles.classProj}>Contact Me for code</Link>}
           </div>
         </div>

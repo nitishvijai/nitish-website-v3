@@ -1,4 +1,4 @@
-import { React, useRef, useEffect, useState } from 'react';
+import { React, useRef, useEffect } from 'react';
 import styles from './Writing.module.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
@@ -14,6 +14,8 @@ const Writing = (props) => {
 
   useEffect(() => {
     document.title = 'Writing - Nitish Vijai';
+    gradient.current.style.setProperty('overflow-y', 'hidden');
+    gradient.current.style.setProperty('height', 'auto');
   }, []);
 
   let moveGradient = (e) => {
@@ -58,13 +60,13 @@ const Writing = (props) => {
   ];
 
   return (
-    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+    <div className={mobilePortrait ? (mode === 'dark' ? 'darkgradient_mobile' : 'lightgradient_mobile') : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='4' toggle={setMode} mode={mode} />
-      <h1 id={styles.header}>Writing</h1>
-      <p id={styles.subheader}>Check out some of my favorite articles I've written!</p>
+      <h1 id='header'>Writing</h1>
+      <p id='subheader'>Check out some of my favorite articles I've written!</p>
       <div id={mobilePortrait ? styles.essayList_mobile : (mobileLandscape ? styles.essayList_landscape : styles.essayList)}>
         {essays.map((essay, i) => 
-          <EssayLink name={essay.name} link={essay.link} posted={essay.posted} highlight={essay.highlight} toggle={setMode} color={mode}/>
+          <EssayLink key={i} name={essay.name} link={essay.link} posted={essay.posted} highlight={essay.highlight} toggle={setMode} color={mode}/>
         )}
       </div>
       <Footer />

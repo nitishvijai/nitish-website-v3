@@ -13,6 +13,9 @@ const Travel = (props) => {
 
   useEffect(() => {
     document.title = 'Traveling - Nitish Vijai';
+    gradient.current.style.setProperty('overflow-y', 'hidden');
+    gradient.current.style.setProperty('height', 'auto');
+    gradient.current.style.setProperty('padding-bottom', '15px');
   }, []);
 
   let moveGradient = (e) => {
@@ -63,25 +66,27 @@ const Travel = (props) => {
   ];
 
   return (
-    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? styles.darkgradient : styles.lightgradient)}  onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+    <div className={mobilePortrait ? (mode === 'dark' ? 'darkgradient_mobile' : 'lightgradient_mobile') : (mode === 'dark' ? 'darkgradient' : 'lightgradient')}  onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='5' toggle={setMode} mode={mode} />
-      <h1 id={styles.header}>Travels</h1>
-      <p id={styles.subheader}>Check out some cool pics from the places I've recently visited!</p>
+      <h1 id='header'>Travels</h1>
+      <p id='subheader'>Check out some cool pics from the places I've recently visited!</p>
       {!mobilePortrait && <table>
-        <tr>
-          <td className={styles.number}>26</td>
-          <td className={styles.number}>14</td>
-          <td className={styles.number}>5</td>
-          <td className={styles.number}>4</td>
-          <td className={styles.number}>1</td>
-        </tr>
-        <tr>
-          <td>U.S. STATES VISITED</td>
-          <td>COUNTRIES VISITED</td>
-          <td>INDIAN STATES VISITED</td>
-          <td>CONTINENTS VISITED</td>
-          <td>PLANET(S) VISITED</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td className={styles.number}>26</td>
+            <td className={styles.number}>14</td>
+            <td className={styles.number}>5</td>
+            <td className={styles.number}>4</td>
+            <td className={styles.number}>1</td>
+          </tr>
+          <tr>
+            <td>U.S. STATES VISITED</td>
+            <td>COUNTRIES VISITED</td>
+            <td>INDIAN STATES VISITED</td>
+            <td>CONTINENTS VISITED</td>
+            <td>PLANET(S) VISITED</td>
+          </tr>
+        </tbody>
       </table>}
       {mobilePortrait && <div>
         <h1 className={styles.fact}>26 U.S. states visited</h1>
@@ -92,16 +97,16 @@ const Travel = (props) => {
       </div>}
       <h1 className={styles.fact}>and counting...</h1>
       {!mobilePortrait && <div className={styles.maps}>
-        <div className={styles.world} style={{maxWidth: '490px', margin: '5px auto 10px auto', fontSize: '14px'}}><div style={{position: 'relative', padding: '0 0 67% 0', height: 0, overflow: 'hidden'}}><iframe style={{position: 'absolute', width: '100%', height: '100%'}} src="https://www.fla-shop.com/visited-countries/embed/?st=AE%2CBE%2CBS%2CCA%2CCH%2CDE%2CEG%2CFR%2CIN%2CJM%2CLU%2CMX%2CNL%2CUS&vc=1ca032&uc=b3c3ca&hc=40bfa6&bc=ffffff&ss=on" frameborder="0" scrolling="no" title="Visited Countries around the World"></iframe></div></div>
-        <div className={styles.america} style={{maxWidth: '490px', fontSize: '14px'}}><div style={{position: 'relative', padding: '0 0 70% 0', height: 0, overflow: 'hidden'}}><iframe style={{position: 'absolute', width: '100%', height: '100%'}} src="//www.fla-shop.com/visited-states/embed/?st=CA%2CCO%2CDC%2CFL%2CGA%2CID%2CIL%2CIN%2CKY%2CMA%2CMD%2CMI%2CMO%2CNC%2CNJ%2CNV%2CNY%2COH%2CPA%2CSC%2CTN%2CTX%2CVA%2CWA%2CWI%2CWV&vc=ff0000&uc=90cfea&hc=40bfa6&bc=ffffff&ss=on&sl=on" frameborder="0" scrolling="no" title="Visited U.S. States"></iframe></div></div>
+        <div className={styles.world} style={{maxWidth: '490px', margin: '5px auto 10px auto', fontSize: '14px'}}><div style={{position: 'relative', padding: '0 0 67% 0', height: 0, overflow: 'hidden'}}><iframe style={{position: 'absolute', width: '100%', height: '100%'}} src="https://www.fla-shop.com/visited-countries/embed/?st=AE%2CBE%2CBS%2CCA%2CCH%2CDE%2CEG%2CFR%2CIN%2CJM%2CLU%2CMX%2CNL%2CUS&vc=1ca032&uc=b3c3ca&hc=40bfa6&bc=ffffff&ss=on" frameBorder="0" scrolling="no" title="Visited Countries around the World"></iframe></div></div>
+        <div className={styles.america} style={{maxWidth: '490px', fontSize: '14px'}}><div style={{position: 'relative', padding: '0 0 70% 0', height: 0, overflow: 'hidden'}}><iframe style={{position: 'absolute', width: '100%', height: '100%'}} src="//www.fla-shop.com/visited-states/embed/?st=CA%2CCO%2CDC%2CFL%2CGA%2CID%2CIL%2CIN%2CKY%2CMA%2CMD%2CMI%2CMO%2CNC%2CNJ%2CNV%2CNY%2COH%2CPA%2CSC%2CTN%2CTX%2CVA%2CWA%2CWI%2CWV&vc=ff0000&uc=90cfea&hc=40bfa6&bc=ffffff&ss=on&sl=on" frameBorder="0" scrolling="no" title="Visited U.S. States"></iframe></div></div>
       </div>}
       <div className={mobilePortrait || mobileLandscape ? styles.destList_mobile : styles.destList}>
         {destinations.map((dest, i) =>
           <div key={i}>
             <p><strong>{dest.name} -</strong> {dest.date}</p>
-            <div class={styles.row}>
+            <div className={styles.row}>
               {dest.pics.map((image, i) =>
-                <div className={styles.column}>
+                <div className={styles.column} key={i}>
                   <a href={image}><img className={styles.pic} src={image} height="120" alt=""/></a>
                 </div>
               )}
