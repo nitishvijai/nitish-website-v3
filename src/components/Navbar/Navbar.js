@@ -12,39 +12,47 @@ const Navbar = (props) => {
   const dropdown = useRef(null);
   const button = useRef(null);
   const [mode, setMode] = [props.mode, props.toggle];
-  const [opened, setOpened] = useState(false);
+  const opened = useRef(false);
+  const [clickedOut, setClickedOut] = useState(false);
 
   function clickOut(event) {
-    if (dropdown.current && !dropdown.current.contains(event.target)) {
-      setOpened(false);
-      dropdown.current.style.opacity = '0';
-      dropdown.current.style.visibility = "hidden";
-      dropdown.current.style.zIndex = '105';
+    if (dropdown.current && !dropdown.current.contains(event.target) && !button.current.contains(event.target)) {
+      openMenu();
     }
   }
 
   useEffect(() => {
-    document.addEventListener('mousedown', clickOut);
+    if (dropdown && dropdown.current) {
+      dropdown.current.style.opacity = '0';
+      dropdown.current.style.zIndex = '105';
+      opened.current = false;
+      dropdown.current.style.visibility = "hidden";
+    }
+    
   }, []);
 
-  useEffect(() => {
-    return () => {
-      document.removeEventListener('mousedown', clickOut);
-    }
-  }, [dropdown]);
+  // useEffect(() => {
+  //   return () => {
+  //     document.removeEventListener('mousedown', clickOut);
+  //   }
+  // }, [dropdown]);
 
   let openMenu = () => {
-    if (opened) {
-      setOpened(false);
+    if (opened.current) {
+      document.removeEventListener('click', clickOut, false);
       dropdown.current.style.opacity = '0';
-      dropdown.current.style.visibility = "hidden";
       dropdown.current.style.zIndex = '105';
+      setTimeout(() => {
+        opened.current = false;
+        dropdown.current.style.visibility = "hidden";
+      }, 1000);
     }
     else {
-      setOpened(true);
+      document.addEventListener('click', clickOut, false);
       dropdown.current.style.opacity = '1';
       dropdown.current.style.visibility = "visible";
       dropdown.current.style.zIndex = '125';
+      opened.current = true;
     }
   }
 
@@ -72,10 +80,10 @@ const Navbar = (props) => {
       </MediaQuery>
       <MediaQuery maxWidth={1024} >
         <div className={styles.start}>
-          <button className={mode === 'dark' ? styles.dropbtn_dark : styles.dropbtn_light} ref={button} onClick={openMenu}><img id={styles.icon} height="32px" src={props.selected === 0 ? "logo_selected.png" : (mode === 'dark' ? "logo_normal.png" : "logo_light_normal.png")}/> Nitish Vijai</button>
+          <button className={mode === 'dark' ? styles.dropbtn_dark : styles.dropbtn_light} ref={button} onClick={() => openMenu()}><img id={styles.icon} height="32px" src={props.selected === 0 ? "logo_selected.png" : (mode === 'dark' ? "logo_normal.png" : "logo_light_normal.png")}/> Nitish Vijai</button>
         </div>
-        <div id="dropdown" className={mode === 'dark' ? styles.dropdowncontent : styles.dropdowncontent_light} ref={dropdown}>
-          {opened && <div id="links">
+        {opened && <div id="dropdown" className={mode === 'dark' ? styles.dropdowncontent : styles.dropdowncontent_light} ref={dropdown}>
+          <div id="links">
             <p className={styles.link_mobile}><Link to="/" className={`${props.selected == 0 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Home</Link></p>
             <p className={styles.link_mobile}><Link to="/about" className={`${props.selected == 1 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>About</Link></p>
             <p className={styles.link_mobile}><Link to="/projects" className={`${props.selected == 2 ? styles.selected : (mode === 'dark' ? styles.normaldark : styles.normallight)}`}>Projects</Link></p>
@@ -88,9 +96,9 @@ const Navbar = (props) => {
               <DarkModeToggle onChange={setMode} checked={mode === 'dark'} />
               <span className={styles.label_right}>Dark</span>
             </div>
-          </div>}
+          </div>
           
-        </div>
+        </div>}
       </MediaQuery>
     </div>
   );

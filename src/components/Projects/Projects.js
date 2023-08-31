@@ -135,7 +135,7 @@ const Projects = (props) => {
   ]
 
   return (
-    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+    <div className={mobilePortrait ? (mode === 'dark' ? 'darkgradient_mobile' : 'lightgradient_mobile') : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='2' toggle={setMode} mode={mode} />
       <div id={mobilePortrait ? styles.main_mobile : styles.main}>
         <h1 id='header'>Projects</h1>

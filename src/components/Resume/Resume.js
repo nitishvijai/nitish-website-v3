@@ -15,6 +15,8 @@ const Resume = (props) => {
 
   useEffect(() => {
     document.title = 'Resume - Nitish Vijai';
+    gradient.current.style.setProperty('overflow-y', 'hidden');
+    gradient.current.style.setProperty('height', 'auto');
   }, []);
 
   let moveGradient = (e) => {
