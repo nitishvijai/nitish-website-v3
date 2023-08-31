@@ -43,10 +43,10 @@ const Resume = (props) => {
   const workExperience = [
     {
       'company': 'Capital One',
-      'title': 'Incoming Associate Software Engineer (TDP)',
+      'title': 'Associate Software Engineer (Rotational TDP)',
       'location': 'McLean, VA',
-      'timestamp': 'Starting August 2023',
-      'info': []
+      'timestamp': 'August 2023 - Present',
+      'info': ['Rotation 1 - Cyber DevSecOps Engineering: more to come soon!']
     },
     {
       'company': 'Nationwide Insurance',
@@ -261,7 +261,7 @@ const Resume = (props) => {
     <Navbar selected='3' toggle={setMode} mode={mode} />
     <div className={styles.header}>
       <h1 style={{ display: 'inline-block' }}>Resume</h1>
-      <a style={{ display: 'inline-block' }} target="_blank" href="/Nitish_Vijai_Resume_W23.pdf" className={mobilePortrait || mobileLandscape ? styles.btngrad_mobile : styles.btngrad}>Print (PDF)</a>
+      <a style={{ display: 'inline-block' }} target="_blank" href="/Nitish_Vijai_Resume_F23.pdf" className={mobilePortrait || mobileLandscape ? styles.btngrad_mobile : styles.btngrad}>Print (PDF)</a>
     </div>
     <div id={styles.updated_resume_ux} className={mode === 'dark' ? styles.dark_resume : styles.light_resume}>
       <div className={styles.navbar}>

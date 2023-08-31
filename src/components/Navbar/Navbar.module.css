@@ -130,19 +130,18 @@
 }
 
 .dropdowncontent {
-    position: absolute;
+    position: fixed;
     background-color: black;
     left: 50%;
     z-index: 110;
     opacity: 0;
-    visibility: hidden;
-    transition: visibility 1s, opacity 1s, background-color 2s;
+    transition: opacity 1s, background-color 2s;
     margin-left: -38.5%;
     width: 75%;
 }
 
 .dropdowncontent_light {
-    position: absolute;
+    position: fixed;
     background-color: lightgray;
     left: 50%;
     z-index: 110;

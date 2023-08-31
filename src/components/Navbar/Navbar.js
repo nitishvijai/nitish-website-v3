@@ -13,34 +13,36 @@ const Navbar = (props) => {
   const button = useRef(null);
   const [mode, setMode] = [props.mode, props.toggle];
   const [opened, setOpened] = useState(false);
-  const [closed, setClosed] = useState(true);
+
+  function clickOut(event) {
+    if (dropdown.current && !dropdown.current.contains(event.target)) {
+      setOpened(false);
+      dropdown.current.style.opacity = '0';
+      dropdown.current.style.visibility = "hidden";
+      dropdown.current.style.zIndex = '105';
+    }
+  }
 
   useEffect(() => {
-    function clickOut(event) {
-      if (dropdown.current && !dropdown.current.contains(event.target) && !button.current.contains(event.target)) {
-        setOpened(false);
-        dropdown.current.style.opacity = 0;
-        dropdown.current.style.visibility = "hidden";
-        dropdown.current.style.zIndex = '105';
-      }
-    }
+    document.addEventListener('mousedown', clickOut);
+  }, []);
 
-    document.addEventListener("touchstart", clickOut);
+  useEffect(() => {
     return () => {
-      document.removeEventListener("touchstart", clickOut);
-    };
+      document.removeEventListener('mousedown', clickOut);
+    }
   }, [dropdown]);
 
   let openMenu = () => {
     if (opened) {
       setOpened(false);
-      dropdown.current.style.opacity = 0;
+      dropdown.current.style.opacity = '0';
       dropdown.current.style.visibility = "hidden";
       dropdown.current.style.zIndex = '105';
     }
     else {
       setOpened(true);
-      dropdown.current.style.opacity = 1;
+      dropdown.current.style.opacity = '1';
       dropdown.current.style.visibility = "visible";
       dropdown.current.style.zIndex = '125';
     }
@@ -70,7 +72,7 @@ const Navbar = (props) => {
       </MediaQuery>
       <MediaQuery maxWidth={1024} >
         <div className={styles.start}>
-          <button className={mode === 'dark' ? styles.dropbtn_dark : styles.dropbtn_light} onClick={openMenu} ref={button}><img id={styles.icon} height="32px" src={props.selected === 0 ? "logo_selected.png" : (mode === 'dark' ? "logo_normal.png" : "logo_light_normal.png")}/> Nitish Vijai</button>
+          <button className={mode === 'dark' ? styles.dropbtn_dark : styles.dropbtn_light} ref={button} onClick={openMenu}><img id={styles.icon} height="32px" src={props.selected === 0 ? "logo_selected.png" : (mode === 'dark' ? "logo_normal.png" : "logo_light_normal.png")}/> Nitish Vijai</button>
         </div>
         <div id="dropdown" className={mode === 'dark' ? styles.dropdowncontent : styles.dropdowncontent_light} ref={dropdown}>
           {opened && <div id="links">

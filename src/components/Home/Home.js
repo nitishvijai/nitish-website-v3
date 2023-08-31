@@ -42,7 +42,7 @@ const Home = (props) => {
   }
 
   return (
-    <div className={mobilePortrait ? (mode === 'dark' ? styles.darkgradient_mobile : styles.lightgradient_mobile) : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+    <div className={mobilePortrait ? (mode === 'dark' ? 'darkgradient_mobile' : 'lightgradient_mobile') : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar toggle={setMode} mode={mode} selected={0} />
       <div id={mobilePortrait ? styles.main_mobile : styles.main}>
         <p className={styles.message}>Hello and welcome to my site! You're in the right place if you're looking for everything I've done in the cool world of tech -- thanks for visiting!</p>
@@ -55,8 +55,8 @@ const Home = (props) => {
         </div>
         <div id={mobilePortrait ? styles.right_mobile : styles.right}>
           <h2 className={mobilePortrait ? styles.fact_mobile : styles.fact} id={styles.tldrHeading}>&nbsp;&nbsp;Nitish Vijai</h2>
+          <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>🖥️ Associate Software Engineer @ Capital One</p>
           <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>〽️ B.S.E. CS + DS @ University of Michigan 2023 Grad</p>
-          <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>🖥️ Incoming Associate Software Engineer @ Capital One</p>
           <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>⚒️ Most likely seizing the day</p>
           <p className={mobilePortrait ? styles.fact_mobile : styles.fact}>📲 Let's talk? Connect with me <Link to="/contact" className="pgLink">here</Link></p>
         </div>
