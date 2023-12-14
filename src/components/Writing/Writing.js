@@ -3,33 +3,22 @@ import styles from './Writing.module.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import EssayLink from '../EssayLink/EssayLink';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Writing = (props) => {
-  const mobilePortrait = useMediaQuery('(max-width:600px) and (orientation:portrait)');
-  const mobileLandscape = useMediaQuery('(min-width:600px) and (max-width:1023px) and (orientation:landscape)');
 
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
 
   useEffect(() => {
     document.title = 'Writing - Nitish Vijai';
-    gradient.current.style.setProperty('overflow-y', 'hidden');
-    gradient.current.style.setProperty('height', 'auto');
   }, []);
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
 
-    if (!mobilePortrait && !mobileLandscape) {
-      gradient.current.style.setProperty('--x', x + 'px');
-      gradient.current.style.setProperty('--y', y + 'px');
-    }
-    else {
-      gradient.current.style.setProperty('--x', '0px');
-      gradient.current.style.setProperty('--y', '0px');
-    }
+    gradient.current.style.setProperty('--x', x + 'px');
+    gradient.current.style.setProperty('--y', y + 'px');
   }
 
   let essays = [
@@ -60,11 +49,11 @@ const Writing = (props) => {
   ];
 
   return (
-    <div className={mobilePortrait ? (mode === 'dark' ? 'darkgradient_mobile' : 'lightgradient_mobile') : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+    <div className={(mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='4' toggle={setMode} mode={mode} />
       <h1 id='header'>Writing</h1>
       <p id='subheader'>Check out some of my favorite articles I've written!</p>
-      <div id={mobilePortrait ? styles.essayList_mobile : (mobileLandscape ? styles.essayList_landscape : styles.essayList)}>
+      <div id={styles.essayList}>
         {essays.map((essay, i) => 
           <EssayLink key={i} name={essay.name} link={essay.link} posted={essay.posted} highlight={essay.highlight} toggle={setMode} color={mode}/>
         )}

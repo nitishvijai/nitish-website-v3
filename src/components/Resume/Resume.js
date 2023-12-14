@@ -2,11 +2,8 @@ import { React, useRef, useEffect, useState } from 'react';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import styles from './Resume.module.css';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Resume = (props) => {
-  const mobilePortrait = useMediaQuery('(max-width:600px) and (orientation:portrait)');
-  const mobileLandscape = useMediaQuery('(min-width:600px) and (max-width:1023px) and (orientation:landscape)');
 
   const gradient = useRef(null);
   const navList = useRef(null);
@@ -15,22 +12,14 @@ const Resume = (props) => {
 
   useEffect(() => {
     document.title = 'Resume - Nitish Vijai';
-    gradient.current.style.setProperty('overflow-y', 'hidden');
-    gradient.current.style.setProperty('height', 'auto');
   }, []);
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
 
-    if (!mobilePortrait && !mobileLandscape) {
-      gradient.current.style.setProperty('--x', x + 'px');
-      gradient.current.style.setProperty('--y', y + 'px');
-    }
-    else {
-      gradient.current.style.setProperty('--x', '0px');
-      gradient.current.style.setProperty('--y', '0px');
-    }
+    gradient.current.style.setProperty('--x', x + 'px');
+    gradient.current.style.setProperty('--y', y + 'px');
   }
 
   let scrollList = (direction) => {
@@ -259,24 +248,24 @@ const Resume = (props) => {
   ]
 
   return (
-  <div className={mobilePortrait ? (mode === 'dark' ? 'darkgradient_mobile' : 'lightgradient_mobile') : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+  <div className={(mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
     <Navbar selected='3' toggle={setMode} mode={mode} />
     <div className={styles.header}>
       <h1 style={{ display: 'inline-block' }}>Resume</h1>
-      <a style={{ display: 'inline-block' }} target="_blank" href="/Nitish_Vijai_Resume_F23.pdf" className={mobilePortrait || mobileLandscape ? styles.btngrad_mobile : styles.btngrad}>Print (PDF)</a>
+      <a style={{ display: 'inline-block' }} target="_blank" href="/Nitish_Vijai_Resume_F23.pdf" className={styles.btngrad}>Print (PDF)</a>
     </div>
     <div id={styles.updated_resume_ux} className={mode === 'dark' ? styles.dark_resume : styles.light_resume}>
       <div className={styles.navbar}>
-        {mobilePortrait && <button className={styles.left} onClick={() => scrollList("left")}>⬅️</button>}
-        <div className={mobilePortrait ? styles.resume_tabs_portrait : styles.resume_tabs} ref={navList}>
+        {/* {mobilePortrait && <button className={styles.left} onClick={() => scrollList("left")}>⬅️</button>} */}
+        <div className={styles.resume_tabs} ref={navList}>
           <button className={tab === 'Experience' ? styles.button_selected : ''} onClick={() => setTab("Experience")}>Experience</button>
           <button className={tab === 'Education' ? styles.button_selected : ''} onClick={() => setTab("Education")}>Education</button>
-          <button className={tab === 'Courses' ? styles.button_selected : ''} onClick={() => setTab("Courses")}>{(mobileLandscape ? "Courses" : "Coursework")}</button>
+          <button className={tab === 'Courses' ? styles.button_selected : ''} onClick={() => setTab("Courses")}>Coursework</button>
           <button className={tab === 'Skills' ? styles.button_selected : ''} onClick={() => setTab("Skills")}>Skills</button>
-          <button className={tab === 'Honors' ? styles.button_selected : ''} onClick={() => setTab("Honors")}>{(mobileLandscape ? "Awards" : "Honors/Awards")}</button>
-          <button className={tab === 'Orgs' ? styles.button_selected : ''} onClick={() => setTab("Orgs")}>{(mobileLandscape ? "Orgs" : "Organizations")}</button>
+          <button className={tab === 'Honors' ? styles.button_selected : ''} onClick={() => setTab("Honors")}>Honors/Awards</button>
+          <button className={tab === 'Orgs' ? styles.button_selected : ''} onClick={() => setTab("Orgs")}>Organizations</button>
         </div>
-        {mobilePortrait && <button className={styles.right} onClick={() => scrollList("right")}>➡️</button>}
+        {/* {mobilePortrait && <button className={styles.right} onClick={() => scrollList("right")}>➡️</button>} */}
       </div>
       <div className={styles.resume_tab_content}>
         {
@@ -299,9 +288,6 @@ const Resume = (props) => {
                 {i < workExperience.length - 1 && <hr/>}
               </div>);
               case 'Education':
-                if (!mobileLandscape && !mobilePortrait) {
-                  gradient.current.style.setProperty('height', '100%');
-                }
                 return education.map((edu, i) =>
                 <div className={styles.edu} key={i}>
                   <h3 className={styles.title}>{edu.name}</h3>
@@ -327,16 +313,12 @@ const Resume = (props) => {
                   )}
                 </div>;
               case 'Skills':
-                if (!mobileLandscape) {
-                  gradient.current.style.setProperty('height', '100%');
-                }
                 return skills.map((skill, i) =>
                 <div className={styles.skills} key={i}>
                   <h3 className={styles.title}>{skill.name}</h3>
                   <p>{skill.list}</p>
                 </div>);
               case 'Honors':
-                gradient.current.style.setProperty('height', 'auto');
                 return awards.map((award, i) =>
                 <div className={styles.awards} key={i}>
                   <h3 className={styles.title}>{award.name}</h3>
@@ -367,8 +349,7 @@ const Resume = (props) => {
         }
       </div>
     </div>
-    {(tab === "Education" || tab === "Skills") && !mobilePortrait && !mobileLandscape && <Footer/>}
-    {((tab !== "Education" && tab !== "Skills") || mobilePortrait || mobileLandscape) && <Footer projects='true'/>}
+    <Footer />
   </div>
 );
 }

@@ -2,12 +2,8 @@ import { React, useRef, useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import styles from './Contact.module.css';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Contact = (props) => {
-  const mobilePortrait = useMediaQuery('(max-width:600px) and (orientation:portrait)');
-  const mobileLandscape = useMediaQuery('(min-width:600px) and (max-width:1023px) and (orientation:landscape)');
-
   const gradient = useRef(null);
   const [mode, setMode] = [props.color, props.toggle];
 
@@ -20,37 +16,14 @@ const Contact = (props) => {
 
   useEffect(() => {
     document.title = "Contact - Nitish Vijai";
-    if (window.innerHeight <= 1000) {
-      gradient.current.style.setProperty('overflow-y', 'hidden');
-      gradient.current.style.setProperty('height', 'auto');
-    }
-    else {
-      gradient.current.style.setProperty('overflow-y', 'hidden');
-      gradient.current.style.setProperty('height', '100%');
-    }
   }, []);
 
   let moveGradient = (e) => {
     let x = e.pageX - 0;
     let y = e.pageY - 0;
     
-    if (!mobilePortrait && !mobileLandscape) {
-      gradient.current.style.setProperty('--x', x + 'px');
-      gradient.current.style.setProperty('--y', y + 'px');
-    }
-    else {
-      gradient.current.style.setProperty('--x', '0px');
-      gradient.current.style.setProperty('--y', '0px');
-    }
-
-    if (window.innerHeight <= 1024) {
-      gradient.current.style.setProperty('overflow-y', 'hidden');
-      gradient.current.style.setProperty('height', 'auto');
-    }
-    else {
-      gradient.current.style.setProperty('overflow-y', 'hidden');
-      gradient.current.style.setProperty('height', '100%');
-    }
+    gradient.current.style.setProperty('--x', x + 'px');
+    gradient.current.style.setProperty('--y', y + 'px');
   }
 
   let handleUserInput = (e, field) => {
@@ -82,7 +55,7 @@ const Contact = (props) => {
   }
 
   return (
-    <div className={mobilePortrait ? (mode === 'dark' ? 'darkgradient_mobile' : 'lightgradient_mobile') : (mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
+    <div className={(mode === 'dark' ? 'darkgradient' : 'lightgradient')} onMouseMove={(e) => moveGradient(e)} ref={gradient}>
       <Navbar selected='6' toggle={setMode} mode={mode} />
       <h1 id='header'>Contact me</h1>
       <p id='subheader'>Check me out on the other side of the web below!</p>
@@ -94,11 +67,11 @@ const Contact = (props) => {
       <p className={styles.message}>Let's talk -- submit the form below and I will get back to you ASAP:</p>
       <div id={styles.contactme}>
         <form id={styles.contactForm} method="POST" action="https://formspree.io/f/meqpekvo" onSubmit={(event) => submitFields(event)}>
-          <input type="text" id={mobilePortrait || mobileLandscape ? styles.fullName_mobile : styles.fullName} name="fullname" placeholder="Name" value={name} onChange={(event) => handleUserInput(event, "name")} />
+          <input type="text" id={styles.fullName} name="fullname" placeholder="Name" value={name} onChange={(event) => handleUserInput(event, "name")} />
           <br />
-          <input type="text" id={mobilePortrait || mobileLandscape ? styles.emailadd_mobile : styles.emailadd} name="mailadd" placeholder="E-mail address" value={email} onChange={(event) => handleUserInput(event, "email")} />
+          <input type="text" id={styles.emailadd} name="mailadd" placeholder="E-mail address" value={email} onChange={(event) => handleUserInput(event, "email")} />
           <br />
-          <textarea id={mobilePortrait || mobileLandscape ? styles.subject_mobile : styles.subject} name="subject"
+          <textarea id={styles.subject} name="subject"
               placeholder="What's up?" value={description} onChange={(event) => handleUserInput(event, "desc")}></textarea>
           <br /><br />
           <input id={styles.submitButton} className={styles.btngrad} name="submit" type="submit" value="Submit" disabled={!(name && email && description)}/>
@@ -109,7 +82,7 @@ const Contact = (props) => {
           {!emailValid && <p>Email address is invalid</p>}
         </div>
       </div>
-      <Footer projects='true'/>
+      <Footer/>
     </div>
   );
 };
